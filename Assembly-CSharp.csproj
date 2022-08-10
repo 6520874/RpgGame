@@ -54,11 +54,13 @@
      <Compile Include="Assets\Scripts\Common\Constants.cs" />
      <Compile Include="Assets\Scripts\Common\WindowRoot.cs" />
      <Compile Include="Assets\Scripts\Service\NetSvc.cs" />
+     <Compile Include="Assets\Scripts\Service\ResSvc.cs" />
      <Compile Include="Assets\Scripts\System\GameRoot.cs" />
      <Compile Include="Assets\Scripts\System\LoginSys.cs" />
      <Compile Include="Assets\Scripts\System\SystemRoot.cs" />
      <Compile Include="Assets\Scripts\UIWindow\DynamicWnd.cs" />
      <Compile Include="Assets\Scripts\UIWindow\LoadingWnd.cs" />
+     <Compile Include="Assets\Scripts\UIWindow\LoginWnd.cs" />
      <None Include="Assets\Compond\MakeChar\Shader\PlayerShader.shader" />
      <None Include="Assets\Resources\ResCfgs\taskreward.xml" />
      <None Include="Assets\Resources\ResCfgs\rdname.xml" />
