@@ -15,6 +15,22 @@ public class WindowRoot : MonoBehaviour {
         // timerSvc = TimerSvc.Instance;
     }
 
+    protected void SetActive(GameObject go, bool isActive = true) {
+        go.SetActive(isActive);
+    }
+    protected void SetActive(Transform trans, bool state = true) {
+        trans.gameObject.SetActive(state);
+    }
+    protected void SetActive(RectTransform rectTrans, bool state = true) {
+        rectTrans.gameObject.SetActive(state);
+    }
+    protected void SetActive(Image img, bool state = true) {
+        img.transform.gameObject.SetActive(state);
+    }
+    protected void SetActive(Text txt, bool state = true) {
+        txt.transform.gameObject.SetActive(state);
+    }
+    
 
     protected void SetText(Text txt, string context = "") {
         txt.text = context;
