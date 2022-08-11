@@ -38,8 +38,8 @@ public class GameRoot : MonoBehaviour
         //服务模块初始化
         // NetSvc net = GetComponent<NetSvc>();
         // net.InitSvc();
-        // ResSvc res = GetComponent<ResSvc>();
-        // res.InitSvc();
+        ResSvc res = GetComponent<ResSvc>();
+        res.InitSvc();
         // AudioSvc audio = GetComponent<AudioSvc>();
         // audio.InitSvc();
         // TimerSvc timer = GetComponent<TimerSvc>();
