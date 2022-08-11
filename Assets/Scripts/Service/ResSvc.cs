@@ -11,11 +11,13 @@ using System.Xml;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class ResSvc : MonoBehaviour {
+public class ResSvc : MonoBehaviour
+{
     public static ResSvc Instance = null;
 
-public void InitSvc() {
-        // Instance = this;
+    public void InitSvc()
+    {
+        Instance = this;
         // InitRDNameCfg(PathDefine.RDNameCfg);
         // InitMonsterCfg(PathDefine.MonsterCfg);
         // InitMapCfg(PathDefine.MapCfg);
@@ -31,20 +33,21 @@ public void InitSvc() {
     }
 
 
-//     public void ResetSkillCfgs() {
-//         skillDic.Clear();
-//         InitSkillCfg(PathDefine.SkillCfg);
-//         skillMoveDic.Clear();
-//         InitSkillMoveCfg(PathDefine.SkillMoveCfg);
-//         PECommon.Log("Reset SkillCfgs...");
-//     }
+    //     public void ResetSkillCfgs() {
+    //         skillDic.Clear();
+    //         InitSkillCfg(PathDefine.SkillCfg);
+    //         skillMoveDic.Clear();
+    //         InitSkillMoveCfg(PathDefine.SkillMoveCfg);
+    //         PECommon.Log("Reset SkillCfgs...");
+    //     }
 
 
-//  private Action prgCB = null;
-    public void AsyncLoadScene(string sceneName, Action loaded) {
-       // GameRoot.Instance.loadingWnd.SetWndState();
+    //  private Action prgCB = null;
+    public void AsyncLoadScene(string sceneName, Action loaded)
+    {
+        // GameRoot.Instance.loadingWnd.SetWndState();
 
-        // AsyncOperation sceneAsync = SceneManager.LoadSceneAsync(sceneName);
+        AsyncOperation sceneAsync = SceneManager.LoadSceneAsync(sceneName);
         // prgCB = () => {
         //     float val = sceneAsync.progress;
         //     GameRoot.Instance.loadingWnd.SetProgress(val);
