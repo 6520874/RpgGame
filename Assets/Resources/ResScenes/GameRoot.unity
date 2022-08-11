@@ -752,6 +752,11 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114309125021576476, guid: 5bfd245cfafa28b4a85de521cb816e97,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 224504465953001554, guid: 5bfd245cfafa28b4a85de521cb816e97,
         type: 2}
       propertyPath: m_LocalPosition.x
@@ -869,7 +874,41 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1380929901891594, guid: 5bfd245cfafa28b4a85de521cb816e97, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1731562238297434, guid: 5bfd245cfafa28b4a85de521cb816e97, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114309125021576476, guid: 5bfd245cfafa28b4a85de521cb816e97,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114309125021576476, guid: 5bfd245cfafa28b4a85de521cb816e97,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1552339472}
+    - target: {fileID: 114309125021576476, guid: 5bfd245cfafa28b4a85de521cb816e97,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ClickEnterBtn
+      objectReference: {fileID: 0}
+    - target: {fileID: 114309125021576476, guid: 5bfd245cfafa28b4a85de521cb816e97,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114309125021576476, guid: 5bfd245cfafa28b4a85de521cb816e97,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114309125021576476, guid: 5bfd245cfafa28b4a85de521cb816e97,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114925035396607032, guid: 5bfd245cfafa28b4a85de521cb816e97, type: 2}
