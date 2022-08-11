@@ -1,1 +1,5 @@
 Temp/
+.vs/
+obj/
+Library/
+.vscode/
