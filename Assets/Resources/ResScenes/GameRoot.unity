@@ -222,6 +222,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!114 &54332266 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114201459768511880, guid: 5bfd245cfafa28b4a85de521cb816e97,
+    type: 2}
+  m_PrefabInternal: {fileID: 1959666127}
+  m_Script: {fileID: 575553740, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+--- !u!114 &440898670 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114080578136525076, guid: 5bfd245cfafa28b4a85de521cb816e97,
+    type: 2}
+  m_PrefabInternal: {fileID: 1959666127}
+  m_Script: {fileID: 575553740, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!224 &454713534 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 224504465953001554, guid: 5bfd245cfafa28b4a85de521cb816e97,
@@ -720,6 +732,12 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &1374139804 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114743643744701268, guid: 5bfd245cfafa28b4a85de521cb816e97,
+    type: 2}
+  m_PrefabInternal: {fileID: 1959666127}
+  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &1552339471 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1380929901891594, guid: 5bfd245cfafa28b4a85de521cb816e97,
@@ -736,10 +754,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b08afc44455cab24ea34fa203e3834e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  iptAcct: {fileID: 0}
-  iptPass: {fileID: 0}
-  btnEnter: {fileID: 0}
-  btnNotice: {fileID: 0}
+  iptAcct: {fileID: 440898670}
+  iptPass: {fileID: 54332266}
+  btnEnter: {fileID: 1872585491}
+  btnNotice: {fileID: 1374139804}
+--- !u!114 &1872585491 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114309125021576476, guid: 5bfd245cfafa28b4a85de521cb816e97,
+    type: 2}
+  m_PrefabInternal: {fileID: 1959666127}
+  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1001 &1959666127
 Prefab:
   m_ObjectHideFlags: 0
@@ -861,11 +885,12 @@ Prefab:
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1380929901891594, guid: 5bfd245cfafa28b4a85de521cb816e97,
+        type: 2}
     - target: {fileID: 114743643744701268, guid: 5bfd245cfafa28b4a85de521cb816e97,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ClicKNoticeBtn
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 114743643744701268, guid: 5bfd245cfafa28b4a85de521cb816e97,
         type: 2}

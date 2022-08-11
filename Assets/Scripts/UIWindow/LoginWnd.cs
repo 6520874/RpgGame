@@ -18,16 +18,18 @@ public class LoginWnd : WindowRoot {
 
     protected override void InitWnd() {
         base.InitWnd();
+             
 
-        //获取本地存储的账号密码
-        if (PlayerPrefs.HasKey("Acct") && PlayerPrefs.HasKey("Pass")) {
-            iptAcct.text = PlayerPrefs.GetString("Acct");
-            iptPass.text = PlayerPrefs.GetString("Pass");
-        }
-        else {
-            iptAcct.text = "";
-            iptPass.text = "";
-        }
+
+        // //获取本地存储的账号密码
+        // if (PlayerPrefs.HasKey("Acct") && PlayerPrefs.HasKey("Pass")) {
+        //     iptAcct.text = PlayerPrefs.GetString("Acct");
+        //     iptPass.text = PlayerPrefs.GetString("Pass");
+        // }
+        // else {
+        //     iptAcct.text = "";
+        //     iptPass.text = "";
+        // }
     }
 
 
@@ -37,6 +39,7 @@ public class LoginWnd : WindowRoot {
     public void ClickEnterBtn() {
   
          Debug.Log("65666...");
+
 
         // Debug.Log("22222");
         // audioSvc.PlayUIAudio(Constants.UILoginBtn);
