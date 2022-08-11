@@ -1,31 +1,38 @@
 
 using UnityEngine;
 
-public class GameRoot : MonoBehaviour {
+public class GameRoot : MonoBehaviour
+{
 
     public static GameRoot Instance = null;
     public LoadingWnd loadingWnd;
     // public DynamicWnd dynamicWnd;
 
-    private void Start(){
+
+    private void Start()
+    {
+        Debug.Log("11111...");
         Instance = this;
-         DontDestroyOnLoad(this);
+        DontDestroyOnLoad(this);
         Debug.Log("Game Start...");
 
     }
 
-   
 
-        private void ClearUIRoot() {
+
+    private void ClearUIRoot()
+    {
         Transform canvas = transform.Find("Canvas");
-        for (int i = 0; i < canvas.childCount; i++) {
+        for (int i = 0; i < canvas.childCount; i++)
+        {
             canvas.GetChild(i).gameObject.SetActive(false);
         }
 
         //dynamicWnd.SetWndState();
     }
 
-    private void Init() {
+    private void Init()
+    {
         //服务模块初始化
         // NetSvc net = GetComponent<NetSvc>();
         // net.InitSvc();
@@ -36,7 +43,7 @@ public class GameRoot : MonoBehaviour {
         // TimerSvc timer = GetComponent<TimerSvc>();
         // timer.InitSvc();
 
-
+        Debug.Log("33...");
         // //业务系统初始化
         LoginSys login = GetComponent<LoginSys>();
         login.InitSys();
@@ -51,5 +58,5 @@ public class GameRoot : MonoBehaviour {
         login.EnterLogin();
     }
 
-    
+
 }

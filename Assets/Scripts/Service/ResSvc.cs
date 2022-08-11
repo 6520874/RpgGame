@@ -7,7 +7,6 @@
 *****************************************************/
 
 using System;
-using System.Collections.Generic;
 using System.Xml;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -15,7 +14,7 @@ using UnityEngine.SceneManagement;
 public class ResSvc : MonoBehaviour {
     public static ResSvc Instance = null;
 
-    public void InitSvc() {
+public void InitSvc() {
         // Instance = this;
         // InitRDNameCfg(PathDefine.RDNameCfg);
         // InitMonsterCfg(PathDefine.MonsterCfg);
@@ -41,23 +40,23 @@ public class ResSvc : MonoBehaviour {
 //     }
 
 
-//     private Action prgCB = null;
+ private Action prgCB = null;
     public void AsyncLoadScene(string sceneName, Action loaded) {
        // GameRoot.Instance.loadingWnd.SetWndState();
 
         AsyncOperation sceneAsync = SceneManager.LoadSceneAsync(sceneName);
-        // prgCB = () => {
-        //     float val = sceneAsync.progress;
-        //     GameRoot.Instance.loadingWnd.SetProgress(val);
-        //     if (val == 1) {
-        //         if (loaded != null) {
-        //             loaded();
-        //         }
-        //         prgCB = null;
-        //         sceneAsync = null;
-        //         GameRoot.Instance.loadingWnd.SetWndState(false);
-        //     }
-        // };
+        prgCB = () => {
+            float val = sceneAsync.progress;
+            GameRoot.Instance.loadingWnd.SetProgress(val);
+            if (val == 1) {
+                if (loaded != null) {
+                    loaded();
+                }
+                prgCB = null;
+                sceneAsync = null;
+                //GameRoot.Instance.loadingWnd.SetWndState(false);
+            }
+        };
     }
 }
 //     private void Update() {

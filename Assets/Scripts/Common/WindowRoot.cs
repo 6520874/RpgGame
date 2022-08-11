@@ -7,6 +7,11 @@ using UnityEngine.UI;
 public class WindowRoot : MonoBehaviour {
 
 
+    private void Start()
+    {
+        Debug.Log("65666...");
+
+    }
 
     protected virtual void InitWnd() {
         // resSvc = ResSvc.Instance;

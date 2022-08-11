@@ -15,6 +15,8 @@ public class SystemRoot : MonoBehaviour {
     // protected TimerSvc timerSvc;
 
     public virtual void InitSys() {
+
+         Debug.Log("44...");
         resSvc = ResSvc.Instance;
         // audioSvc = AudioSvc.Instance;
         // netSvc = NetSvc.Instance;
