@@ -1,4 +1,4 @@
-using System.Diagnostics;
+
 /****************************************************
     文件：LoginSys.cs
 	作者：SIKI学院——Plane
@@ -6,7 +6,7 @@ using System.Diagnostics;
     日期：2018/12/3 5:31:49
 	功能：登录注册业务系统
 *****************************************************/
-
+using UnityEngine;
 public class LoginSys : SystemRoot {
     public static LoginSys Instance = null;
 
@@ -16,7 +16,7 @@ public class LoginSys : SystemRoot {
         base.InitSys();
 
         Instance = this;
-       // Debug.Log("Init LoginSys...");
+        Debug.Log("Init LoginSys...");
     }
 
     /// <summary>

@@ -15,7 +15,9 @@ public class GameRoot : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(this);
         Debug.Log("Game Start...");
+        ClearUIRoot();
 
+        Init();
     }
 
 
