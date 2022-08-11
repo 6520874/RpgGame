@@ -40,7 +40,7 @@ public class LoginWnd : WindowRoot {
   
          Debug.Log("65666...");
 
-
+        //btnEnter.print('122112');
         // Debug.Log("22222");
         // audioSvc.PlayUIAudio(Constants.UILoginBtn);
 
