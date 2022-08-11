@@ -949,6 +949,8 @@ GameObject:
   - component: {fileID: 1973066232}
   - component: {fileID: 1973066233}
   - component: {fileID: 1973066239}
+  - component: {fileID: 1973066235}
+  - component: {fileID: 1973066234}
   m_Layer: 0
   m_Name: GameRoot
   m_TagString: Untagged
@@ -985,6 +987,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loadingWnd: {fileID: 790061622}
+--- !u!114 &1973066234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1973066231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2da3a979f01fba4cbaf4934e2cfe846, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1973066235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1973066231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c93714935d7ae6041929cf1345ac6b81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!81 &1973066239
 AudioListener:
   m_ObjectHideFlags: 0
