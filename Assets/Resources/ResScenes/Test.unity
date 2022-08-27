@@ -409,7 +409,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1119024407}
+      - m_Target: {fileID: 1119024408}
         m_MethodName: ClickSkill1Btn
         m_Mode: 1
         m_Arguments:
