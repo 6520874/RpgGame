@@ -58,6 +58,7 @@
      <Compile Include="Assets\Scripts\System\GameRoot.cs" />
      <Compile Include="Assets\Scripts\System\LoginSys.cs" />
      <Compile Include="Assets\Scripts\System\SystemRoot.cs" />
+     <Compile Include="Assets\Scripts\System\testtool.cs" />
      <Compile Include="Assets\Scripts\UIWindow\DynamicWnd.cs" />
      <Compile Include="Assets\Scripts\UIWindow\LoadingWnd.cs" />
      <Compile Include="Assets\Scripts\UIWindow\LoginWnd.cs" />

@@ -16,11 +16,8 @@ public class GameRoot : MonoBehaviour
         DontDestroyOnLoad(this);
         Debug.Log("Game Start...");
         ClearUIRoot();
-
         Init();
     }
-
-
 
     private void ClearUIRoot()
     {
