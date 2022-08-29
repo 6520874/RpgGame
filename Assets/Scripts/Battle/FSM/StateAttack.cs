@@ -1,4 +1,7 @@
-﻿class StateAttack : IState
+﻿
+//攻击的状态
+
+class StateAttack : IState
 {
     public void Enter(EntityBase entity, params object[] args)
     {
@@ -9,11 +12,13 @@
 
     public void Exit(EntityBase entity, params object[] args)
     {
-        throw new System.NotImplementedException();
+        entity.ExitCurtSKill();
     }
 
     public void Process(EntityBase entity, params object[] args)
     {
-        throw new System.NotImplementedException();
+        if(entity.entityType == EntityType.Player)  {
+            entity.canRlsSKill = flase;
+        }
     }
 }
