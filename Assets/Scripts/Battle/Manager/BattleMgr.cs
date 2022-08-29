@@ -92,7 +92,7 @@ public EntityPlayer entitySelfPlayer;
 
         PlayerController playerCtrl = player.GetComponent<PlayerController>();
         playerCtrl.Init();
-        entitySelfPlayer.SetCtrl(playerCtrl);
+        //entitySelfPlayer.SetCtrl(playerCtrl);
 
 
     }

@@ -31,31 +31,31 @@ public class PlayerController : Controller {
         camTrans = Camera.main.transform;
         camOffset = transform.position - camTrans.position;
 
-        if (daggerskill1fx != null) {
-            fxDic.Add(daggerskill1fx.name, daggerskill1fx);
-        }
-        if (daggeratk2fx != null) {
-            fxDic.Add(daggerskill2fx.name, daggerskill2fx);
-        }
-        if (daggeratk3fx != null) {
-            fxDic.Add(daggerskill3fx.name, daggerskill3fx);
-        }
+        // if (daggerskill1fx != null) {
+        //     fxDic.Add(daggerskill1fx.name, daggerskill1fx);
+        // }
+        // if (daggeratk2fx != null) {
+        //     fxDic.Add(daggerskill2fx.name, daggerskill2fx);
+        // }
+        // if (daggeratk3fx != null) {
+        //     fxDic.Add(daggerskill3fx.name, daggerskill3fx);
+        // }
 
-        if (daggeratk1fx != null) {
-            fxDic.Add(daggeratk1fx.name, daggeratk1fx);
-        }
-        if (daggeratk2fx != null) {
-            fxDic.Add(daggeratk2fx.name, daggeratk2fx);
-        }
-        if (daggeratk3fx != null) {
-            fxDic.Add(daggeratk3fx.name, daggeratk3fx);
-        }
-        if (daggeratk4fx != null) {
-            fxDic.Add(daggeratk4fx.name, daggeratk4fx);
-        }
-        if (daggeratk5fx != null) {
-            fxDic.Add(daggeratk5fx.name, daggeratk5fx);
-        }
+        // if (daggeratk1fx != null) {
+        //     fxDic.Add(daggeratk1fx.name, daggeratk1fx);
+        // }
+        // if (daggeratk2fx != null) {
+        //     fxDic.Add(daggeratk2fx.name, daggeratk2fx);
+        // }
+        // if (daggeratk3fx != null) {
+        //     fxDic.Add(daggeratk3fx.name, daggeratk3fx);
+        // }
+        // if (daggeratk4fx != null) {
+        //     fxDic.Add(daggeratk4fx.name, daggeratk4fx);
+        // }
+        // if (daggeratk5fx != null) {
+        //     fxDic.Add(daggeratk5fx.name, daggeratk5fx);
+        // }
     }
 
     private void Update() {
@@ -107,7 +107,7 @@ public class PlayerController : Controller {
     }
 
     private void SetSkillMove() {
-        ctrl.Move(transform.forward * Time.deltaTime * skillMoveSpeed);
+       // ctrl.Move(transform.forward * Time.deltaTime * skillMoveSpeed);
     }
 
     public void SetCam() {
@@ -129,18 +129,18 @@ public class PlayerController : Controller {
         ani.SetFloat("Blend", currentBlend);
     }
 
-    //////////////////////////////////////////////////////////////////////////
-    public override void SetBlend(float blend) {
-        targetBlend = blend;
-    }
+    // //////////////////////////////////////////////////////////////////////////
+    // public override void SetBlend(float blend) {
+    //     targetBlend = blend;
+    // }
 
-    public override void SetFX(string name, float destroy) {
-        GameObject go;
-        if (fxDic.TryGetValue(name, out go)) {
-            go.SetActive(true);
-            timerSvc.AddTimeTask((int tid) => {
-                go.SetActive(false);
-            }, destroy);
-        }
-    }
+    // public override void SetFX(string name, float destroy) {
+    //     GameObject go;
+    //     if (fxDic.TryGetValue(name, out go)) {
+    //         go.SetActive(true);
+    //         timerSvc.AddTimeTask((int tid) => {
+    //             go.SetActive(false);
+    //         }, destroy);
+    //     }
+    // }
 }
