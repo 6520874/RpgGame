@@ -6,7 +6,7 @@ public class GameRoot : MonoBehaviour
 
     public static GameRoot Instance = null;
     public LoadingWnd loadingWnd;
-    // public DynamicWnd dynamicWnd;
+   public DynamicWnd dynamicWnd;
 
 
     private void Start()
