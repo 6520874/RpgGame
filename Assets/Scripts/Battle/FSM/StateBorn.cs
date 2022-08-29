@@ -9,7 +9,7 @@ class StateBorn : IState
         //entity.curSkillCfg = ResSvc.Instance.GetSkillCfg();
 
     }
-    /
+    
     public void Exit(EntityBase entity, params object[] args)
     {
         entity.ExitCurtSKill();
@@ -18,7 +18,7 @@ class StateBorn : IState
     public void Process(EntityBase entity, params object[] args)
     {
         if(entity.entityType == EntityType.Player)  {
-            entity.canRlsSKill = flase;
+            entity.canRlsSKill = false;
         }
     }
 }

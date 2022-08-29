@@ -1,7 +1,7 @@
 ﻿
-//攻击的状态
+//  攻击的状态
 
-class StateAttack : IState
+class StateAttack: IState
 {
     public void Enter(EntityBase entity, params object[] args)
     {
