@@ -29,7 +29,68 @@ public abstract class EntityBase{
             name = value;
         }
     }
+    private int hp;
+    public int HP
+    {
+        get
+        {
+            return hp;
+        }
 
+        set
+        {
+            //通知UI层TODO
+            PECommon.Log(Name + ": HPchange:" + hp + " to " + value);
+            SetHPVal(hp, value);
+            hp = value;
+        }
+    }
+
+    public Queue<int> comboQue = new Queue<int>();
+    public int nextSkillID = 0;
+
+    public SkillCfg curtSkillCfg;
+
+
+    public BattleProps Props
+    {
+        get
+        {
+            return props;
+        }
+
+        protected set
+        {
+            props = value;
+        }
+    }
+    public virtual void SetHPVal(int oldval, int newval)
+    {
+        if (controller != null)
+        {
+            //GameRoot.Instance.dynamicWnd.SetHPVal(Name, oldval, newval);
+        }
+    }
+    public virtual void SetBattleProps(BattleProps props)｛
+            HP = props.hp;
+          Props = props;
+    ｝
+
+    public virtual void SetBlend(float blend)
+    {
+        if (controller != null)
+        {
+            controller.SetBlend(blend);
+        }
+
+    }
+    public virtual void SetBlend(float blend)
+    {
+        if (controller != null)
+        {
+            controller.SetBlend(blend);
+        }
+    }
     private BattleProps props;
 
 }

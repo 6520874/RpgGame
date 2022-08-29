@@ -8,6 +8,7 @@ public class BattleMgr : MonoBehaviour {
     //private StateMgr stateMgr;
 
     private StateMgr stateMgr;
+    private MapCfg mapCfg;
 
     public EntityPlayer ebtitySelfPlayer;
     private MapMgr mapMgr;
