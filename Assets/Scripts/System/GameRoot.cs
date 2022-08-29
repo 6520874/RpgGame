@@ -57,5 +57,11 @@ public class GameRoot : MonoBehaviour
         login.EnterLogin();
     }
 
+    public static void AddTips(string tips)
+    {
+        Instance.dynamicWnd.AddTips(tips);
+    }
+
+
 
 }
