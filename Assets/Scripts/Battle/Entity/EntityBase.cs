@@ -91,7 +91,7 @@ public abstract class EntityBase{
 
      public virtual void SetAction(int act) {
         if (controller != null) {
-            controller.SetAction(act);
+            //controller.SetAction(act);
         }
     }
     public void ExitCurtSkill() {

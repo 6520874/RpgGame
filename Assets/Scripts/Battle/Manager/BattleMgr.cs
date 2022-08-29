@@ -10,11 +10,10 @@ public class BattleMgr : MonoBehaviour {
 
     private StateMgr stateMgr;
     private MapCfg mapCfg;
-
-    public EntityPlayer ebtitySelfPlayer;
+      
     private MapMgr mapMgr;
     private Dictionary<string, EntityMonster> monsterDic = new Dictionary<string, EntityMonster>();
-
+public EntityPlayer entitySelfPlayer;
 
     public void LoadMonsterByWaveID(int wave)
     {
@@ -82,6 +81,19 @@ public class BattleMgr : MonoBehaviour {
             critical = pd.critical
 
         };
+
+           entitySelfPlayer = new EntityPlayer {
+            battleMgr = this,
+            stateMgr = stateMgr,
+            // skillMgr = skillMgr
+        };
+        entitySelfPlayer.Name = "AssassinBattle";
+        entitySelfPlayer.SetBattleProps(props);
+
+        PlayerController playerCtrl = player.GetComponent<PlayerController>();
+        playerCtrl.Init();
+        entitySelfPlayer.SetCtrl(playerCtrl);
+
 
     }
 

@@ -12,13 +12,13 @@ class StateDie: IState
 
     public void Exit(EntityBase entity, params object[] args)
     {
-        entity.ExitCurtSKill();
+        // entity.ExitCurtSKill();
     }
 
     public void Process(EntityBase entity, params object[] args)
     {
         if(entity.entityType == EntityType.Player)  {
-            entity.canRlsSKill = flase;
+            // entity.canRlsSKill = flase;
         }
     }
 }

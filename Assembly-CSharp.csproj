@@ -8,8 +8,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <RootNamespace>
-    </RootNamespace>
+    <RootNamespace></RootNamespace>
     <ProjectGuid>{6315E9F2-EA31-3629-98D6-4893424FBD9E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -52,123 +51,145 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\Common\Constants.cs" />
-    <Compile Include="Assets\Scripts\Common\TestPlayer.cs" />
-    <Compile Include="Assets\Scripts\Common\WindowRoot.cs" />
-    <Compile Include="Assets\Scripts\Service\NetSvc.cs" />
-    <Compile Include="Assets\Scripts\Service\ResSvc.cs" />
-    <Compile Include="Assets\Scripts\System\GameRoot.cs" />
-    <Compile Include="Assets\Scripts\System\LoginSys.cs" />
-    <Compile Include="Assets\Scripts\System\SystemRoot.cs" />
-    <Compile Include="Assets\Scripts\System\testtool.cs" />
-    <Compile Include="Assets\Scripts\UIWindow\DynamicWnd.cs" />
-    <Compile Include="Assets\Scripts\UIWindow\LoadingWnd.cs" />
-    <Compile Include="Assets\Scripts\UIWindow\LoginWnd.cs" />
-    <None Include="Assets\Compond\MakeChar\Shader\PlayerShader.shader" />
-    <None Include="Assets\Resources\ResCfgs\taskreward.xml" />
-    <None Include="Assets\Resources\ResCfgs\rdname.xml" />
-    <None Include="Assets\Compond\Shader\MonsterShader.shader" />
-    <None Include="Assets\Resources\ResCfgs\monster.xml" />
-    <None Include="Assets\Compond\MakeChar\Shader\MogoFakeLight.shader" />
-    <None Include="Assets\Compond\Shader\MogoSkybox.shader" />
-    <None Include="Assets\Resources\ResCfgs\strong.xml" />
-    <None Include="Assets\Resources\ResCfgs\guide.xml" />
-    <None Include="Assets\Compond\MakeScene\SceneShader\MogoTransparentDiffuse.shader" />
-    <None Include="Assets\Compond\Shader\Mul-skybox.shader" />
-    <None Include="Assets\Resources\ResCfgs\skillmove.xml" />
-    <None Include="Assets\Resources\ResCfgs\skillaction.xml" />
-    <None Include="Assets\Resources\ResCfgs\map.xml" />
-    <None Include="Assets\Resources\ResCfgs\skill.xml" />
-    <Reference Include="UnityEngine.UI">
-      <HintPath>D:/Program Files/Unity/2017.3.1f1/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEditor.UI">
-      <HintPath>D:/Program Files/Unity/2017.3.1f1/Editor/Data/UnityExtensions/Unity/GUISystem/Editor/UnityEditor.UI.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.Networking">
-      <HintPath>D:/Program Files/Unity/2017.3.1f1/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEditor.Networking">
-      <HintPath>D:/Program Files/Unity/2017.3.1f1/Editor/Data/UnityExtensions/Unity/Networking/Editor/UnityEditor.Networking.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.PerformanceTesting">
-      <HintPath>D:/Program Files/Unity/2017.3.1f1/Editor/Data/UnityExtensions/Unity/PerformanceTesting/UnityEngine.PerformanceTesting.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEditor.TestRunner">
-      <HintPath>D:/Program Files/Unity/2017.3.1f1/Editor/Data/UnityExtensions/Unity/TestRunner/Editor/UnityEditor.TestRunner.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.TestRunner">
-      <HintPath>D:/Program Files/Unity/2017.3.1f1/Editor/Data/UnityExtensions/Unity/TestRunner/UnityEngine.TestRunner.dll</HintPath>
-    </Reference>
-    <Reference Include="nunit.framework">
-      <HintPath>D:/Program Files/Unity/2017.3.1f1/Editor/Data/UnityExtensions/Unity/TestRunner/net35/unity-custom/nunit.framework.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.Timeline">
-      <HintPath>D:/Program Files/Unity/2017.3.1f1/Editor/Data/UnityExtensions/Unity/Timeline/RuntimeEditor/UnityEngine.Timeline.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEditor.Timeline">
-      <HintPath>D:/Program Files/Unity/2017.3.1f1/Editor/Data/UnityExtensions/Unity/Timeline/Editor/UnityEditor.Timeline.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEditor.TreeEditor">
-      <HintPath>D:/Program Files/Unity/2017.3.1f1/Editor/Data/UnityExtensions/Unity/TreeEditor/Editor/UnityEditor.TreeEditor.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.UIAutomation">
-      <HintPath>D:/Program Files/Unity/2017.3.1f1/Editor/Data/UnityExtensions/Unity/UIAutomation/UnityEngine.UIAutomation.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEditor.UIAutomation">
-      <HintPath>D:/Program Files/Unity/2017.3.1f1/Editor/Data/UnityExtensions/Unity/UIAutomation/Editor/UnityEditor.UIAutomation.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEditor.GoogleAudioSpatializer">
-      <HintPath>D:/Program Files/Unity/2017.3.1f1/Editor/Data/UnityExtensions/Unity/UnityGoogleAudioSpatializer/Editor/UnityEditor.GoogleAudioSpatializer.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.GoogleAudioSpatializer">
-      <HintPath>D:/Program Files/Unity/2017.3.1f1/Editor/Data/UnityExtensions/Unity/UnityGoogleAudioSpatializer/RuntimeEditor/UnityEngine.GoogleAudioSpatializer.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEditor.HoloLens">
-      <HintPath>D:/Program Files/Unity/2017.3.1f1/Editor/Data/UnityExtensions/Unity/UnityHoloLens/Editor/UnityEditor.HoloLens.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.HoloLens">
-      <HintPath>D:/Program Files/Unity/2017.3.1f1/Editor/Data/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEditor.SpatialTracking">
-      <HintPath>D:/Program Files/Unity/2017.3.1f1/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/Editor/UnityEditor.SpatialTracking.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.SpatialTracking">
-      <HintPath>D:/Program Files/Unity/2017.3.1f1/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEditor.VR">
-      <HintPath>D:/Program Files/Unity/2017.3.1f1/Editor/Data/UnityExtensions/Unity/UnityVR/Editor/UnityEditor.VR.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEditor.Graphs">
-      <HintPath>D:/Program Files/Unity/2017.3.1f1/Editor/Data/Managed/UnityEditor.Graphs.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEditor.WindowsStandalone.Extensions">
-      <HintPath>D:/Program Files/Unity/2017.3.1f1/Editor/Data/PlaybackEngines/windowsstandalonesupport/UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.Advertisements">
-      <HintPath>C:/Users/65208/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.ads@2.0.3/UnityEngine.Advertisements.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEditor.Advertisements">
-      <HintPath>C:/Users/65208/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.ads@2.0.3/Editor/UnityEditor.Advertisements.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.Analytics">
-      <HintPath>C:/Users/65208/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.analytics@2.0.13/UnityEngine.Analytics.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEditor.Analytics">
-      <HintPath>C:/Users/65208/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.analytics@2.0.13/Editor/UnityEditor.Analytics.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.Purchasing">
-      <HintPath>C:/Users/65208/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.purchasing@0.0.19/UnityEngine.Purchasing.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEditor.Purchasing">
-      <HintPath>C:/Users/65208/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.purchasing@0.0.19/Editor/UnityEditor.Purchasing.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.StandardEvents">
-      <HintPath>C:/Users/65208/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.standardevents@1.0.10/UnityEngine.StandardEvents.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Assets\Scripts\Battle\Manager\" />
+     <Compile Include="Assets\Scripts\Battle\Controller\Controller.cs" />
+     <Compile Include="Assets\Scripts\Battle\Entity\EntityBase.cs" />
+     <Compile Include="Assets\Scripts\Battle\Entity\EntityMonster.cs" />
+     <Compile Include="Assets\Scripts\Battle\Entity\EntityPlayer.cs" />
+     <Compile Include="Assets\Scripts\Battle\FSM\IState.cs" />
+     <Compile Include="Assets\Scripts\Battle\FSM\StateAttack.cs" />
+     <Compile Include="Assets\Scripts\Battle\FSM\StateBorn.cs" />
+     <Compile Include="Assets\Scripts\Battle\FSM\StateDie.cs" />
+     <Compile Include="Assets\Scripts\Battle\FSM\StateHit.cs" />
+     <Compile Include="Assets\Scripts\Battle\FSM\StateIdle.cs" />
+     <Compile Include="Assets\Scripts\Battle\FSM\StateMove.cs" />
+     <Compile Include="Assets\Scripts\Battle\Manager\BattleMgr.cs" />
+     <Compile Include="Assets\Scripts\Battle\Manager\MapMgr.cs" />
+     <Compile Include="Assets\Scripts\Battle\Manager\SkillMgr.cs" />
+     <Compile Include="Assets\Scripts\Battle\Manager\StateMgr.cs" />
+     <Compile Include="Assets\Scripts\Common\BaseData.cs" />
+     <Compile Include="Assets\Scripts\Common\Constants.cs" />
+     <Compile Include="Assets\Scripts\Common\PathDefine.cs" />
+     <Compile Include="Assets\Scripts\Common\TestPlayer.cs" />
+     <Compile Include="Assets\Scripts\Common\TriggerData.cs" />
+     <Compile Include="Assets\Scripts\Common\WindowRoot.cs" />
+     <Compile Include="Assets\Scripts\Net\ClientSession.cs" />
+     <Compile Include="Assets\Scripts\Service\NetSvc.cs" />
+     <Compile Include="Assets\Scripts\Service\ResSvc.cs" />
+     <Compile Include="Assets\Scripts\System\GameRoot.cs" />
+     <Compile Include="Assets\Scripts\System\LoginSys.cs" />
+     <Compile Include="Assets\Scripts\System\SystemRoot.cs" />
+     <Compile Include="Assets\Scripts\System\testtool.cs" />
+     <Compile Include="Assets\Scripts\UIWindow\DynamicWnd.cs" />
+     <Compile Include="Assets\Scripts\UIWindow\LoadingWnd.cs" />
+     <Compile Include="Assets\Scripts\UIWindow\LoginWnd.cs" />
+     <None Include="Assets\Compond\MakeChar\Shader\PlayerShader.shader" />
+     <None Include="Assets\Resources\ResCfgs\taskreward.xml" />
+     <None Include="Assets\Resources\ResCfgs\rdname.xml" />
+     <None Include="Assets\Compond\Shader\MonsterShader.shader" />
+     <None Include="Assets\Resources\ResCfgs\monster.xml" />
+     <None Include="Assets\Compond\MakeChar\Shader\MogoFakeLight.shader" />
+     <None Include="Assets\Compond\Shader\MogoSkybox.shader" />
+     <None Include="Assets\Resources\ResCfgs\strong.xml" />
+     <None Include="Assets\Resources\ResCfgs\guide.xml" />
+     <None Include="Assets\Compond\MakeScene\SceneShader\MogoTransparentDiffuse.shader" />
+     <None Include="Assets\Compond\Shader\Mul-skybox.shader" />
+     <None Include="Assets\Resources\ResCfgs\skillmove.xml" />
+     <None Include="Assets\Resources\ResCfgs\skillaction.xml" />
+     <None Include="Assets\Resources\ResCfgs\map.xml" />
+     <None Include="Assets\Resources\ResCfgs\skill.xml" />
+ <Reference Include="UnityEngine.UI">
+ <HintPath>D:/Program Files/Unity/2017.3.1f1/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.UI">
+ <HintPath>D:/Program Files/Unity/2017.3.1f1/Editor/Data/UnityExtensions/Unity/GUISystem/Editor/UnityEditor.UI.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.Networking">
+ <HintPath>D:/Program Files/Unity/2017.3.1f1/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.Networking">
+ <HintPath>D:/Program Files/Unity/2017.3.1f1/Editor/Data/UnityExtensions/Unity/Networking/Editor/UnityEditor.Networking.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.PerformanceTesting">
+ <HintPath>D:/Program Files/Unity/2017.3.1f1/Editor/Data/UnityExtensions/Unity/PerformanceTesting/UnityEngine.PerformanceTesting.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.TestRunner">
+ <HintPath>D:/Program Files/Unity/2017.3.1f1/Editor/Data/UnityExtensions/Unity/TestRunner/Editor/UnityEditor.TestRunner.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.TestRunner">
+ <HintPath>D:/Program Files/Unity/2017.3.1f1/Editor/Data/UnityExtensions/Unity/TestRunner/UnityEngine.TestRunner.dll</HintPath>
+ </Reference>
+ <Reference Include="nunit.framework">
+ <HintPath>D:/Program Files/Unity/2017.3.1f1/Editor/Data/UnityExtensions/Unity/TestRunner/net35/unity-custom/nunit.framework.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.Timeline">
+ <HintPath>D:/Program Files/Unity/2017.3.1f1/Editor/Data/UnityExtensions/Unity/Timeline/RuntimeEditor/UnityEngine.Timeline.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.Timeline">
+ <HintPath>D:/Program Files/Unity/2017.3.1f1/Editor/Data/UnityExtensions/Unity/Timeline/Editor/UnityEditor.Timeline.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.TreeEditor">
+ <HintPath>D:/Program Files/Unity/2017.3.1f1/Editor/Data/UnityExtensions/Unity/TreeEditor/Editor/UnityEditor.TreeEditor.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.UIAutomation">
+ <HintPath>D:/Program Files/Unity/2017.3.1f1/Editor/Data/UnityExtensions/Unity/UIAutomation/UnityEngine.UIAutomation.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.UIAutomation">
+ <HintPath>D:/Program Files/Unity/2017.3.1f1/Editor/Data/UnityExtensions/Unity/UIAutomation/Editor/UnityEditor.UIAutomation.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.GoogleAudioSpatializer">
+ <HintPath>D:/Program Files/Unity/2017.3.1f1/Editor/Data/UnityExtensions/Unity/UnityGoogleAudioSpatializer/Editor/UnityEditor.GoogleAudioSpatializer.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.GoogleAudioSpatializer">
+ <HintPath>D:/Program Files/Unity/2017.3.1f1/Editor/Data/UnityExtensions/Unity/UnityGoogleAudioSpatializer/RuntimeEditor/UnityEngine.GoogleAudioSpatializer.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.HoloLens">
+ <HintPath>D:/Program Files/Unity/2017.3.1f1/Editor/Data/UnityExtensions/Unity/UnityHoloLens/Editor/UnityEditor.HoloLens.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.HoloLens">
+ <HintPath>D:/Program Files/Unity/2017.3.1f1/Editor/Data/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.SpatialTracking">
+ <HintPath>D:/Program Files/Unity/2017.3.1f1/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/Editor/UnityEditor.SpatialTracking.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.SpatialTracking">
+ <HintPath>D:/Program Files/Unity/2017.3.1f1/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.VR">
+ <HintPath>D:/Program Files/Unity/2017.3.1f1/Editor/Data/UnityExtensions/Unity/UnityVR/Editor/UnityEditor.VR.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.Graphs">
+ <HintPath>D:/Program Files/Unity/2017.3.1f1/Editor/Data/Managed/UnityEditor.Graphs.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.WindowsStandalone.Extensions">
+ <HintPath>D:/Program Files/Unity/2017.3.1f1/Editor/Data/PlaybackEngines/windowsstandalonesupport/UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
+ </Reference>
+ <Reference Include="PEProtocol">
+ <HintPath>D:/BaiduNetdiskDownload/fight/Assets/Scripts/Net/PEProtocol.dll</HintPath>
+ </Reference>
+ <Reference Include="PESocket">
+ <HintPath>D:/BaiduNetdiskDownload/fight/Assets/Scripts/Net/PESocket.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.Advertisements">
+ <HintPath>C:/Users/65208/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.ads@2.0.3/UnityEngine.Advertisements.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.Advertisements">
+ <HintPath>C:/Users/65208/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.ads@2.0.3/Editor/UnityEditor.Advertisements.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.Analytics">
+ <HintPath>C:/Users/65208/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.analytics@2.0.13/UnityEngine.Analytics.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.Analytics">
+ <HintPath>C:/Users/65208/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.analytics@2.0.13/Editor/UnityEditor.Analytics.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.Purchasing">
+ <HintPath>C:/Users/65208/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.purchasing@0.0.19/UnityEngine.Purchasing.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.Purchasing">
+ <HintPath>C:/Users/65208/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.purchasing@0.0.19/Editor/UnityEditor.Purchasing.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.StandardEvents">
+ <HintPath>C:/Users/65208/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.standardevents@1.0.10/UnityEngine.StandardEvents.dll</HintPath>
+ </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
@@ -178,4 +199,5 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  
 </Project>
