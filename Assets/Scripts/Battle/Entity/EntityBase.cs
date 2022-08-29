@@ -40,7 +40,7 @@ public abstract class EntityBase{
         set
         {
             //通知UI层TODO
-            PECommon.Log(Name + ": HPchange:" + hp + " to " + value);
+            //PECommon.Log(Name + ": HPchange:" + hp + " to " + value);
             SetHPVal(hp, value);
             hp = value;
         }
@@ -71,26 +71,22 @@ public abstract class EntityBase{
             //GameRoot.Instance.dynamicWnd.SetHPVal(Name, oldval, newval);
         }
     }
-    public virtual void SetBattleProps(BattleProps props)｛
-            HP = props.hp;
-          Props = props;
-    ｝
+    public virtual void SetBattleProps(BattleProps props)
+    {
+        HP = props.hp;
+        Props = props;
+    }
+        
 
     public virtual void SetBlend(float blend)
     {
         if (controller != null)
         {
-            controller.SetBlend(blend);
+         //   controller.SetBlend(blend);
         }
 
     }
-    public virtual void SetBlend(float blend)
-    {
-        if (controller != null)
-        {
-            controller.SetBlend(blend);
-        }
-    }
+
     private BattleProps props;
 
 }
