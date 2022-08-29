@@ -286,8 +286,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Battle\Entity\Entity.cs" />
+    <Compile Include="Assets\Scripts\Battle\FSM\IState.cs" />
     <Compile Include="Assets\Scripts\Battle\Manager\BattleMgr.cs" />
     <Compile Include="Assets\Scripts\Battle\Manager\MapMgr.cs" />
+    <Compile Include="Assets\Scripts\Battle\Manager\StateMgr.cs" />
     <Compile Include="Assets\Scripts\Common\Constants.cs" />
     <Compile Include="Assets\Scripts\Common\TestPlayer.cs" />
     <Compile Include="Assets\Scripts\Common\WindowRoot.cs" />
