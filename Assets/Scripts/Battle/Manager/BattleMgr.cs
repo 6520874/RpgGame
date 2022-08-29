@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using PEProtocol;
 public class BattleMgr : MonoBehaviour {
     private ResSvc resSvc;
 

@@ -13,14 +13,12 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile>
-    </CompilerResponseFile>
+    <CompilerResponseFile></CompilerResponseFile>
     <UnityProjectGenerator>VSTU</UnityProjectGenerator>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
     <UnityVersion>2017.3.1f1</UnityVersion>
-    <RootNamespace>
-    </RootNamespace>
+    <RootNamespace></RootNamespace>
     <LangVersion>4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -286,6 +284,12 @@
     <Reference Include="SyntaxTree.VisualStudio.Unity.Bridge">
       <HintPath>C:/Program Files (x86)/Microsoft Visual Studio Tools for Unity/15.0/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
     </Reference>
+    <Reference Include="PESocket">
+      <HintPath>Assets/Scripts/Net/PESocket.dll</HintPath>
+    </Reference>
+    <Reference Include="PEProtocol">
+      <HintPath>Assets/Scripts/Net/PEProtocol.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Battle\Controller\Controller.cs" />
@@ -309,6 +313,7 @@
     <Compile Include="Assets\Scripts\Common\TestPlayer.cs" />
     <Compile Include="Assets\Scripts\Common\TriggerData.cs" />
     <Compile Include="Assets\Scripts\Common\WindowRoot.cs" />
+    <Compile Include="Assets\Scripts\Net\ClientSession.cs" />
     <Compile Include="Assets\Scripts\Service\NetSvc.cs" />
     <Compile Include="Assets\Scripts\Service\ResSvc.cs" />
     <Compile Include="Assets\Scripts\System\GameRoot.cs" />

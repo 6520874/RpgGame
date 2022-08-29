@@ -18,7 +18,7 @@ class StateMove : IState
     public void Process(EntityBase entity, params object[] args)
     {
         if(entity.entityType == EntityType.Player)  {
-            entity.canRlsSKill = false
+            entity.canRlsSKill = false;
         }
     }
 }

@@ -7,6 +7,7 @@
 *****************************************************/
 
 using System;
+using System.Collections.Generic;
 using System.Xml;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -52,6 +53,22 @@ public class ResSvc : MonoBehaviour
         }
         return go;
     }
+
+    private Dictionary<string, Sprite> spDic = new Dictionary<string, Sprite>();
+    public Sprite LoadSprite(string path, bool cache = false)
+    {
+        Sprite sp = null;
+        if (!spDic.TryGetValue(path, out sp))
+        {
+            sp = Resources.Load<Sprite>(path);
+            if (cache)
+            {
+                spDic.Add(path, sp);
+            }
+        }
+        return sp;
+    }
+
 
     //     public void ResetSkillCfgs() {
     //         skillDic.Clear();
