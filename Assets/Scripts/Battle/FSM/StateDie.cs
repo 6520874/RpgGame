@@ -1,11 +1,11 @@
 ﻿
 //攻击的状态
 
-class StateAttack : IState
+class StateDie: IState
 {
     public void Enter(EntityBase entity, params object[] args)
     {
-        entity.currentAniState = AniState.Attack;
+        entity.currentAniState = AniState.Die;
         //entity.curSkillCfg = ResSvc.Instance.GetSkillCfg();
 
     }

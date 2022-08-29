@@ -10,7 +10,7 @@ public abstract class EntityBase{
     public BattleMgr battleMgr = null;
     public StateMgr stateMgr = null;
     public SkillMgr skllMgr = null;
-    protected Controller =null;
+    protected Controller controller =null;
 		
 	
 }

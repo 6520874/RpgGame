@@ -41,6 +41,6 @@ public class Controller : MonoBehaviour {
 
     public virtual void Init()
     {
-
+        T 
     }
 }

@@ -1,7 +1,5 @@
 /****************************************************
     文件：Constants.cs
-	作者：SIKI学院——Plane
-    邮箱: 1785275942@qq.com
     日期：2018/12/3 6:0:33
 	功能：常量配置
 *****************************************************/
@@ -18,6 +16,29 @@ public enum DamageType {
     None,
     AD = 1,
     AP = 2
+}
+
+public enum EntityType
+{
+    None,
+    Player,
+    Monster
+}
+
+public enum EntityState
+{
+    None,
+    BatiState,//霸体状态:不可控制，可受伤害
+    //TODO
+}
+
+
+
+public enum MonsterType
+{
+    None,
+    Normal = 1,
+    Boss = 2
 }
 
 

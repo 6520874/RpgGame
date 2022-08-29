@@ -1,15 +1,15 @@
 ﻿
 //攻击的状态
 
-class StateAttack : IState
+class StateBorn : IState
 {
     public void Enter(EntityBase entity, params object[] args)
     {
-        entity.currentAniState = AniState.Attack;
+        entity.currentAniState = AniState.Born;
         //entity.curSkillCfg = ResSvc.Instance.GetSkillCfg();
 
     }
-
+    /
     public void Exit(EntityBase entity, params object[] args)
     {
         entity.ExitCurtSKill();

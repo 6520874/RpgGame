@@ -288,6 +288,8 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Battle\Controller\Controller.cs" />
     <Compile Include="Assets\Scripts\Battle\Entity\EntityBase.cs" />
+    <Compile Include="Assets\Scripts\Battle\Entity\EntityMonster.cs" />
+    <Compile Include="Assets\Scripts\Battle\Entity\EntityPlayer.cs" />
     <Compile Include="Assets\Scripts\Battle\FSM\IState.cs" />
     <Compile Include="Assets\Scripts\Battle\FSM\StateAttack.cs" />
     <Compile Include="Assets\Scripts\Battle\FSM\StateBorn.cs" />
