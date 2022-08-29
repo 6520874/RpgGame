@@ -9,7 +9,8 @@ public class WindowRoot : MonoBehaviour {
 
     private void Start()
     {
-        Debug.Log("65666...");
+      
+      
 
     }
 

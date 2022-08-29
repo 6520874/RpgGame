@@ -21,8 +21,8 @@ public class MapMgr : MonoBehaviour {
             co.isTrigger = false;
 
             battleMgr.LoadMonsterByWaveID(waveIndex);
-            battleMgr.ActiveCurrentBatchMonsters();
-            battleMgr.triggerCheck = true;
+            // battleMgr.ActiveCurrentBatchMonsters();
+            // battleMgr.triggerCheck = true;
         }
     }
     // Update is called once per frame

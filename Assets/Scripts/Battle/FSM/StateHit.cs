@@ -18,7 +18,7 @@ class StateHit : IState
     public void Process(EntityBase entity, params object[] args)
     {
         if(entity.entityType == EntityType.Player)  {
-            entity.canRlsSKill = flase;
+            entity.canRlsSKill = false;
         }
     }
 }

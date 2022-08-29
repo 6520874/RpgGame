@@ -89,4 +89,32 @@ public abstract class EntityBase{
 
     private BattleProps props;
 
+     public virtual void SetAction(int act) {
+        if (controller != null) {
+            controller.SetAction(act);
+        }
+    }
+    public void ExitCurtSkill() {
+        canControl = true;
+
+        if (curtSkillCfg != null) {
+            if (!curtSkillCfg.isBreak) {
+                entityState = EntityState.None;
+            }
+            //连招数据更新
+            if (curtSkillCfg.isCombo) {
+                if (comboQue.Count > 0) {
+                    nextSkillID = comboQue.Dequeue();
+                }
+                else {
+                    nextSkillID = 0;
+                }
+            }
+            curtSkillCfg = null;
+        }
+        SetAction(Constants.ActionDefault);
+    }
+
+
+
 }
