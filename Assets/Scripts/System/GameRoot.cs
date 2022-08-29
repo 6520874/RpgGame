@@ -1,4 +1,5 @@
 
+using PEProtocol;
 using UnityEngine;
 
 public class GameRoot : MonoBehaviour
@@ -6,7 +7,7 @@ public class GameRoot : MonoBehaviour
 
     public static GameRoot Instance = null;
     public LoadingWnd loadingWnd;
-   public DynamicWnd dynamicWnd;
+    public DynamicWnd dynamicWnd;
 
 
     private void Start()
@@ -42,7 +43,8 @@ public class GameRoot : MonoBehaviour
         // TimerSvc timer = GetComponent<TimerSvc>();
         // timer.InitSvc();
 
-        Debug.Log("33...");
+     
+  
         // //业务系统初始化
         LoginSys login = GetComponent<LoginSys>();
         login.InitSys();
@@ -62,6 +64,73 @@ public class GameRoot : MonoBehaviour
         Instance.dynamicWnd.AddTips(tips);
     }
 
+    private PlayerData playerData = null;
+    public PlayerData PlayerData
+    {
+        get
+        {
+            return playerData;
+        }
+    }
+    public void SetPlayerData(RspLogin data)
+    {
+        playerData = data.playerData;
+    }
 
+    public void SetPlayerDataByGuide(RspGuide data)
+    {
+        PlayerData.coin = data.coin;
+        PlayerData.lv = data.lv;
+        PlayerData.exp = data.exp;
+        PlayerData.guideid = data.guideid;
+    }
+
+    public void SetPlayerDataByStrong(RspStrong data)
+    {
+        PlayerData.coin = data.coin;
+        PlayerData.crystal = data.crystal;
+        PlayerData.hp = data.hp;
+        PlayerData.ad = data.ad;
+        PlayerData.ap = data.ap;
+        PlayerData.addef = data.addef;
+        PlayerData.apdef = data.apdef;
+
+        PlayerData.strongArr = data.strongArr;
+    }
+
+    public void SetPlayerDataByBuy(RspBuy data)
+    {
+        PlayerData.diamond = data.dimond;
+        PlayerData.coin = data.coin;
+        PlayerData.power = data.power;
+    }
+    public void SetPlayerDataByPower(PshPower data)
+    {
+        PlayerData.power = data.power;
+    }
+    public void SetPlayerDataByTask(RspTakeTaskReward data)
+    {
+        PlayerData.coin = data.coin;
+        PlayerData.lv = data.lv;
+        PlayerData.exp = data.exp;
+        PlayerData.taskArr = data.taskArr;
+    }
+    public void SetPlayerDataByTaskPsh(PshTaskPrgs data)
+    {
+        PlayerData.taskArr = data.taskArr;
+    }
+    public void SetPlayerDataByFBStart(RspFBFight data)
+    {
+        PlayerData.power = data.power;
+    }
+    public void SetPlayerDataByFBEnd(RspFBFightEnd data)
+    {
+        PlayerData.coin = data.coin;
+        PlayerData.lv = data.lv;
+        PlayerData.exp = data.exp;
+        PlayerData.crystal = data.crystal;
+        PlayerData.fuben = data.fuben;
+
+    }
 
 }
