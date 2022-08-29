@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BattleMgr : MonoBehaviour {
     private ResSvc resSvc;
+
     //private AudioSvc audioSvc;
     //private StateMgr stateMgr;
 
@@ -62,9 +63,25 @@ public class BattleMgr : MonoBehaviour {
  
      private void LoadPlayer(MapCfg mapData)
     {
-        GameObject player = resSvc.LoadPrefab();
+        GameObject player = resSvc.LoadPrefab(PathDefine.AssissnBattlePlayerPrefab);
 
-      
+        player.transform.position = mapData.playerBornPos;
+        player.transform.localEulerAngles = mapData.playerBornRote;
+        player.transform.localScale = Vector3.one;
+
+        PlayerData pd = GameRoot.Instance.PlayerData;
+        BattleProps props = new BattleProps
+        {
+            hp = pd.hp,
+            ad = pd.ad,
+            ap = pd.ap,
+            addef = pd.addef,
+            apdef = pd.apdef,
+            dodge = pd.dodge,
+            pierce = pd.pierce,
+            critical = pd.critical
+
+        };
 
     }
 

@@ -31,7 +31,27 @@ public class ResSvc : MonoBehaviour
 
         // PECommon.Log("Init ResSvc...");
     }
+    private Dictionary<string, GameObject> goDic = new Dictionary<string, GameObject>();
 
+    public GameObject LoadPrefab(string path, bool cache = false)
+    {
+        GameObject prefab = null;
+        if (!goDic.TryGetValue(path, out prefab))
+        {
+            prefab = Resources.Load<GameObject>(path);
+            if (cache)
+            {
+                goDic.Add(path, prefab);
+            }
+        }
+
+        GameObject go = null;
+        if (prefab != null)
+        {
+            go = Instantiate(prefab);
+        }
+        return go;
+    }
 
     //     public void ResetSkillCfgs() {
     //         skillDic.Clear();
