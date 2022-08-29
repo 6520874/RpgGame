@@ -301,6 +301,7 @@
     <Compile Include="Assets\Scripts\Battle\Manager\MapMgr.cs" />
     <Compile Include="Assets\Scripts\Battle\Manager\SkillMgr.cs" />
     <Compile Include="Assets\Scripts\Battle\Manager\StateMgr.cs" />
+    <Compile Include="Assets\Scripts\Common\BaseData.cs" />
     <Compile Include="Assets\Scripts\Common\Constants.cs" />
     <Compile Include="Assets\Scripts\Common\TestPlayer.cs" />
     <Compile Include="Assets\Scripts\Common\WindowRoot.cs" />

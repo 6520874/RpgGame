@@ -11,6 +11,25 @@ public abstract class EntityBase{
     public StateMgr stateMgr = null;
     public SkillMgr skllMgr = null;
     protected Controller controller =null;
-		
-	
+
+    public bool canControl = true;
+    public bool canRlsSkill = true;
+    private string name;
+    public EntityType entityType = EntityType.None;
+    public EntityState entityState = EntityState.None;
+    public string Name
+    {
+        get
+        {
+            return name;
+        }
+
+        set
+        {
+            name = value;
+        }
+    }
+
+    private BattleProps props;
+
 }
