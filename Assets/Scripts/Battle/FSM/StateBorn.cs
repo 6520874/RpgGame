@@ -19,6 +19,8 @@ class StateBorn : IState
     {
         if(entity.entityType == EntityType.Player)  {
             entity.canRlsSKill = false;
+
+
         }
     }
 }
