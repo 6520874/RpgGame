@@ -50,14 +50,14 @@ public class DynamicWnd : WindowRoot {
         SetActive(txtTips);
         SetText(txtTips, tips);
 
-        AnimationClip clip = tipsAni.GetClip("TipsShowAni");
-        tipsAni.Play();
-        //延时关闭激活状态
+        // AnimationClip clip = tipsAni.GetClip("TipsShowAni");
+        // tipsAni.Play();
+        // //延时关闭激活状态
 
-        StartCoroutine(AniPlayDone(clip.length, () => {
-            SetActive(txtTips, false);
-            isTipsShow = false;
-        }));
+        // StartCoroutine(AniPlayDone(clip.length, () => {
+        //     SetActive(txtTips, false);
+        //     isTipsShow = false;
+        // }));
     }
 
     private IEnumerator AniPlayDone(float sec, Action cb) {

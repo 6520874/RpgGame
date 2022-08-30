@@ -7,10 +7,14 @@
 	功能：登录注册业务系统
 *****************************************************/
 using UnityEngine;
+using PEProtocol;
+
 public class LoginSys : SystemRoot {
     public static LoginSys Instance = null;
 
     public LoginWnd loginWnd;
+
+    public CreateWnd createWnd;
 
     public override void InitSys() {
         base.InitSys();
@@ -32,26 +36,26 @@ public class LoginSys : SystemRoot {
         });
     }
 
-    // public void RspLogin(GameMsg msg) {
-    //     GameRoot.AddTips("登录成功");
-    //     GameRoot.Instance.SetPlayerData(msg.rspLogin);
+    public void RspLogin(GameMsg msg) {
+        GameRoot.AddTips("登录成功");
+        GameRoot.Instance.SetPlayerData(msg.rspLogin);
 
-    //     if (msg.rspLogin.playerData.name == "") {
-    //         createWnd.SetWndState();
-    //     }
-    //     else {
-    //         MainCitySys.Instance.EnterMainCity();
-    //     }
-    //     //关闭登录界面
-    //     loginWnd.SetWndState(false);
-    // }
+        if (msg.rspLogin.playerData.name == "") {
+            createWnd.SetWndState();
+        }
+        else {
+            //MainCitySys.Instance.EnterMainCity();
+        }
+        //关闭登录界面
+        loginWnd.SetWndState(false);
+    }
 
-    // public void RspRename(GameMsg msg) {
-    //     GameRoot.Instance.SetPlayerName(msg.rspRename.name);
+    public void RspRename(GameMsg msg) {
+        // GameRoot.Instance.SetPlayerName(msg.rspRename.name);
 
-    //     //跳转场景进入主城
-    //     MainCitySys.Instance.EnterMainCity();
-    //     //关闭创建界面
-    //     createWnd.SetWndState(false);
-    // }
+        // //跳转场景进入主城
+        // MainCitySys.Instance.EnterMainCity();
+        //关闭创建界面
+        createWnd.SetWndState(false);
+    }
 }

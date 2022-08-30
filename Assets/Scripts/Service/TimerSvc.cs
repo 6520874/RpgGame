@@ -11,7 +11,7 @@ using System;
 public class TimerSvc : SystemRoot {
     public static TimerSvc Instance = null;
 
-    private PETimer pt;
+    private PETimer pt = null;
 
     public void InitSvc() {
         Instance = this;
@@ -26,7 +26,10 @@ public class TimerSvc : SystemRoot {
     }
 
     public void Update() {
-       pt.Update();
+        if (pt!=null ){
+        pt.Update();
+        }
+      
     }
 
     public int AddTimeTask(Action<int> callback, double delay, PETimeUnit timeUnit = PETimeUnit.Millisecond, int count = 1) {
