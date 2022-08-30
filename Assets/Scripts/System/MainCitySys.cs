@@ -14,56 +14,49 @@ using UnityEngine.AI;
 public class MainCitySys : SystemRoot {
     public static MainCitySys Instance = null;
 
-    // public MainCityWnd maincityWnd;
-    // public InfoWnd infoWnd;
-    // public GuideWnd guideWnd;
-    // public StrongWnd strongWnd;
-    // public ChatWnd chatWnd;
-    // public BuyWnd buyWnd;
-    // public TaskWnd taskWnd;
 
-    // private PlayerController playerCtrl;
-    // private Transform charCamTrans;
-    // private AutoGuideCfg curtTaskData;
-    // private Transform[] npcPosTrans;
-    // private NavMeshAgent nav;
+    private PlayerController playerCtrl;
+    private Transform charCamTrans;
+    private AutoGuideCfg curtTaskData;
+    private Transform[] npcPosTrans;
+    private NavMeshAgent nav;
 
-    // public override void InitSys() {
-    //     base.InitSys();
+    public override void InitSys() {
+        base.InitSys();
 
-    //     Instance = this;
-    //     PECommon.Log("Init MainCitySys...");
-    // }
+        Instance = this;
+        PECommon.Log("Init MainCitySys...");
+    }
   
 
-    // public void EnterMainCity(){
+    public void EnterMainCity(){
 
-    //     Mapcfg  mapData =  resSvc.GetMapCfg(Constants.MainCityMapID);
+        // Mapcfg  mapData =  resSvc.GetMapCfg(Constants.MainCityMapID);
 
-    //      resSvc.AsyncLoadScene(mapData.sceneName, () => {
-    //         PECommon.Log("Enter MainCity...");
+        //  resSvc.AsyncLoadScene(mapData.sceneName, () => {
+        //     PECommon.Log("Enter MainCity...");
 
-    //         // 加载游戏主角
-    //         LoadPlayer(mapData);
+        //     // 加载游戏主角
+        //     LoadPlayer(mapData);
 
-    //         //打开主城场景UI
-    //         maincityWnd.SetWndState();
+        //     //打开主城场景UI
+        //     maincityWnd.SetWndState();
 
-    //         GameRoot.Instance.GetComponent<AudioListener>().enabled = false;
-    //         //播放主城背景音乐
-    //         audioSvc.PlayBGMusic(Constants.BGMainCity);
+        //     GameRoot.Instance.GetComponent<AudioListener>().enabled = false;
+        //     //播放主城背景音乐
+        //     audioSvc.PlayBGMusic(Constants.BGMainCity);
 
-    //         GameObject map = GameObject.FindGameObjectWithTag("MapRoot");
-    //         MainCityMap mcm = map.GetComponent<MainCityMap>();
-    //         npcPosTrans = mcm.NpcPosTrans;
+        //     GameObject map = GameObject.FindGameObjectWithTag("MapRoot");
+        //     MainCityMap mcm = map.GetComponent<MainCityMap>();
+        //     npcPosTrans = mcm.NpcPosTrans;
 
-    //         //设置人物展示相机
-    //         if (charCamTrans != null) {
-    //             charCamTrans.gameObject.SetActive(false);
-    //         }
-    //     });
+        //     //设置人物展示相机
+        //     if (charCamTrans != null) {
+        //         charCamTrans.gameObject.SetActive(false);
+        //     }
+        // });
 
-    // }
+    }
 
 
     //     private void LoadPlayer(MapCfg mapData) {

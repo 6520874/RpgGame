@@ -107,41 +107,41 @@ public class NetSvc : MonoBehaviour {
             }
             return;
         }
-        // switch ((CMD)msg.cmd) {
-        //     case CMD.RspLogin:
-        //         LoginSys.Instance.RspLogin(msg);
-        //         break;
-        //     case CMD.RspRename:
-        //         LoginSys.Instance.RspRename(msg);
-        //         break;
-        //     case CMD.RspGuide:
-        //         MainCitySys.Instance.RspGuide(msg);
-        //         break;
-        //     case CMD.RspStrong:
-        //         MainCitySys.Instance.RspStrong(msg);
-        //         break;
-        //     case CMD.PshChat:
-        //         MainCitySys.Instance.PshChat(msg);
-        //         break;
-        //     case CMD.RspBuy:
-        //         MainCitySys.Instance.RspBuy(msg);
-        //         break;
-        //     case CMD.PshPower:
-        //         MainCitySys.Instance.PshPower(msg);
-        //         break;
-        //     case CMD.RspTakeTaskReward:
-        //         MainCitySys.Instance.RspTakeTaskReward(msg);
-        //         break;
-        //     case CMD.PshTaskPrgs:
-        //         MainCitySys.Instance.PshTaskPrgs(msg);
-        //         break;
-        //     case CMD.RspFBFight:
-        //         FubenSys.Instance.RspFBFight(msg);
-        //         break;
-        //     case CMD.RspFBFightEnd:
-        //         BattleSys.Instance.RspFightEnd(msg);
-        //         break;
-        // }
+        switch ((CMD)msg.cmd) {
+            case CMD.RspLogin:
+                LoginSys.Instance.RspLogin(msg);
+                break;
+            case CMD.RspRename:
+                LoginSys.Instance.RspRename(msg);
+                break;
+            // case CMD.RspGuide:
+            //     MainCitySys.Instance.RspGuide(msg);
+            //     break;
+            // case CMD.RspStrong:
+            //     MainCitySys.Instance.RspStrong(msg);
+            //     break;
+            // case CMD.PshChat:
+            //     MainCitySys.Instance.PshChat(msg);
+            //     break;
+            // case CMD.RspBuy:
+            //     MainCitySys.Instance.RspBuy(msg);
+            //     break;
+            // case CMD.PshPower:
+            //     MainCitySys.Instance.PshPower(msg);
+            //     break;
+            // case CMD.RspTakeTaskReward:
+            //     MainCitySys.Instance.RspTakeTaskReward(msg);
+            //     break;
+            // case CMD.PshTaskPrgs:
+            //     MainCitySys.Instance.PshTaskPrgs(msg);
+            //     break;
+            // case CMD.RspFBFight:
+            //     FubenSys.Instance.RspFBFight(msg);
+            //     break;
+            case CMD.RspFBFightEnd:
+                BattleSys.Instance.RspFightEnd(msg);
+                break;
+         }
     }
 
 

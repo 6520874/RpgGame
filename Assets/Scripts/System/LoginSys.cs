@@ -44,7 +44,7 @@ public class LoginSys : SystemRoot {
             createWnd.SetWndState();
         }
         else {
-            //MainCitySys.Instance.EnterMainCity();
+            MainCitySys.Instance.EnterMainCity();
         }
         //关闭登录界面
         loginWnd.SetWndState(false);
