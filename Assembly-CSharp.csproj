@@ -77,10 +77,13 @@
      <Compile Include="Assets\Scripts\Net\ClientSession.cs" />
      <Compile Include="Assets\Scripts\Service\AudioSvc.cs" />
      <Compile Include="Assets\Scripts\Service\NetSvc.cs" />
+     <Compile Include="Assets\Scripts\Service\PETimer.cs" />
      <Compile Include="Assets\Scripts\Service\ResSvc.cs" />
+     <Compile Include="Assets\Scripts\Service\TimerSvc.cs" />
      <Compile Include="Assets\Scripts\System\BattleSys.cs" />
      <Compile Include="Assets\Scripts\System\GameRoot.cs" />
      <Compile Include="Assets\Scripts\System\LoginSys.cs" />
+     <Compile Include="Assets\Scripts\System\MainCitySys.cs" />
      <Compile Include="Assets\Scripts\System\SystemRoot.cs" />
      <Compile Include="Assets\Scripts\System\testtool.cs" />
      <Compile Include="Assets\Scripts\UIWindow\BattleEndWnd.cs" />

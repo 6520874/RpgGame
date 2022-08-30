@@ -20,6 +20,8 @@ public class ClientSession : PESession<GameMsg> {
         NetSvc.Instance.AddNetPkg(msg);
     }
 
+    
+
     protected override void OnDisConnected() {
         GameRoot.AddTips("服务器断开连接");
         PECommon.Log("DisConnect To Server");

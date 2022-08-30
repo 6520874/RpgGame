@@ -54,6 +54,8 @@ public class ResSvc : MonoBehaviour
         return go;
     }
 
+    
+
     private Dictionary<string, Sprite> spDic = new Dictionary<string, Sprite>();
     public Sprite LoadSprite(string path, bool cache = false)
     {
@@ -98,6 +100,20 @@ public class ResSvc : MonoBehaviour
         //     }
         // };
     }
+
+
+        private Dictionary<string, AudioClip> adDic = new Dictionary<string, AudioClip>();
+    public AudioClip LoadAudio(string path, bool cache = false) {
+        AudioClip au = null;
+        if (!adDic.TryGetValue(path, out au)) {
+            au = Resources.Load<AudioClip>(path);
+            if (cache) {
+                adDic.Add(path, au);
+            }
+        }
+        return au;
+    }
+    
 }
 //     private void Update() {
 //         if (prgCB != null) {
@@ -105,17 +121,7 @@ public class ResSvc : MonoBehaviour
 //         }
 //     }
 
-//     private Dictionary<string, AudioClip> adDic = new Dictionary<string, AudioClip>();
-//     public AudioClip LoadAudio(string path, bool cache = false) {
-//         AudioClip au = null;
-//         if (!adDic.TryGetValue(path, out au)) {
-//             au = Resources.Load<AudioClip>(path);
-//             if (cache) {
-//                 adDic.Add(path, au);
-//             }
-//         }
-//         return au;
-//     }
+
 
 //     private Dictionary<string, GameObject> goDic = new Dictionary<string, GameObject>();
 //     public GameObject LoadPrefab(string path, bool cache = false) {

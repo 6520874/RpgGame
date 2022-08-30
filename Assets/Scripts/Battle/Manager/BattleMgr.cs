@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using PEProtocol;
@@ -8,7 +9,6 @@ public class BattleMgr : MonoBehaviour {
     private AudioSvc audioSvc;
     private StateMgr stateMgr;
 
-    private StateMgr stateMgr;
     private MapCfg mapCfg;
       
     private MapMgr mapMgr;
@@ -20,37 +20,37 @@ public class BattleMgr : MonoBehaviour {
         resSvc = ResSvc.Instance;
         audioSvc = AudioSvc.Instance;
 
-        //初始化各管理器
-        stateMgr = gameObject.AddComponent<StateMgr>();
-        stateMgr.Init();
-        skillMgr = gameObject.AddComponent<SkillMgr>();
-        skillMgr.Init();
+        // //初始化各管理器
+        // stateMgr = gameObject.AddComponent<StateMgr>();
+        // stateMgr.Init();
+        // skillMgr = gameObject.AddComponent<SkillMgr>();
+        // skillMgr.Init();
 
-        //加载战场地图
-        mapCfg = resSvc.GetMapCfg(mapid);
-        resSvc.AsyncLoadScene(mapCfg.sceneName, () => {
-            //初始化地图数据
-            GameObject map = GameObject.FindGameObjectWithTag("MapRoot");
-            mapMgr = map.GetComponent<MapMgr>();
-            mapMgr.Init(this);
+        // //加载战场地图
+        // mapCfg = resSvc.GetMapCfg(mapid);
+        // resSvc.AsyncLoadScene(mapCfg.sceneName, () => {
+        //     //初始化地图数据
+        //     GameObject map = GameObject.FindGameObjectWithTag("MapRoot");
+        //     mapMgr = map.GetComponent<MapMgr>();
+        //     mapMgr.Init(this);
 
-            map.transform.localPosition = Vector3.zero;
-            map.transform.localScale = Vector3.one;
+        //     map.transform.localPosition = Vector3.zero;
+        //     map.transform.localScale = Vector3.one;
 
-            Camera.main.transform.position = mapCfg.mainCamPos;
-            Camera.main.transform.localEulerAngles = mapCfg.mainCamRote;
+        //     Camera.main.transform.position = mapCfg.mainCamPos;
+        //     Camera.main.transform.localEulerAngles = mapCfg.mainCamRote;
 
-            LoadPlayer(mapCfg);
-            entitySelfPlayer.Idle();
+        //     LoadPlayer(mapCfg);
+        //     entitySelfPlayer.Idle();
 
-            //激活第一批次怪物
-            ActiveCurrentBatchMonsters();
+        //     //激活第一批次怪物
+        //     ActiveCurrentBatchMonsters();
 
-            audioSvc.PlayBGMusic(Constants.BGHuangYe);
-            if (cb != null) {
-                cb();
-            }
-        });
+        //     audioSvc.PlayBGMusic(Constants.BGHuangYe);
+        //     if (cb != null) {
+        //         cb();
+        //     }
+        // });
     }
 
     public void LoadMonsterByWaveID(int wave)

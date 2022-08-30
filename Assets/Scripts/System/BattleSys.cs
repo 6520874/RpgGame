@@ -34,7 +34,7 @@ using UnityEngine;
 
     public void EndBattle(bool isWin, int restHP) {
         playerCtrlWnd.SetWndState(false);
-        GameRoot.Instance.dynamicWnd.RmvAllHpItemInfo();
+       // GameRoot.Instance.dynamicWnd.RmvAllHpItemInfo();
 
         if (isWin) {
             double endTime = timerSvc.GetNowTime();
