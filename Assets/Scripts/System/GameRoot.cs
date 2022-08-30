@@ -12,7 +12,6 @@ public class GameRoot : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log("11111...");
         Instance = this;
         DontDestroyOnLoad(this);
         Debug.Log("Game Start...");
@@ -28,7 +27,7 @@ public class GameRoot : MonoBehaviour
             canvas.GetChild(i).gameObject.SetActive(false);
         }
 
-        //dynamicWnd.SetWndState();
+        dynamicWnd.SetWndState();
     }
 
     private void Init()
@@ -38,22 +37,22 @@ public class GameRoot : MonoBehaviour
         // net.InitSvc();
         ResSvc res = GetComponent<ResSvc>();
         res.InitSvc();
-        // AudioSvc audio = GetComponent<AudioSvc>();
-        // audio.InitSvc();
-        // TimerSvc timer = GetComponent<TimerSvc>();
-        // timer.InitSvc();
+        AudioSvc audio = GetComponent<AudioSvc>();
+        audio.InitSvc();
+        TimerSvc timer = GetComponent<TimerSvc>();
+        timer.InitSvc();
 
      
   
         // //业务系统初始化
         LoginSys login = GetComponent<LoginSys>();
         login.InitSys();
-        // MainCitySys maincity = GetComponent<MainCitySys>();
-        // maincity.InitSys();
+        MainCitySys maincity = GetComponent<MainCitySys>();
+        maincity.InitSys();
         // FubenSys fuben = GetComponent<FubenSys>();
         // fuben.InitSys();
-        // BattleSys battle = GetComponent<BattleSys>();
-        // battle.InitSys();
+        BattleSys battle = GetComponent<BattleSys>();
+        battle.InitSys();
 
         //进入登录场景并加载相应UI
         login.EnterLogin();

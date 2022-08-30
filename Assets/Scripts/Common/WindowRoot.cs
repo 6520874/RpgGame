@@ -22,12 +22,11 @@ public class WindowRoot : MonoBehaviour {
         }
     }
     protected virtual void InitWnd() {
-        // resSvc = ResSvc.Instance;
-        // audioSvc = AudioSvc.Instance;
-        // netSvc = NetSvc.Instance;
-        // timerSvc = TimerSvc.Instance;
+        resSvc = ResSvc.Instance;
+        audioSvc = AudioSvc.Instance;
+        netSvc = NetSvc.Instance;
+        timerSvc = TimerSvc.Instance;
     }
-
 
     protected virtual void ClearWnd() {
         resSvc = null;

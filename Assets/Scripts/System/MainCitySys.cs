@@ -14,93 +14,93 @@ using UnityEngine.AI;
 public class MainCitySys : SystemRoot {
     public static MainCitySys Instance = null;
 
-    public MainCityWnd maincityWnd;
-    public InfoWnd infoWnd;
-    public GuideWnd guideWnd;
-    public StrongWnd strongWnd;
-    public ChatWnd chatWnd;
-    public BuyWnd buyWnd;
-    public TaskWnd taskWnd;
+    // public MainCityWnd maincityWnd;
+    // public InfoWnd infoWnd;
+    // public GuideWnd guideWnd;
+    // public StrongWnd strongWnd;
+    // public ChatWnd chatWnd;
+    // public BuyWnd buyWnd;
+    // public TaskWnd taskWnd;
 
-    private PlayerController playerCtrl;
-    private Transform charCamTrans;
-    private AutoGuideCfg curtTaskData;
-    private Transform[] npcPosTrans;
-    private NavMeshAgent nav;
+    // private PlayerController playerCtrl;
+    // private Transform charCamTrans;
+    // private AutoGuideCfg curtTaskData;
+    // private Transform[] npcPosTrans;
+    // private NavMeshAgent nav;
 
-    public override void InitSys() {
-        base.InitSys();
+    // public override void InitSys() {
+    //     base.InitSys();
 
-        Instance = this;
-        PECommon.Log("Init MainCitySys...");
-    }
+    //     Instance = this;
+    //     PECommon.Log("Init MainCitySys...");
+    // }
   
 
-    public void EnterMainCity(){
+    // public void EnterMainCity(){
 
-        Mapcfg  mapData =  resSvc.GetMapCfg(Constants.MainCityMapID);
+    //     Mapcfg  mapData =  resSvc.GetMapCfg(Constants.MainCityMapID);
 
-         resSvc.AsyncLoadScene(mapData.sceneName, () => {
-            PECommon.Log("Enter MainCity...");
+    //      resSvc.AsyncLoadScene(mapData.sceneName, () => {
+    //         PECommon.Log("Enter MainCity...");
 
-            // 加载游戏主角
-            LoadPlayer(mapData);
+    //         // 加载游戏主角
+    //         LoadPlayer(mapData);
 
-            //打开主城场景UI
-            maincityWnd.SetWndState();
+    //         //打开主城场景UI
+    //         maincityWnd.SetWndState();
 
-            GameRoot.Instance.GetComponent<AudioListener>().enabled = false;
-            //播放主城背景音乐
-            audioSvc.PlayBGMusic(Constants.BGMainCity);
+    //         GameRoot.Instance.GetComponent<AudioListener>().enabled = false;
+    //         //播放主城背景音乐
+    //         audioSvc.PlayBGMusic(Constants.BGMainCity);
 
-            GameObject map = GameObject.FindGameObjectWithTag("MapRoot");
-            MainCityMap mcm = map.GetComponent<MainCityMap>();
-            npcPosTrans = mcm.NpcPosTrans;
+    //         GameObject map = GameObject.FindGameObjectWithTag("MapRoot");
+    //         MainCityMap mcm = map.GetComponent<MainCityMap>();
+    //         npcPosTrans = mcm.NpcPosTrans;
 
-            //设置人物展示相机
-            if (charCamTrans != null) {
-                charCamTrans.gameObject.SetActive(false);
-            }
-        });
+    //         //设置人物展示相机
+    //         if (charCamTrans != null) {
+    //             charCamTrans.gameObject.SetActive(false);
+    //         }
+    //     });
 
-    }
+    // }
 
 
-        private void LoadPlayer(MapCfg mapData) {
-        GameObject player = resSvc.LoadPrefab(PathDefine.AssissnCityPlayerPrefab, true);
-        player.transform.position = mapData.playerBornPos;
-        player.transform.localEulerAngles = mapData.playerBornRote;
-        player.transform.localScale = new Vector3(1.5F, 1.5F, 1.5F);
+    //     private void LoadPlayer(MapCfg mapData) {
+    //     GameObject player = resSvc.LoadPrefab(PathDefine.AssissnCityPlayerPrefab, true);
+    //     player.transform.position = mapData.playerBornPos;
+    //     player.transform.localEulerAngles = mapData.playerBornRote;
+    //     player.transform.localScale = new Vector3(1.5F, 1.5F, 1.5F);
 
-        //相机初始化
-        Camera.main.transform.position = mapData.mainCamPos;
-        Camera.main.transform.localEulerAngles = mapData.mainCamRote;
+    //     //相机初始化
+    //     Camera.main.transform.position = mapData.mainCamPos;
+    //     Camera.main.transform.localEulerAngles = mapData.mainCamRote;
 
-        playerCtrl = player.GetComponent<PlayerController>();
-        playerCtrl.Init();
-        nav = player.GetComponent<NavMeshAgent>();
-    }
+    //     playerCtrl = player.GetComponent<PlayerController>();
+    //     playerCtrl.Init();
+    //     nav = player.GetComponent<NavMeshAgent>();
+    // }
   
 
-     public void SetMoveDir(Vector2 dir) {
-        StopNavTask();
+    //  public void SetMoveDir(Vector2 dir) {
+    //     StopNavTask();
 
-        if (dir == Vector2.zero) {
-            playerCtrl.SetBlend(Constants.BlendIdle);
-        }
-        else {
-            playerCtrl.SetBlend(Constants.BlendMove);
-        }
-        playerCtrl.Dir = dir;
-    }
+    //     if (dir == Vector2.zero) {
+    //         playerCtrl.SetBlend(Constants.BlendIdle);
+    //     }
+    //     else {
+    //         playerCtrl.SetBlend(Constants.BlendMove);
+    //     }
+    //     playerCtrl.Dir = dir;
+    // }
 
 
-    #region  Enter FubenSys
-    public void EnterFuben() {
-        StopNavTask();
-        FubenSys.Instance.EnterFuben();
-    }
-    #endregion
+    // #region  Enter FubenSys
+    // public void EnterFuben() {
+    //     StopNavTask();
+    //     FubenSys.Instance.EnterFuben();
+    // }
+    // #endregion
 
 
 }
