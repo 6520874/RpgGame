@@ -10,16 +10,16 @@ using UnityEngine;
 
 public class SystemRoot : MonoBehaviour {
     protected ResSvc resSvc;
-    // protected AudioSvc audioSvc;
-    // protected NetSvc netSvc;
-    // protected TimerSvc timerSvc;
+    protected AudioSvc audioSvc;
+    protected NetSvc netSvc;
+    protected TimerSvc timerSvc;
 
     public virtual void InitSys() {
           resSvc = ResSvc.Instance;
          Debug.Log("44...");
      
-        // audioSvc = AudioSvc.Instance;
-        // netSvc = NetSvc.Instance;
-        // timerSvc = TimerSvc.Instance;
+        audioSvc = AudioSvc.Instance;
+        netSvc = NetSvc.Instance;
+        timerSvc = TimerSvc.Instance;
     }
 }
