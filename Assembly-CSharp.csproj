@@ -88,6 +88,7 @@
      <Compile Include="Assets\Scripts\System\testtool.cs" />
      <Compile Include="Assets\Scripts\UIWindow\BattleEndWnd.cs" />
      <Compile Include="Assets\Scripts\UIWindow\DynamicWnd.cs" />
+     <Compile Include="Assets\Scripts\UIWindow\ItemEntityHP.cs" />
      <Compile Include="Assets\Scripts\UIWindow\LoadingWnd.cs" />
      <Compile Include="Assets\Scripts\UIWindow\LoginWnd.cs" />
      <Compile Include="Assets\Scripts\UIWindow\PlayerCtrlWnd.cs" />
