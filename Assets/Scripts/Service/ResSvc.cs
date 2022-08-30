@@ -11,7 +11,7 @@ using System.Collections.Generic;
 using System.Xml;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+   
 public class ResSvc : MonoBehaviour
 {
     public static ResSvc Instance = null;
@@ -34,6 +34,7 @@ public class ResSvc : MonoBehaviour
     }
     private Dictionary<string, GameObject> goDic = new Dictionary<string, GameObject>();
 
+    private Dictionary<int, MapCfg> mapCfgDataDic = new Dictionary<int, MapCfg>();
     public GameObject LoadPrefab(string path, bool cache = false)
     {
         GameObject prefab = null;
@@ -117,6 +118,14 @@ public class ResSvc : MonoBehaviour
         if (prgCB != null) {
             prgCB();
         }
+    }
+
+        public MapCfg GetMapCfg(int id) {
+        MapCfg data;
+        if (mapCfgDataDic.TryGetValue(id, out data)) {
+            return data;
+        }
+        return null;
     }
 }
 

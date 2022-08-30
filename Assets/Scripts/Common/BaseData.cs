@@ -119,3 +119,5 @@ public class BattleProps
     public int pierce;
     public int critical;
 }
+
+
