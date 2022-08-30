@@ -2826,8 +2826,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 558a3dd7b7cd32b4f853ceb8968d748f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bgAudio: {fileID: 0}
-  uiAudio: {fileID: 0}
+  bgAudio: {fileID: 28343623}
+  uiAudio: {fileID: 741318054}
 --- !u!114 &1973066236
 MonoBehaviour:
   m_ObjectHideFlags: 0

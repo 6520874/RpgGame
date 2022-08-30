@@ -6,9 +6,6 @@ using PEProtocol;
 
 public class NetSvc : MonoBehaviour {
 
-	// Use this for initialization      public static NetSvc Instance = null;
-
-
     public static NetSvc Instance = null;
     
     private static readonly string obj = "lock";
