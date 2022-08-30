@@ -6,20 +6,37 @@ using UnityEngine.UI;
 
 public class WindowRoot : MonoBehaviour {
 
-
-    private void Start()
-    {
-      
-      
-
+    protected ResSvc resSvc = null;
+    protected AudioSvc audioSvc = null;
+    protected NetSvc netSvc = null;
+    protected TimerSvc timerSvc = null;
+    public void SetWndState(bool isActive = true) {
+        if (gameObject.activeSelf != isActive) {
+            SetActive(gameObject, isActive);
+        }
+        if (isActive) {
+            InitWnd();
+        }
+        else {
+            ClearWnd();
+        }
     }
-
     protected virtual void InitWnd() {
         // resSvc = ResSvc.Instance;
         // audioSvc = AudioSvc.Instance;
         // netSvc = NetSvc.Instance;
         // timerSvc = TimerSvc.Instance;
     }
+
+
+    protected virtual void ClearWnd() {
+        resSvc = null;
+        audioSvc = null;
+        netSvc = null;
+        timerSvc = null;
+    }
+
+
 
     protected void SetActive(GameObject go, bool isActive = true) {
         go.SetActive(isActive);

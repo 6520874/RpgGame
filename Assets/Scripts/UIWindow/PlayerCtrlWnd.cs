@@ -136,5 +136,9 @@ public class PlayerCtrlWnd : WindowRoot {
         int index = expPrgVal / 10;
 
     }
+    
+    
+
+
 }
 #endregion
