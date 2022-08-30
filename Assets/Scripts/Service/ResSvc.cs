@@ -81,24 +81,24 @@ public class ResSvc : MonoBehaviour
     //     }
 
 
-    //  private Action prgCB = null;
+     private Action prgCB = null;
     public void AsyncLoadScene(string sceneName, Action loaded)
     {
          GameRoot.Instance.loadingWnd.SetWndState();
 
         AsyncOperation sceneAsync = SceneManager.LoadSceneAsync(sceneName);
-        // prgCB = () => {
-        //     float val = sceneAsync.progress;
-        //     GameRoot.Instance.loadingWnd.SetProgress(val);
-        //     if (val == 1) {
-        //         if (loaded != null) {
-        //             loaded();
-        //         }
-        //         prgCB = null;
-        //         sceneAsync = null;
-        //         //GameRoot.Instance.loadingWnd.SetWndState(false);
-        //     }
-        // };
+        prgCB = () => {
+            float val = sceneAsync.progress;
+            GameRoot.Instance.loadingWnd.SetProgress(val);
+            if (val == 1) {
+                if (loaded != null) {
+                    loaded();
+                }
+                prgCB = null;
+                sceneAsync = null;
+                GameRoot.Instance.loadingWnd.SetWndState(false);
+            }
+        };
     }
 
 
@@ -113,13 +113,12 @@ public class ResSvc : MonoBehaviour
         }
         return au;
     }
-    
+       private void Update() {
+        if (prgCB != null) {
+            prgCB();
+        }
+    }
 }
-//     private void Update() {
-//         if (prgCB != null) {
-//             prgCB();
-//         }
-//     }
 
 
 

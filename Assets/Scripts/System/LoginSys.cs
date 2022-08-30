@@ -10,7 +10,7 @@ using UnityEngine;
 public class LoginSys : SystemRoot {
     public static LoginSys Instance = null;
 
-    // public LoginWnd loginWnd;
+    public LoginWnd loginWnd;
 
     public override void InitSys() {
         base.InitSys();
@@ -27,8 +27,8 @@ public class LoginSys : SystemRoot {
         //并显示加载的进度
         resSvc.AsyncLoadScene(Constants.SceneLogin, () => {
             //加载完成以后再打开注册登录界面
-            // loginWnd.SetWndState();
-            // audioSvc.PlayBGMusic(Constants.BGLogin);
+            loginWnd.SetWndState();
+           // audioSvc.PlayBGMusic(Constants.BGLogin);
         });
     }
 
