@@ -84,6 +84,7 @@
      <Compile Include="Assets\Scripts\UIWindow\DynamicWnd.cs" />
      <Compile Include="Assets\Scripts\UIWindow\LoadingWnd.cs" />
      <Compile Include="Assets\Scripts\UIWindow\LoginWnd.cs" />
+     <Compile Include="Assets\Scripts\UIWindow\PlayerCtrlWnd.cs" />
      <None Include="Assets\Compond\MakeChar\Shader\PlayerShader.shader" />
      <None Include="Assets\Resources\ResCfgs\taskreward.xml" />
      <None Include="Assets\Resources\ResCfgs\rdname.xml" />
