@@ -14,6 +14,8 @@ using UnityEngine.AI;
 public class MainCitySys : SystemRoot {
     public static MainCitySys Instance = null;
 
+    public MainCityWnd maincityWnd;
+    public InfoWnd infoWnd;
 
     private PlayerController playerCtrl;
     private Transform charCamTrans;
@@ -29,7 +31,32 @@ public class MainCitySys : SystemRoot {
     }
   
 
+    public void RunTask(AutoGuideCfg agc) {
+
+
+    }
+
+    
+    public void OpenStrongWnd() {
+        // StopNavTask();
+        // strongWnd.SetWndState();
+    }
+
+    public void RspStrong(GameMsg msg) {
+        // int zhanliPre = PECommon.GetFightByProps(GameRoot.Instance.PlayerData);
+        // GameRoot.Instance.SetPlayerDataByStrong(msg.rspStrong);
+        // int zhanliNow = PECommon.GetFightByProps(GameRoot.Instance.PlayerData);
+        // GameRoot.AddTips(Constants.Color("战力提升 " + (zhanliNow - zhanliPre), TxtColor.Blue));
+
+        // strongWnd.UpdateUI();
+        // maincityWnd.RefreshUI();
+    }
+
+
     public void EnterMainCity(){
+
+
+    PECommon.Log(" EnterMainCity(...");
 
         // Mapcfg  mapData =  resSvc.GetMapCfg(Constants.MainCityMapID);
 

@@ -2780,6 +2780,7 @@ GameObject:
   - component: {fileID: 1973066235}
   - component: {fileID: 1973066234}
   - component: {fileID: 1973066233}
+  - component: {fileID: 1973066241}
   m_Layer: 0
   m_Name: GameRoot
   m_TagString: Untagged
@@ -2897,6 +2898,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   loadingWnd: {fileID: 790061618}
   dynamicWnd: {fileID: 118892406}
+--- !u!114 &1973066241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1973066231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 422d5e2b15ef8144586bc6f1fda6a142, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &2010140367 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114952679272849028, guid: dd35452806ee6d54db837918facb93eb,

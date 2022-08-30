@@ -47,8 +47,8 @@ public class GameRoot : MonoBehaviour
         // //业务系统初始化
         LoginSys login = GetComponent<LoginSys>();
         login.InitSys();
-        // MainCitySys maincity = GetComponent<MainCitySys>();
-        // maincity.InitSys();
+        MainCitySys maincity = GetComponent<MainCitySys>();
+        maincity.InitSys();
         // FubenSys fuben = GetComponent<FubenSys>();
         // fuben.InitSys();
         // BattleSys battle = GetComponent<BattleSys>();

@@ -66,5 +66,38 @@ public class WindowRoot : MonoBehaviour {
     protected void SetText(Text txt, int num = 0) {
         SetText(txt, num.ToString());
     }
+
+    protected  T GetOrAddComponect<T>(GameObject go)where T: Component{
+
+         T t = go.GetComponent<T>();
+         if (t == null){
+            t = go.AddComponent<T>();
+         }
+         return t;
+    }
+
     
+    #region Click Evts
+    protected void OnClick(GameObject go, Action<object> cb, object args) {
+        PEListener listener = GetOrAddComponect<PEListener>(go);
+        listener.onClick = cb;
+        listener.args = args;
+    }
+
+    protected void OnClickDown(GameObject go, Action<PointerEventData> cb) {
+        PEListener listener = GetOrAddComponect<PEListener>(go);
+        listener.onClickDown = cb;
+    }
+
+    protected void OnClickUp(GameObject go, Action<PointerEventData> cb) {
+        PEListener listener = GetOrAddComponect<PEListener>(go);
+        listener.onClickUp = cb;
+    }
+
+    protected void OnDrag(GameObject go, Action<PointerEventData> cb) {
+        PEListener listener = GetOrAddComponect<PEListener>(go);
+        listener.onDrag = cb;
+    }
+    #endregion
+
 }
