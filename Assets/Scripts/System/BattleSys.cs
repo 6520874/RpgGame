@@ -65,12 +65,12 @@ using UnityEngine;
     }
 
     public void SetPlayerCtrlWndState(bool isActive = true) {
-        playerCtrlWnd.SetWndState(isActive);
+      //  playerCtrlWnd.SetWndState(isActive);
     }
 
     public void SetBattleEndWndState(FBEndType endType, bool isActive = true) {
         battleEndWnd.SetWndType(endType);
-        battleEndWnd.SetWndState(isActive);
+       // battleEndWnd.SetWndState(isActive);
     }
 
     public void RspFightEnd(GameMsg msg) {
@@ -82,11 +82,11 @@ using UnityEngine;
     }
 
     public void SetMoveDir(Vector2 dir) {
-        battleMgr.SetSelfPlayerMoveDir(dir);
+        //battleMgr.SetSelfPlayerMoveDir(dir);
     }
 
     public void ReqReleaseSkill(int index) {
-        battleMgr.ReqReleaseSkill(index);
+        //battleMgr.ReqReleaseSkill(index);
     }
 
     public Vector2 GetDirInput() {

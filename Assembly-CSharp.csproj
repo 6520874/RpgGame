@@ -70,6 +70,7 @@
      <Compile Include="Assets\Scripts\Common\BaseData.cs" />
      <Compile Include="Assets\Scripts\Common\Constants.cs" />
      <Compile Include="Assets\Scripts\Common\PathDefine.cs" />
+     <Compile Include="Assets\Scripts\Common\PEListener.cs" />
      <Compile Include="Assets\Scripts\Common\TestPlayer.cs" />
      <Compile Include="Assets\Scripts\Common\TriggerData.cs" />
      <Compile Include="Assets\Scripts\Common\WindowRoot.cs" />
@@ -81,6 +82,7 @@
      <Compile Include="Assets\Scripts\System\LoginSys.cs" />
      <Compile Include="Assets\Scripts\System\SystemRoot.cs" />
      <Compile Include="Assets\Scripts\System\testtool.cs" />
+     <Compile Include="Assets\Scripts\UIWindow\BattleEndWnd.cs" />
      <Compile Include="Assets\Scripts\UIWindow\DynamicWnd.cs" />
      <Compile Include="Assets\Scripts\UIWindow\LoadingWnd.cs" />
      <Compile Include="Assets\Scripts\UIWindow\LoginWnd.cs" />
