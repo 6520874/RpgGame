@@ -64,15 +64,76 @@ public class PlayerCtrlWnd : WindowRoot {
 
     private int HPSum;
 
+
+    public Image imgRed;
+    public Image imgYellow;
+
+    public Transform transBossHPBar;
+
+
     protected override void InitWnd(){
         base.InitWnd();
+
+        pointDis = Screen.height*1.0f/Constants.ScreenStandardHeight*Constants.ScreenOPDis;
+        defaultPos = imgDirBg.transform.position;
+
+        SetActive(imgDirPoint,false);
+
         
+        HPSum = GameRoot.Instance.PlayerData.hp;
+        SetText(txtSelfHP, HPSum + "/" + HPSum);
+        imgSelfHP.fillAmount = 1;
+         
+        SetBossHPBarState(false);
+
+        RegisterTouchEvts();
 
     }
 
+    public void RegisterTouchEvts() {
+        OnClickDown(imgTouch.gameObject, (PointerEventData evt) => {
+            startPos = evt.position;
+            SetActive(imgDirPoint);
+            imgDirBg.transform.position = evt.position;
+        });
+        OnClickUp(imgTouch.gameObject, (PointerEventData evt) => {
+            imgDirBg.transform.position = defaultPos;
+            SetActive(imgDirPoint, false);
+            imgDirPoint.transform.localPosition = Vector2.zero;
+            currentDir = Vector2.zero;
+            BattleSys.Instance.SetMoveDir(currentDir);
+        });
+        OnDrag(imgTouch.gameObject, (PointerEventData evt) => {
+            Vector2 dir = evt.position - startPos;
+            float len = dir.magnitude;
+            if (len > pointDis) {
+                Vector2 clampDir = Vector2.ClampMagnitude(dir, pointDis);
+                imgDirPoint.transform.position = startPos + clampDir;
+            }
+            else {
+                imgDirPoint.transform.position = evt.position;
+            }
+            currentDir = dir.normalized;
+            BattleSys.Instance.SetMoveDir(currentDir);
+        });
+    }
+    
+    public void SetBossHPBarState(bool state,float prg = 1){
+        SetActive(transBossHPBar, state);
+        imgRed.fillAmount = prg;
+        imgYellow.fillAmount = prg;
+    }
 
     public void RefreshUI(){
+         PlayerData pd = GameRoot.Instance.PlayerData;
+         SetText(txtLevel, pd.lv);
+        SetText(txtName, pd.name);
+     
 
+        #region Expprg
+        int expPrgVal = (int)(pd.exp * 1.0f / PECommon.GetExpUpValByLv(pd.lv) * 100);
+        SetText(txtExpPrg, expPrgVal + "%");
+        int index = expPrgVal / 10;
 
     }
 
