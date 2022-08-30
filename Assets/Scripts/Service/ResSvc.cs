@@ -30,7 +30,7 @@ public class ResSvc : MonoBehaviour
         // InitSkillMoveCfg(PathDefine.SkillMoveCfg);
         // InitSkillActionCfg(PathDefine.SkillActionCfg);
 
-        // PECommon.Log("Init ResSvc...");
+        PECommon.Log("Init ResSvc...");
     }
     private Dictionary<string, GameObject> goDic = new Dictionary<string, GameObject>();
 
@@ -84,7 +84,7 @@ public class ResSvc : MonoBehaviour
     //  private Action prgCB = null;
     public void AsyncLoadScene(string sceneName, Action loaded)
     {
-        // GameRoot.Instance.loadingWnd.SetWndState();
+         GameRoot.Instance.loadingWnd.SetWndState();
 
         AsyncOperation sceneAsync = SceneManager.LoadSceneAsync(sceneName);
         // prgCB = () => {
@@ -102,7 +102,7 @@ public class ResSvc : MonoBehaviour
     }
 
 
-        private Dictionary<string, AudioClip> adDic = new Dictionary<string, AudioClip>();
+    private Dictionary<string, AudioClip> adDic = new Dictionary<string, AudioClip>();
     public AudioClip LoadAudio(string path, bool cache = false) {
         AudioClip au = null;
         if (!adDic.TryGetValue(path, out au)) {

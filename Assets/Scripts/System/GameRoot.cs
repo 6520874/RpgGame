@@ -51,8 +51,8 @@ public class GameRoot : MonoBehaviour
         // maincity.InitSys();
         // FubenSys fuben = GetComponent<FubenSys>();
         // fuben.InitSys();
-        BattleSys battle = GetComponent<BattleSys>();
-        battle.InitSys();
+        // BattleSys battle = GetComponent<BattleSys>();
+        // battle.InitSys();
 
         //进入登录场景并加载相应UI
         login.EnterLogin();
