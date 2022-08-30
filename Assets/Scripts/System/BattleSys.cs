@@ -60,7 +60,7 @@ using UnityEngine;
     public void DestroyBattle() {
         SetPlayerCtrlWndState(false);
         SetBattleEndWndState(FBEndType.None, false);
-        GameRoot.Instance.dynamicWnd.RmvAllHpItemInfo();
+       // GameRoot.Instance.dynamicWnd.RmvAllHpItemInfo();
         Destroy(battleMgr.gameObject);
     }
 

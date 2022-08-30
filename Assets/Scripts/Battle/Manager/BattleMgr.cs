@@ -5,15 +5,53 @@ using PEProtocol;
 public class BattleMgr : MonoBehaviour {
     private ResSvc resSvc;
 
-    //private AudioSvc audioSvc;
-    //private StateMgr stateMgr;
+    private AudioSvc audioSvc;
+    private StateMgr stateMgr;
 
     private StateMgr stateMgr;
     private MapCfg mapCfg;
       
     private MapMgr mapMgr;
     private Dictionary<string, EntityMonster> monsterDic = new Dictionary<string, EntityMonster>();
-public EntityPlayer entitySelfPlayer;
+    public EntityPlayer entitySelfPlayer;
+
+
+ public void Init(int mapid, Action cb = null) {
+        resSvc = ResSvc.Instance;
+        audioSvc = AudioSvc.Instance;
+
+        //初始化各管理器
+        stateMgr = gameObject.AddComponent<StateMgr>();
+        stateMgr.Init();
+        skillMgr = gameObject.AddComponent<SkillMgr>();
+        skillMgr.Init();
+
+        //加载战场地图
+        mapCfg = resSvc.GetMapCfg(mapid);
+        resSvc.AsyncLoadScene(mapCfg.sceneName, () => {
+            //初始化地图数据
+            GameObject map = GameObject.FindGameObjectWithTag("MapRoot");
+            mapMgr = map.GetComponent<MapMgr>();
+            mapMgr.Init(this);
+
+            map.transform.localPosition = Vector3.zero;
+            map.transform.localScale = Vector3.one;
+
+            Camera.main.transform.position = mapCfg.mainCamPos;
+            Camera.main.transform.localEulerAngles = mapCfg.mainCamRote;
+
+            LoadPlayer(mapCfg);
+            entitySelfPlayer.Idle();
+
+            //激活第一批次怪物
+            ActiveCurrentBatchMonsters();
+
+            audioSvc.PlayBGMusic(Constants.BGHuangYe);
+            if (cb != null) {
+                cb();
+            }
+        });
+    }
 
     public void LoadMonsterByWaveID(int wave)
     {
