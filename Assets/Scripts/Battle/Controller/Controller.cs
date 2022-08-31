@@ -10,6 +10,8 @@ public class Controller : MonoBehaviour {
     public Transform hpRoot;
     protected bool isMove = false;
     private Vector2 dir = Vector2.zero;
+    
+    protected TimerSvc timerSvc;
 
     public Vector2 Dir
     {
@@ -41,6 +43,15 @@ public class Controller : MonoBehaviour {
 
     public virtual void Init()
     {
-       
+       timerSvc = TimerSvc.Instance;
     }
+
+    public virtual void SetBlend(float blend) {
+        ani.SetFloat("Blend", blend);
+    }
+
+    public virtual void SetAction(int act) {
+        ani.SetInteger("Action", act);
+    }
+
 }

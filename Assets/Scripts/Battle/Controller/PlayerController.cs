@@ -127,7 +127,13 @@ public class PlayerController : Controller {
             currentBlend += Constants.AccelerSpeed * Time.deltaTime;
         }
         ani.SetFloat("Blend", currentBlend);
+    }  
+
+    public override void SetBlend(float blend) {
+        targetBlend = blend;
     }
+
+
 
     // //////////////////////////////////////////////////////////////////////////
     // public override void SetBlend(float blend) {

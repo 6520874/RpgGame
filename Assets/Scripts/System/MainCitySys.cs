@@ -50,10 +50,10 @@ public class MainCitySys : SystemRoot {
         StopNavTask();
 
         if (dir == Vector2.zero) {
-            //playerCtrl.SetBlend(Constants.BlendIdle);
+            playerCtrl.SetBlend(Constants.BlendIdle);
         }
         else {
-            //playerCtrl.SetBlend(Constants.BlendMove);
+            playerCtrl.SetBlend(Constants.BlendMove);
         }
         playerCtrl.Dir = dir;
     }
@@ -65,7 +65,7 @@ public class MainCitySys : SystemRoot {
 
             nav.isStopped = true;
             nav.enabled = false;
-           // playerCtrl.SetBlend(Constants.BlendIdle);
+           playerCtrl.SetBlend(Constants.BlendIdle);
         }
     }
 
