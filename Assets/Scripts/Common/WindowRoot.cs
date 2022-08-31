@@ -67,6 +67,11 @@ public class WindowRoot : MonoBehaviour {
         SetText(txt, num.ToString());
     }
 
+    protected void SetSprite(Image img, string path) {
+        Sprite sp = resSvc.LoadSprite(path, true);
+        img.sprite = sp;
+    }
+
     protected  T GetOrAddComponect<T>(GameObject go)where T: Component{
 
          T t = go.GetComponent<T>();

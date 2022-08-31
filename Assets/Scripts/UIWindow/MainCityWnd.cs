@@ -117,7 +117,7 @@ public class MainCityWnd : WindowRoot {
                 spPath = PathDefine.TaskHead;
                 break;
         }
-        //SetSprite(img, spPath);
+        SetSprite(img, spPath);
     }
     #endregion
 
