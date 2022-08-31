@@ -67,8 +67,8 @@ public class MainCitySys : SystemRoot {
 
             GameObject map = GameObject.FindGameObjectWithTag("MapRoot");
             
-            MainCityMap mcm = map.GetComponent<MainCityMap>();
-            npcPosTrans = mcm.NpcPosTrans;
+            // MainCityMap mcm = map.GetComponent<MainCityMap>();
+            // npcPosTrans = mcm.NpcPosTrans;
 
             //设置人物展示相机
             if (charCamTrans != null) {
