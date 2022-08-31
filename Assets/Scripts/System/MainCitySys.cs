@@ -38,27 +38,19 @@ public class MainCitySys : SystemRoot {
 
     
     public void OpenStrongWnd() {
-        // StopNavTask();
-        // strongWnd.SetWndState();
+ 
     }
 
     public void RspStrong(GameMsg msg) {
-        // int zhanliPre = PECommon.GetFightByProps(GameRoot.Instance.PlayerData);
-        // GameRoot.Instance.SetPlayerDataByStrong(msg.rspStrong);
-        // int zhanliNow = PECommon.GetFightByProps(GameRoot.Instance.PlayerData);
-        // GameRoot.AddTips(Constants.Color("战力提升 " + (zhanliNow - zhanliPre), TxtColor.Blue));
+         
 
-        // strongWnd.UpdateUI();
-        // maincityWnd.RefreshUI();
     }
 
 
     public void EnterMainCity(){
 
-
     PECommon.Log(" EnterMainCity(...");
-
-        Mapcfg  mapData =  resSvc.GetMapCfg(Constants.MainCityMapID);
+     MapCfg  mapData =  resSvc.GetMapCfg(Constants.MainCityMapID);
 
          resSvc.AsyncLoadScene(mapData.sceneName, () => {
             PECommon.Log("Enter MainCity...");
@@ -74,6 +66,7 @@ public class MainCitySys : SystemRoot {
             audioSvc.PlayBGMusic(Constants.BGMainCity);
 
             GameObject map = GameObject.FindGameObjectWithTag("MapRoot");
+            
             MainCityMap mcm = map.GetComponent<MainCityMap>();
             npcPosTrans = mcm.NpcPosTrans;
 
@@ -102,25 +95,6 @@ public class MainCitySys : SystemRoot {
     }
   
 
-    //  public void SetMoveDir(Vector2 dir) {
-    //     StopNavTask();
-
-    //     if (dir == Vector2.zero) {
-    //         playerCtrl.SetBlend(Constants.BlendIdle);
-    //     }
-    //     else {
-    //         playerCtrl.SetBlend(Constants.BlendMove);
-    //     }
-    //     playerCtrl.Dir = dir;
-    // }
-
-
-    // #region  Enter FubenSys
-    // public void EnterFuben() {
-    //     StopNavTask();
-    //     FubenSys.Instance.EnterFuben();
-    // }
-    // #endregion
 
 
 }
