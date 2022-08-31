@@ -42,12 +42,12 @@ public class MainCityWnd : WindowRoot {
     protected override void InitWnd() {
         base.InitWnd();
         pointDis = Screen.height * 1.0f / Constants.ScreenStandardHeight * Constants.ScreenOPDis;
-        // defaultPos = imgDirBg.transform.position;
-        // SetActive(imgDirPoint, false);
+       // defaultPos = imgDirBg.transform.position;
+       // SetActive(imgDirPoint, false);
 
-        // RegisterTouchEvts();
+        RegisterTouchEvts();
 
-        // RefreshUI();
+        RefreshUI();
     }
 
     public void RefreshUI() {
