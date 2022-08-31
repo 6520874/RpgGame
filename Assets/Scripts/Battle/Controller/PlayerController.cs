@@ -34,7 +34,7 @@ public class PlayerController : Controller {
         // if (daggerskill1fx != null) {
         //     fxDic.Add(daggerskill1fx.name, daggerskill1fx);
         // }
-        // if (daggeratk2fx != null) {
+    // if (daggeratk2fx != null) {
         //     fxDic.Add(daggerskill2fx.name, daggerskill2fx);
         // }
         // if (daggeratk3fx != null) {

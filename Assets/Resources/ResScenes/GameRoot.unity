@@ -3474,6 +3474,11 @@ Prefab:
       propertyPath: btnGuide
       value: 
       objectReference: {fileID: 661127412}
+    - target: {fileID: 114871098040794610, guid: 722f1cefd238d0a45965fc766b5b4f94,
+        type: 2}
+      propertyPath: imgTouch
+      value: 
+      objectReference: {fileID: 2052952896}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 722f1cefd238d0a45965fc766b5b4f94, type: 2}
   m_IsPrefabParent: 0
@@ -3483,6 +3488,12 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 2052952894}
   m_Script: {fileID: 11500000, guid: ccd78e8d64fb7b24ab17f83cc5fd555b, type: 3}
+--- !u!114 &2052952896 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114706398647665544, guid: 722f1cefd238d0a45965fc766b5b4f94,
+    type: 2}
+  m_PrefabInternal: {fileID: 2052952894}
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!111 &2117504528 stripped
 Animation:
   m_PrefabParentObject: {fileID: 111253612623194198, guid: 722f1cefd238d0a45965fc766b5b4f94,

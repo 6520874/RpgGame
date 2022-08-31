@@ -42,12 +42,12 @@ public class MainCityWnd : WindowRoot {
     protected override void InitWnd() {
         base.InitWnd();
         pointDis = Screen.height * 1.0f / Constants.ScreenStandardHeight * Constants.ScreenOPDis;
-       // defaultPos = imgDirBg.transform.position;
-       // SetActive(imgDirPoint, false);
+       defaultPos = imgDirBg.transform.position;
+       SetActive(imgDirPoint, false);
 
         RegisterTouchEvts();
 
-        RefreshUI();
+       // RefreshUI();
     }
 
     public void RefreshUI() {
@@ -168,7 +168,7 @@ public class MainCityWnd : WindowRoot {
     }
     public void ClickHeadBtn() {
         audioSvc.PlayUIAudio(Constants.UIOpenPage);
-       // MainCitySys.Instance.OpenInfoWnd();
+        //MainCitySys.Instance.OpenInfoWnd();
     }
     public void ClickChatBtn() {
         audioSvc.PlayUIAudio(Constants.UIOpenPage);
@@ -185,7 +185,7 @@ public class MainCityWnd : WindowRoot {
             imgDirBg.transform.position = defaultPos;
             SetActive(imgDirPoint, false);
             imgDirPoint.transform.localPosition = Vector2.zero;
-          //  MainCitySys.Instance.SetMoveDir(Vector2.zero);
+            MainCitySys.Instance.SetMoveDir(Vector2.zero);
         });
         OnDrag(imgTouch.gameObject, (PointerEventData evt) => {
             Vector2 dir = evt.position - startPos;
@@ -197,7 +197,7 @@ public class MainCityWnd : WindowRoot {
             else {
                 imgDirPoint.transform.position = evt.position;
             }
-           // MainCitySys.Instance.SetMoveDir(dir.normalized);
+            MainCitySys.Instance.SetMoveDir(dir.normalized);
         });
     }
     #endregion

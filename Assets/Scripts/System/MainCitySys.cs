@@ -22,7 +22,7 @@ public class MainCitySys : SystemRoot {
     private AutoGuideCfg curtTaskData;
     private Transform[] npcPosTrans;
     private NavMeshAgent nav;
-
+    private bool isNavGuide = false;
     public override void InitSys() {
         base.InitSys();
 
@@ -46,6 +46,28 @@ public class MainCitySys : SystemRoot {
 
     }
 
+   public void SetMoveDir(Vector2 dir) {
+        StopNavTask();
+
+        if (dir == Vector2.zero) {
+            //playerCtrl.SetBlend(Constants.BlendIdle);
+        }
+        else {
+            //playerCtrl.SetBlend(Constants.BlendMove);
+        }
+        playerCtrl.Dir = dir;
+    }
+
+   
+     private void StopNavTask() {
+        if (isNavGuide) {
+            isNavGuide = false;
+
+            nav.isStopped = true;
+            nav.enabled = false;
+           // playerCtrl.SetBlend(Constants.BlendIdle);
+        }
+    }
 
     public void EnterMainCity(){
 
