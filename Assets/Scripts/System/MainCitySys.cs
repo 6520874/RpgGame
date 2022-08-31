@@ -46,6 +46,12 @@ public class MainCitySys : SystemRoot {
 
     }
 
+     public void EnterFuben() {
+        StopNavTask();
+        FubenSys.Instance.EnterFuben();
+    }
+
+
    public void SetMoveDir(Vector2 dir) {
         StopNavTask();
 

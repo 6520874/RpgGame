@@ -128,7 +128,8 @@ public class PlayerController : Controller {
         }
         ani.SetFloat("Blend", currentBlend);
     }  
-
+    
+    //blend 融合
     public override void SetBlend(float blend) {
         targetBlend = blend;
     }

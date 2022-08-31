@@ -49,8 +49,8 @@ public class GameRoot : MonoBehaviour
         login.InitSys();
         MainCitySys maincity = GetComponent<MainCitySys>();
         maincity.InitSys();
-        // FubenSys fuben = GetComponent<FubenSys>();
-        // fuben.InitSys();
+        FubenSys fuben = GetComponent<FubenSys>();
+        fuben.InitSys();
         // BattleSys battle = GetComponent<BattleSys>();
         // battle.InitSys();
 

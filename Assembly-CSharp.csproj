@@ -82,6 +82,7 @@
      <Compile Include="Assets\Scripts\Service\ResSvc.cs" />
      <Compile Include="Assets\Scripts\Service\TimerSvc.cs" />
      <Compile Include="Assets\Scripts\System\BattleSys.cs" />
+     <Compile Include="Assets\Scripts\System\FubenSys.cs" />
      <Compile Include="Assets\Scripts\System\GameRoot.cs" />
      <Compile Include="Assets\Scripts\System\LoginSys.cs" />
      <Compile Include="Assets\Scripts\System\MainCitySys.cs" />
@@ -90,6 +91,7 @@
      <Compile Include="Assets\Scripts\UIWindow\BattleEndWnd.cs" />
      <Compile Include="Assets\Scripts\UIWindow\CreateWnd.cs" />
      <Compile Include="Assets\Scripts\UIWindow\DynamicWnd.cs" />
+     <Compile Include="Assets\Scripts\UIWindow\FubenWnd.cs" />
      <Compile Include="Assets\Scripts\UIWindow\InfoWnd.cs" />
      <Compile Include="Assets\Scripts\UIWindow\ItemEntityHP.cs" />
      <Compile Include="Assets\Scripts\UIWindow\LoadingWnd.cs" />
