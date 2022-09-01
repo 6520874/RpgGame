@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 224941799305876644}
   - component: {fileID: 114029430397683890}
+  - component: {fileID: 114025059624497128}
   m_Layer: 0
   m_Name: PlayerCtrlWnd
   m_TagString: Untagged
@@ -1020,6 +1021,17 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114025059624497128
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1008487246265376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4daeab82ce2b3d641bcabaa0ad646988, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114029430397683890
 MonoBehaviour:
   m_ObjectHideFlags: 1
