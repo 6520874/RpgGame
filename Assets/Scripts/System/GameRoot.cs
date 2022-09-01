@@ -43,7 +43,6 @@ public class GameRoot : MonoBehaviour
         timer.InitSvc();
  
      
-  
         // //业务系统初始化
         LoginSys login = GetComponent<LoginSys>();
         login.InitSys();
