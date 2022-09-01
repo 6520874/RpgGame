@@ -24,12 +24,22 @@ public class MapMgr : MonoBehaviour {
             co.isTrigger = false;
 
             battleMgr.LoadMonsterByWaveID(waveIndex);
-            // battleMgr.ActiveCurrentBatchMonsters();
-            // battleMgr.triggerCheck = true;
+            battleMgr.ActiveCurrentBatchMonsters();
+            battleMgr.triggerCheck = true;
         }
     }
     // Update is called once per frame
-    void Update () {
-		
-	}
+  
+    public bool SetNextTriggerOn() {
+        waveIndex += 1;
+        for (int i = 0; i < triggerArr.Length; i++) {
+            if (triggerArr[i].triggerWave == waveIndex) {
+                BoxCollider co = triggerArr[i].GetComponent<BoxCollider>();
+                co.isTrigger = true;
+                return true;
+            }
+        }
+
+        return false;
+    }
 }

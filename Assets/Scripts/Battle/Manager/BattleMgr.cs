@@ -18,7 +18,7 @@ public class BattleMgr : MonoBehaviour
     private MapMgr mapMgr;
     private Dictionary<string, EntityMonster> monsterDic = new Dictionary<string, EntityMonster>();
     public EntityPlayer entitySelfPlayer;
-
+    public bool triggerCheck = true;
 
     public void Init(int mapid, Action cb = null)
     {
@@ -141,6 +141,21 @@ public class BattleMgr : MonoBehaviour
 
 
     }
+
+
+    public void ActiveCurrentBatchMonsters() {
+        TimerSvc.Instance.AddTimeTask((int tid) => {
+            foreach (var item in monsterDic) {
+                item.Value.SetActive(true);
+                item.Value.Born();
+                TimerSvc.Instance.AddTimeTask((int id) => {
+                    //出生1秒钟后进入Idle
+                    item.Value.Idle();
+                }, 1000);
+            }
+        }, 500);
+    }
+
 
     public void SetSelfPlayerMoveDir(Vector2 dir)
     {

@@ -166,7 +166,12 @@ public abstract class EntityBase
             controller.Dir = dir;
         }
     }
-
+   
+      public void SetActive(bool active = true) {
+        if (controller != null) {
+            controller.gameObject.SetActive(active);
+        }
+    }
 
 
 }
