@@ -375,7 +375,7 @@ Prefab:
     - target: {fileID: 224256711207447654, guid: 626baf900b3e7e149a1551dbdb9a2376,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 200.92723
+      value: 203.38994
       objectReference: {fileID: 0}
     - target: {fileID: 224256711207447654, guid: 626baf900b3e7e149a1551dbdb9a2376,
         type: 2}
@@ -405,7 +405,7 @@ Prefab:
     - target: {fileID: 224718223941396370, guid: 626baf900b3e7e149a1551dbdb9a2376,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 326.32724
+      value: 328.78995
       objectReference: {fileID: 0}
     - target: {fileID: 224718223941396370, guid: 626baf900b3e7e149a1551dbdb9a2376,
         type: 2}
@@ -435,7 +435,7 @@ Prefab:
     - target: {fileID: 224606443598562112, guid: 626baf900b3e7e149a1551dbdb9a2376,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 451.72723
+      value: 454.18994
       objectReference: {fileID: 0}
     - target: {fileID: 224606443598562112, guid: 626baf900b3e7e149a1551dbdb9a2376,
         type: 2}
@@ -465,7 +465,7 @@ Prefab:
     - target: {fileID: 224816858854237112, guid: 626baf900b3e7e149a1551dbdb9a2376,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 577.12726
+      value: 579.58997
       objectReference: {fileID: 0}
     - target: {fileID: 224816858854237112, guid: 626baf900b3e7e149a1551dbdb9a2376,
         type: 2}
@@ -495,7 +495,7 @@ Prefab:
     - target: {fileID: 224002229843129958, guid: 626baf900b3e7e149a1551dbdb9a2376,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 702.5273
+      value: 704.9899
       objectReference: {fileID: 0}
     - target: {fileID: 224002229843129958, guid: 626baf900b3e7e149a1551dbdb9a2376,
         type: 2}
@@ -525,7 +525,7 @@ Prefab:
     - target: {fileID: 224022876819008510, guid: 626baf900b3e7e149a1551dbdb9a2376,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 827.92725
+      value: 830.38995
       objectReference: {fileID: 0}
     - target: {fileID: 224022876819008510, guid: 626baf900b3e7e149a1551dbdb9a2376,
         type: 2}
@@ -555,7 +555,7 @@ Prefab:
     - target: {fileID: 224553323014917112, guid: 626baf900b3e7e149a1551dbdb9a2376,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 953.3273
+      value: 955.79
       objectReference: {fileID: 0}
     - target: {fileID: 224553323014917112, guid: 626baf900b3e7e149a1551dbdb9a2376,
         type: 2}
@@ -585,7 +585,7 @@ Prefab:
     - target: {fileID: 224830808703715834, guid: 626baf900b3e7e149a1551dbdb9a2376,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 1078.7272
+      value: 1081.19
       objectReference: {fileID: 0}
     - target: {fileID: 224830808703715834, guid: 626baf900b3e7e149a1551dbdb9a2376,
         type: 2}
@@ -615,7 +615,7 @@ Prefab:
     - target: {fileID: 224379570347810666, guid: 626baf900b3e7e149a1551dbdb9a2376,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 1204.1272
+      value: 1206.5898
       objectReference: {fileID: 0}
     - target: {fileID: 224379570347810666, guid: 626baf900b3e7e149a1551dbdb9a2376,
         type: 2}
@@ -645,7 +645,7 @@ Prefab:
     - target: {fileID: 224455348204821076, guid: 626baf900b3e7e149a1551dbdb9a2376,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 1329.5272
+      value: 1331.9899
       objectReference: {fileID: 0}
     - target: {fileID: 224455348204821076, guid: 626baf900b3e7e149a1551dbdb9a2376,
         type: 2}
@@ -2340,9 +2340,6 @@ MonoBehaviour:
   txtSk3CD: {fileID: 0}
   txtSelfHP: {fileID: 0}
   imgSelfHP: {fileID: 0}
-  imgRed: {fileID: 0}
-  imgYellow: {fileID: 0}
-  transBossHPBar: {fileID: 0}
 --- !u!1001 &1663402727
 Prefab:
   m_ObjectHideFlags: 0
@@ -3080,9 +3077,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3a3528a52915f84c98e0d5912a90469, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerCtrlWnd: {fileID: 0}
-  battleEndWnd: {fileID: 0}
   battleMgr: {fileID: 0}
+  playerCtrlWnd: {fileID: 0}
 --- !u!114 &1973066234
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3198,9 +3194,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3a3528a52915f84c98e0d5912a90469, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerCtrlWnd: {fileID: 1659952992}
-  battleEndWnd: {fileID: 0}
   battleMgr: {fileID: 0}
+  playerCtrlWnd: {fileID: 1659952992}
 --- !u!114 &1978002311 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114061075929714806, guid: d208c0493dec91f44b8d778cdf98b181,

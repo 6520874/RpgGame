@@ -4,10 +4,12 @@ using UnityEngine;
     public class BattleSys: SystemRoot {
      
     public static BattleSys Instance = null;
+
+    
+    public BattleMgr battleMgr;
+
     public PlayerCtrlWnd playerCtrlWnd;
 
-    // public BattleEndWnd battleEndWnd;
-    public BattleMgr battleMgr;
 
     private int fbid;
     private double startTime;
@@ -20,16 +22,16 @@ using UnityEngine;
 
     public void StartBattle(int mapid) {
         fbid = mapid;
-        GameObject go = new GameObject {
-            name = "BattleRoot"
-        };
+        // GameObject go = new GameObject {
+        //     name = "BattleRoot"
+        // };
 
-        go.transform.SetParent(GameRoot.Instance.transform);
-        battleMgr = go.AddComponent<BattleMgr>();
+        // go.transform.SetParent(GameRoot.Instance.transform);
+        // battleMgr = go.AddComponent<BattleMgr>();
 
-        battleMgr.Init(mapid, () => {
-            startTime = timerSvc.GetNowTime();
-        });
+        // battleMgr.Init(mapid, () => {
+        //     startTime = timerSvc.GetNowTime();
+        // });
         SetPlayerCtrlWndState();
     }
 
@@ -60,9 +62,9 @@ using UnityEngine;
 
     public void DestroyBattle() {
         SetPlayerCtrlWndState(false);
-        SetBattleEndWndState(FBEndType.None, false);
+       // SetBattleEndWndState(FBEndType.None, false);
        // GameRoot.Instance.dynamicWnd.RmvAllHpItemInfo();
-        Destroy(battleMgr.gameObject);
+       // Destroy(battleMgr.gameObject);
     }
 
     public void SetPlayerCtrlWndState(bool isActive = true) {
