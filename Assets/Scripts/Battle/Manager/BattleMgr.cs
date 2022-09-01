@@ -50,7 +50,7 @@ public class BattleMgr : MonoBehaviour
             entitySelfPlayer.Idle();
 
             //激活第一批次怪物
-            //  ActiveCurrentBatchMonsters();
+             ActiveCurrentBatchMonsters();
 
             audioSvc.PlayBGMusic(Constants.BGHuangYe);
             if (cb != null)
