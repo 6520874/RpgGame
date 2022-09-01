@@ -155,16 +155,18 @@ public class MainCityWnd : WindowRoot {
     }
     public void ClickMenuBtn() {
         audioSvc.PlayUIAudio(Constants.UIExtenBtn);
-
-        menuState = !menuState;
-        AnimationClip clip = null;
-        if (menuState) {
-            clip = menuAni.GetClip("OpenMCMenu");
-        }
-        else {
-            clip = menuAni.GetClip("CloseMCMenu");
-        }
-        menuAni.Play(clip.name);
+       
+         //MainCitySys.Instance.infoWnd.SetWndState();
+        //MainCitySys.Instance.ssss.SetWndState();
+        // menuState = !menuState;
+        // AnimationClip clip = null;
+        // if (menuState) {
+        //     clip = menuAni.GetClip("OpenMCMenu");
+        // }
+        // else {
+        //     clip = menuAni.GetClip("CloseMCMenu");
+        // }
+        // menuAni.Play(clip.name);
     }
     public void ClickHeadBtn() {
         audioSvc.PlayUIAudio(Constants.UIOpenPage);

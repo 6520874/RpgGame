@@ -17,6 +17,9 @@ public class MainCitySys : SystemRoot {
     public MainCityWnd maincityWnd;
     public InfoWnd infoWnd;
 
+
+    public PlayerWnd ssss;
+
     private PlayerController playerCtrl;
     private Transform charCamTrans;
     private AutoGuideCfg curtTaskData;
@@ -122,6 +125,20 @@ public class MainCitySys : SystemRoot {
         nav = player.GetComponent<NavMeshAgent>();
     }
   
+    public void OpenInfoWnd() {
+        StopNavTask();
+
+        if (charCamTrans == null) {
+            charCamTrans = GameObject.FindGameObjectWithTag("CharShowCam").transform;
+        }
+
+        //设置人物展示相机相对位置
+        charCamTrans.localPosition = playerCtrl.transform.position + playerCtrl.transform.forward * 3.8f + new Vector3(0, 1.2f, 0);
+        charCamTrans.localEulerAngles = new Vector3(0, 180 + playerCtrl.transform.localEulerAngles.y, 0);
+        charCamTrans.localScale = Vector3.one;
+        charCamTrans.gameObject.SetActive(true);
+        infoWnd.SetWndState();
+    }
 
 
 
