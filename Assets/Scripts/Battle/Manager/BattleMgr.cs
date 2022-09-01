@@ -10,6 +10,9 @@ public class BattleMgr : MonoBehaviour
     private AudioSvc audioSvc;
     private StateMgr stateMgr;
 
+    private SkillMgr skillMgr;
+
+
     private MapCfg mapCfg;
 
     private MapMgr mapMgr;
@@ -25,8 +28,8 @@ public class BattleMgr : MonoBehaviour
         // //初始化各管理器
         stateMgr = gameObject.AddComponent<StateMgr>();
         stateMgr.Init();
-        // skillMgr = gameObject.AddComponent<SkillMgr>();
-        // skillMgr.Init();
+        skillMgr = gameObject.AddComponent<SkillMgr>();
+        skillMgr.Init();
 
         //加载战场地图
         mapCfg = resSvc.GetMapCfg(mapid);
@@ -59,47 +62,46 @@ public class BattleMgr : MonoBehaviour
 
     public void LoadMonsterByWaveID(int wave)
     {
-        //for (int i = 0; i < mapCfg.monsterLst.Count; i++)
-        //{
-        //    MonsterData md = mapCfg.monsterLst[i];
-        //    if (md.mWave == wave)
-        //    {
-        //        GameObject m = resSvc.LoadPrefab(md.mCfg.resPath, true);
-        //        m.transform.localPosition = md.mBornPos;
-        //        m.transform.localEulerAngles = md.mBornRote;
-        //        m.transform.localScale = Vector3.one;
+        for (int i = 0; i < mapCfg.monsterLst.Count; i++)
+        {
+           MonsterData md = mapCfg.monsterLst[i];
+           if (md.mWave == wave)
+           {
+               GameObject m = resSvc.LoadPrefab(md.mCfg.resPath, true);
+               m.transform.localPosition = md.mBornPos;
+               m.transform.localEulerAngles = md.mBornRote;
+               m.transform.localScale = Vector3.one;
 
-        //        m.name = "m" + md.mWave + "_" + md.mIndex;
+               m.name = "m" + md.mWave + "_" + md.mIndex;
 
-        //        EntityMonster em = new EntityMonster
-        //        {
-        //            battleMgr = this,
-        //            stateMgr = stateMgr,
-        //            skillMgr = skillMgr
-        //        };
-        //        //设置初始属性
-        //        em.md = md;
-        //        em.SetBattleProps(md.mCfg.bps);
-        //        em.Name = m.name;
+               EntityMonster em = new EntityMonster
+               {
+                   battleMgr = this,
+                   stateMgr = stateMgr,
+                   skillMgr = skillMgr
+               };
+               //设置初始属性
+               em.md = md;
+               em.SetBattleProps(md.mCfg.bps);
+               em.Name = m.name;
 
-        //        MonsterController mc = m.GetComponent<MonsterController>();
-        //        mc.Init();
-        //        em.SetCtrl(mc);
+               MonsterController mc = m.GetComponent<MonsterController>();
+               mc.Init();
+               em.SetCtrl(mc);
 
-        //        m.SetActive(false);
-        //        monsterDic.Add(m.name, em);
-        //        if (md.mCfg.mType == MonsterType.Normal)
-        //        {
-        //            GameRoot.Instance.dynamicWnd.AddHpItemInfo(m.name, mc.hpRoot, em.HP);
-        //        }
-        //        else if (md.mCfg.mType == MonsterType.Boss)
-        //        {
-        //            BattleSys.Instance.playerCtrlWnd.SetBossHPBarState(true);
-        //        }
-        //    }
-        //}
+               m.SetActive(false);
+               monsterDic.Add(m.name, em);
+               if (md.mCfg.mType == MonsterType.Normal)
+               {
+                   GameRoot.Instance.dynamicWnd.AddHpItemInfo(m.name, mc.hpRoot, em.HP);
+               }
+               else if (md.mCfg.mType == MonsterType.Boss)
+               {
+                   BattleSys.Instance.playerCtrlWnd.SetBossHPBarState(true);
+               }
+           }
+        }
     }
-    // Update is called once per frame
 
 
     private void LoadPlayer(MapCfg mapData)

@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\Battle\Controller\Controller.cs" />
+     <Compile Include="Assets\Scripts\Battle\Controller\MonsterController.cs" />
      <Compile Include="Assets\Scripts\Battle\Controller\PlayerController.cs" />
      <Compile Include="Assets\Scripts\Battle\Entity\EntityBase.cs" />
      <Compile Include="Assets\Scripts\Battle\Entity\EntityMonster.cs" />
