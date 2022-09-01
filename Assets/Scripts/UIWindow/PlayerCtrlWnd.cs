@@ -184,77 +184,77 @@ public class PlayerCtrlWnd : WindowRoot
         //     ClickSkill3Atk();
         // }
 
-        float delta = Time.deltaTime;
-        #region Skill CD
-        if (isSk1CD)
-        {
-            sk1FillCount += delta;
-            if (sk1FillCount >= sk1CDTime)
-            {
-                isSk1CD = false;
-                SetActive(imgSk1CD, false);
-                sk1FillCount = 0;
-            }
-            else
-            {
-                imgSk1CD.fillAmount = 1 - sk1FillCount / sk1CDTime;
-            }
+        // float delta = Time.deltaTime;
+        // #region Skill CD
+        // if (isSk1CD)
+        // {
+        //     sk1FillCount += delta;
+        //     if (sk1FillCount >= sk1CDTime)
+        //     {
+        //         isSk1CD = false;
+        //         SetActive(imgSk1CD, false);
+        //         sk1FillCount = 0;
+        //     }
+        //     else
+        //     {
+        //         imgSk1CD.fillAmount = 1 - sk1FillCount / sk1CDTime;
+        //     }
 
-            sk1NumCount += delta;
-            if (sk1NumCount >= 1)
-            {
-                sk1NumCount -= 1;
-                sk1Num -= 1;
-                SetText(txtSk1CD, sk1Num);
-            }
-        }
+        //     sk1NumCount += delta;
+        //     if (sk1NumCount >= 1)
+        //     {
+        //         sk1NumCount -= 1;
+        //         sk1Num -= 1;
+        //         SetText(txtSk1CD, sk1Num);
+        //     }
+        // }
 
-        if (isSk2CD)
-        {
-            sk2FillCount += delta;
-            if (sk2FillCount >= sk2CDTime)
-            {
-                isSk2CD = false;
-                SetActive(imgSk2CD, false);
-                sk2FillCount = 0;
-            }
-            else
-            {
-                imgSk2CD.fillAmount = 1 - sk2FillCount / sk2CDTime;
-            }
+        // if (isSk2CD)
+        // {
+        //     sk2FillCount += delta;
+        //     if (sk2FillCount >= sk2CDTime)
+        //     {
+        //         isSk2CD = false;
+        //         SetActive(imgSk2CD, false);
+        //         sk2FillCount = 0;
+        //     }
+        //     else
+        //     {
+        //         imgSk2CD.fillAmount = 1 - sk2FillCount / sk2CDTime;
+        //     }
 
-            sk2NumCount += delta;
-            if (sk2NumCount >= 1)
-            {
-                sk2NumCount -= 1;
-                sk2Num -= 1;
-                SetText(txtSk2CD, sk2Num);
-            }
-        }
+        //     sk2NumCount += delta;
+        //     if (sk2NumCount >= 1)
+        //     {
+        //         sk2NumCount -= 1;
+        //         sk2Num -= 1;
+        //         SetText(txtSk2CD, sk2Num);
+        //     }
+        // }
 
-        if (isSk3CD)
-        {
-            sk3FillCount += delta;
-            if (sk3FillCount >= sk3CDTime)
-            {
-                isSk3CD = false;
-                SetActive(imgSk3CD, false);
-                sk3FillCount = 0;
-            }
-            else
-            {
-                imgSk3CD.fillAmount = 1 - sk3FillCount / sk3CDTime;
-            }
+        // if (isSk3CD)
+        // {
+        //     sk3FillCount += delta;
+        //     if (sk3FillCount >= sk3CDTime)
+        //     {
+        //         isSk3CD = false;
+        //         SetActive(imgSk3CD, false);
+        //         sk3FillCount = 0;
+        //     }
+        //     else
+        //     {
+        //         imgSk3CD.fillAmount = 1 - sk3FillCount / sk3CDTime;
+        //     }
 
-            sk3NumCount += delta;
-            if (sk3NumCount >= 1)
-            {
-                sk3NumCount -= 1;
-                sk3Num -= 1;
-                SetText(txtSk3CD, sk3Num);
-            }
-        }
-        #endregion
+        //     sk3NumCount += delta;
+        //     if (sk3NumCount >= 1)
+        //     {
+        //         sk3NumCount -= 1;
+        //         sk3Num -= 1;
+        //         SetText(txtSk3CD, sk3Num);
+        //     }
+        // }
+        // #endregion
 
         // if (transBossHPBar.gameObject.activeSelf) {
         //     BlendBossHP();
