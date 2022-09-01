@@ -82,7 +82,7 @@ public abstract class EntityBase{
     {
         if (controller != null)
         {
-         //   controller.SetBlend(blend);
+          controller.SetBlend(blend);
         }
 
     }
@@ -91,7 +91,7 @@ public abstract class EntityBase{
 
      public virtual void SetAction(int act) {
         if (controller != null) {
-            //controller.SetAction(act);
+            controller.SetAction(act);
         }
     }
     public void ExitCurtSkill() {
@@ -114,6 +114,11 @@ public abstract class EntityBase{
         }
         SetAction(Constants.ActionDefault);
     }
+
+     public void SetCtrl(Controller ctrl) {
+        controller = ctrl;
+    }
+
 
     public void Born() {
         stateMgr.ChangeStatus(this, AniState.Born, null);
@@ -139,7 +144,7 @@ public abstract class EntityBase{
             controller.Dir = dir;
         }
     }
-    
+
 
 
 }

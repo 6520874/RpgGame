@@ -44,7 +44,7 @@ public class BattleMgr : MonoBehaviour
             Camera.main.transform.localEulerAngles = mapCfg.mainCamRote;
 
             LoadPlayer(mapCfg);
-            //entitySelfPlayer.Idle();
+            entitySelfPlayer.Idle();
 
             //激活第一批次怪物
             //  ActiveCurrentBatchMonsters();
@@ -135,7 +135,7 @@ public class BattleMgr : MonoBehaviour
 
         PlayerController playerCtrl = player.GetComponent<PlayerController>();
         playerCtrl.Init();
-        //entitySelfPlayer.SetCtrl(playerCtrl);
+        entitySelfPlayer.SetCtrl(playerCtrl);
 
 
     }
