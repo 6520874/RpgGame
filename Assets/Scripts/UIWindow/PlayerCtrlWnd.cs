@@ -69,21 +69,21 @@ public class PlayerCtrlWnd : WindowRoot
     {
         base.InitWnd();
 
-        // pointDis = Screen.height * 1.0f / Constants.ScreenStandardHeight * Constants.ScreenOPDis;
-        // defaultPos = imgDirBg.transform.position;
-        // SetActive(imgDirPoint, false);
+        pointDis = Screen.height * 1.0f / Constants.ScreenStandardHeight * Constants.ScreenOPDis;
+        defaultPos = imgDirBg.transform.position;
+        SetActive(imgDirPoint, false);
 
-        // HPSum = GameRoot.Instance.PlayerData.hp;
-        // SetText(txtSelfHP, HPSum + "/" + HPSum);
-        // imgSelfHP.fillAmount = 1;
+        HPSum = GameRoot.Instance.PlayerData.hp;
+        SetText(txtSelfHP, HPSum + "/" + HPSum);
+        imgSelfHP.fillAmount = 1;
 
-        // SetBossHPBarState(false);
-      //  RegisterTouchEvts();
-        // sk1CDTime = resSvc.GetSkillCfg(101).cdTime / 1000.0f;
-        // sk2CDTime = resSvc.GetSkillCfg(102).cdTime / 1000.0f;
-        // sk3CDTime = resSvc.GetSkillCfg(103).cdTime / 1000.0f;
+        SetBossHPBarState(false);
+       RegisterTouchEvts();
+        sk1CDTime = resSvc.GetSkillCfg(101).cdTime / 1000.0f;
+        sk2CDTime = resSvc.GetSkillCfg(102).cdTime / 1000.0f;
+        sk3CDTime = resSvc.GetSkillCfg(103).cdTime / 1000.0f;
 
-        // RefreshUI();
+        RefreshUI();
     }
 
     public void SetBossHPBarState(bool state, float prg = 1)

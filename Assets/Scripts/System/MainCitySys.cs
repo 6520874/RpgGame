@@ -17,7 +17,7 @@ public class MainCitySys : SystemRoot {
     public MainCityWnd maincityWnd;
     public InfoWnd infoWnd;
 
-
+    public BuyWnd buyWnd;
     public PlayerWnd ssss;
 
     private PlayerController playerCtrl;
@@ -48,6 +48,32 @@ public class MainCitySys : SystemRoot {
          
 
     }
+
+        public void RspBuy(GameMsg msg) {
+        RspBuy rspBuy = msg.rspBuy;
+        GameRoot.Instance.SetPlayerDataByBuy(rspBuy);
+        GameRoot.AddTips("购买成功");
+
+        maincityWnd.RefreshUI();
+        buyWnd.SetWndState(false);
+
+        if (msg.pshTaskPrgs != null) {
+            GameRoot.Instance.SetPlayerDataByTaskPsh(msg.pshTaskPrgs);
+            // if (taskWnd.GetWndState()) {
+            //     taskWnd.RefreshUI();
+            // }
+        }
+
+    }
+
+    public void PshPower(GameMsg msg) {
+        PshPower data = msg.pshPower;
+        GameRoot.Instance.SetPlayerDataByPower(data);
+        // if (maincityWnd.GetWndState()) {
+        //     maincityWnd.RefreshUI();
+        // }
+    }
+
 
      public void EnterFuben() {
         StopNavTask();
@@ -141,5 +167,10 @@ public class MainCitySys : SystemRoot {
     }
 
 
+    public void OpenBuyWnd(int type) {
+        StopNavTask();
+        buyWnd.SetBuyType(type);
+        buyWnd.SetWndState();
+    }
 
 }

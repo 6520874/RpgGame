@@ -127,13 +127,14 @@ public class MainCityWnd : WindowRoot {
         MainCitySys.Instance.EnterFuben();
     }
 
+
     public void ClickTaskBtn() {
         audioSvc.PlayUIAudio(Constants.UIOpenPage);
        // MainCitySys.Instance.OpenTaskRewardWnd();
     }
     public void ClickBuyPowerBtn() {
         audioSvc.PlayUIAudio(Constants.UIOpenPage);
-        //MainCitySys.Instance.OpenBuyWnd(0);
+        MainCitySys.Instance.OpenBuyWnd(0);
     }
     public void ClickMKCoinBtn() {
         audioSvc.PlayUIAudio(Constants.UIOpenPage);
