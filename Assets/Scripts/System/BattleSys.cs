@@ -30,7 +30,7 @@ public class BattleSys : SystemRoot {
         battleMgr = go.AddComponent<BattleMgr>();
 
         battleMgr.Init(mapid, () => {
-            startTime = timerSvc.GetNowTime();
+           // startTime = timerSvc.GetNowTime();
         });
         SetPlayerCtrlWndState();
     }
