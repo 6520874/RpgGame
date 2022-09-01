@@ -114,25 +114,32 @@ public abstract class EntityBase{
         }
         SetAction(Constants.ActionDefault);
     }
+
+    public void Born() {
+        stateMgr.ChangeStatus(this, AniState.Born, null);
+    }
+    public void Move() {
+        stateMgr.ChangeStatus(this, AniState.Move, null);
+    }
+    public void Idle() {
+        stateMgr.ChangeStatus(this, AniState.Idle, null);
+    }
+    public void Attack(int skillID) {
+        stateMgr.ChangeStatus(this, AniState.Attack, skillID);
+    }
+    public void Hit() {
+        stateMgr.ChangeStatus(this, AniState.Hit, null);
+    }
+    public void Die() {
+        stateMgr.ChangeStatus(this, AniState.Die, null);
+    }
+
+        public virtual void SetDir(Vector2 dir) {
+        if (controller != null) {
+            controller.Dir = dir;
+        }
+    }
     
-    // public void Born() {
-    //     stateMgr.ChangeStatus(this, AniState.Born, null);
-    // }
-    // public void Move() {
-    //     stateMgr.ChangeStatus(this, AniState.Move, null);
-    // }
-    // public void Idle() {
-    //     stateMgr.ChangeStatus(this, AniState.Idle, null);
-    // }
-    // public void Attack(int skillID) {
-    //     stateMgr.ChangeStatus(this, AniState.Attack, skillID);
-    // }
-    // public void Hit() {
-    //     stateMgr.ChangeStatus(this, AniState.Hit, null);
-    // }
-    // public void Die() {
-    //     stateMgr.ChangeStatus(this, AniState.Die, null);
-    // }
 
 
 }

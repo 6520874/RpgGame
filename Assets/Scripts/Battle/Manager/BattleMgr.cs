@@ -3,20 +3,22 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using PEProtocol;
-public class BattleMgr : MonoBehaviour {
+public class BattleMgr : MonoBehaviour
+{
     private ResSvc resSvc;
 
     private AudioSvc audioSvc;
     private StateMgr stateMgr;
 
     private MapCfg mapCfg;
-      
+
     private MapMgr mapMgr;
     private Dictionary<string, EntityMonster> monsterDic = new Dictionary<string, EntityMonster>();
     public EntityPlayer entitySelfPlayer;
 
 
- public void Init(int mapid, Action cb = null) {
+    public void Init(int mapid, Action cb = null)
+    {
         resSvc = ResSvc.Instance;
         audioSvc = AudioSvc.Instance;
 
@@ -28,7 +30,8 @@ public class BattleMgr : MonoBehaviour {
 
         //加载战场地图
         mapCfg = resSvc.GetMapCfg(mapid);
-        resSvc.AsyncLoadScene(mapCfg.sceneName, () => {
+        resSvc.AsyncLoadScene(mapCfg.sceneName, () =>
+        {
             //初始化地图数据
             GameObject map = GameObject.FindGameObjectWithTag("MapRoot");
             mapMgr = map.GetComponent<MapMgr>();
@@ -44,10 +47,11 @@ public class BattleMgr : MonoBehaviour {
             //entitySelfPlayer.Idle();
 
             //激活第一批次怪物
-          //  ActiveCurrentBatchMonsters();
+            //  ActiveCurrentBatchMonsters();
 
             audioSvc.PlayBGMusic(Constants.BGHuangYe);
-            if (cb != null) {
+            if (cb != null)
+            {
                 cb();
             }
         });
@@ -97,8 +101,8 @@ public class BattleMgr : MonoBehaviour {
     }
     // Update is called once per frame
 
- 
-     private void LoadPlayer(MapCfg mapData)
+
+    private void LoadPlayer(MapCfg mapData)
     {
         GameObject player = resSvc.LoadPrefab(PathDefine.AssissnBattlePlayerPrefab);
 
@@ -120,7 +124,8 @@ public class BattleMgr : MonoBehaviour {
 
         };
 
-           entitySelfPlayer = new EntityPlayer {
+        entitySelfPlayer = new EntityPlayer
+        {
             battleMgr = this,
             stateMgr = stateMgr,
             // skillMgr = skillMgr
@@ -135,21 +140,26 @@ public class BattleMgr : MonoBehaviour {
 
     }
 
-        public void SetSelfPlayerMoveDir(Vector2 dir) {
+    public void SetSelfPlayerMoveDir(Vector2 dir)
+    {
         //设置玩家移动
         //PECommon.Log(dir.ToString());
 
-        if (entitySelfPlayer.canControl == false) {
+        if (entitySelfPlayer.canControl == false)
+        {
             return;
         }
 
-        if (entitySelfPlayer.currentAniState == AniState.Idle || entitySelfPlayer.currentAniState == AniState.Move) {
-            if (dir == Vector2.zero) {
-               // entitySelfPlayer.Idle();
+        if (entitySelfPlayer.currentAniState == AniState.Idle || entitySelfPlayer.currentAniState == AniState.Move)
+        {
+            if (dir == Vector2.zero)
+            {
+                entitySelfPlayer.Idle();
             }
-            else {
-                // entitySelfPlayer.Move();
-                // entitySelfPlayer.SetDir(dir);
+            else
+            {
+                entitySelfPlayer.Move();
+                entitySelfPlayer.SetDir(dir);
             }
         }
     }
