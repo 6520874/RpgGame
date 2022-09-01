@@ -23,8 +23,8 @@ public class BattleMgr : MonoBehaviour
         audioSvc = AudioSvc.Instance;
 
         // //初始化各管理器
-        // stateMgr = gameObject.AddComponent<StateMgr>();
-        // stateMgr.Init();
+        stateMgr = gameObject.AddComponent<StateMgr>();
+        stateMgr.Init();
         // skillMgr = gameObject.AddComponent<SkillMgr>();
         // skillMgr.Init();
 

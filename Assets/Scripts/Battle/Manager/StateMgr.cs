@@ -6,7 +6,7 @@ public class StateMgr : MonoBehaviour {
        private Dictionary<AniState, IState> fsm = new Dictionary<AniState, IState>();
 
 
-    public void Init(BattleMgr battle)
+    public void Init()
     {
        fsm.Add(AniState.Born, new StateBorn());
         fsm.Add(AniState.Idle, new StateIdle());
@@ -32,7 +32,7 @@ public class StateMgr : MonoBehaviour {
             fsm[targetState].Process(entity, args);
         }
     }
-	
+
 	// Use this for initialization
 	void Start () {
 		

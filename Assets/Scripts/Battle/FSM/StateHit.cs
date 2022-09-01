@@ -5,7 +5,7 @@ class StateHit : IState
 {
     public void Enter(EntityBase entity, params object[] args)
     {
-        entity.currentAniState = AniState.Attack;
+        entity.currentAniState = AniState.Hit;
         //entity.curSkillCfg = ResSvc.Instance.GetSkillCfg();
 
     }
