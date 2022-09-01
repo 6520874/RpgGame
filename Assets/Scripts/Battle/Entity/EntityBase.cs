@@ -49,7 +49,7 @@ public abstract class EntityBase
 
     public Queue<int> comboQue = new Queue<int>();
     public int nextSkillID = 0;
-
+    public int skEndCB = -1;
     public SkillCfg curtSkillCfg;
 
 

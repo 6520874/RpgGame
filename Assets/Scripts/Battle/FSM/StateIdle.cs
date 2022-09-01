@@ -7,7 +7,7 @@ public class StateIdle : IState
     {
         entity.currentAniState = AniState.Idle;
         entity.SetDir(Vector2.zero);
-       // entity.skEndCB = -1;
+        entity.skEndCB = -1;
 
     }
 
