@@ -11,14 +11,14 @@ using PEProtocol;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class MainCitySys : SystemRoot {
+public class MainCitySys : SystemRoot
+{
     public static MainCitySys Instance = null;
 
     public MainCityWnd maincityWnd;
     public InfoWnd infoWnd;
 
     public BuyWnd buyWnd;
-    public PlayerWnd ssss;
 
     private PlayerController playerCtrl;
     private Transform charCamTrans;
@@ -26,30 +26,35 @@ public class MainCitySys : SystemRoot {
     private Transform[] npcPosTrans;
     private NavMeshAgent nav;
     private bool isNavGuide = false;
-    public override void InitSys() {
+    public override void InitSys()
+    {
         base.InitSys();
 
         Instance = this;
         PECommon.Log("Init MainCitySys...");
     }
-  
 
-    public void RunTask(AutoGuideCfg agc) {
+
+    public void RunTask(AutoGuideCfg agc)
+    {
+
+
+    }
+
+
+    public void OpenStrongWnd()
+    {
+
+    }
+
+    public void RspStrong(GameMsg msg)
+    {
 
 
     }
 
-    
-    public void OpenStrongWnd() {
- 
-    }
-
-    public void RspStrong(GameMsg msg) {
-         
-
-    }
-
-        public void RspBuy(GameMsg msg) {
+    public void RspBuy(GameMsg msg)
+    {
         RspBuy rspBuy = msg.rspBuy;
         GameRoot.Instance.SetPlayerDataByBuy(rspBuy);
         GameRoot.AddTips("购买成功");
@@ -57,7 +62,8 @@ public class MainCitySys : SystemRoot {
         maincityWnd.RefreshUI();
         buyWnd.SetWndState(false);
 
-        if (msg.pshTaskPrgs != null) {
+        if (msg.pshTaskPrgs != null)
+        {
             GameRoot.Instance.SetPlayerDataByTaskPsh(msg.pshTaskPrgs);
             // if (taskWnd.GetWndState()) {
             //     taskWnd.RefreshUI();
@@ -66,7 +72,8 @@ public class MainCitySys : SystemRoot {
 
     }
 
-    public void PshPower(GameMsg msg) {
+    public void PshPower(GameMsg msg)
+    {
         PshPower data = msg.pshPower;
         GameRoot.Instance.SetPlayerDataByPower(data);
         // if (maincityWnd.GetWndState()) {
@@ -75,41 +82,49 @@ public class MainCitySys : SystemRoot {
     }
 
 
-     public void EnterFuben() {
+    public void EnterFuben()
+    {
         StopNavTask();
         FubenSys.Instance.EnterFuben();
     }
 
 
-   public void SetMoveDir(Vector2 dir) {
+    public void SetMoveDir(Vector2 dir)
+    {
         StopNavTask();
 
-        if (dir == Vector2.zero) {
+        if (dir == Vector2.zero)
+        {
             playerCtrl.SetBlend(Constants.BlendIdle);
         }
-        else {
+        else
+        {
             playerCtrl.SetBlend(Constants.BlendMove);
         }
         playerCtrl.Dir = dir;
     }
 
-   
-     private void StopNavTask() {
-        if (isNavGuide) {
+
+    private void StopNavTask()
+    {
+        if (isNavGuide)
+        {
             isNavGuide = false;
 
             nav.isStopped = true;
             nav.enabled = false;
-           playerCtrl.SetBlend(Constants.BlendIdle);
+            playerCtrl.SetBlend(Constants.BlendIdle);
         }
     }
 
-    public void EnterMainCity(){
+    public void EnterMainCity()
+    {
 
-    PECommon.Log(" EnterMainCity(...");
-     MapCfg  mapData =  resSvc.GetMapCfg(Constants.MainCityMapID);
+        PECommon.Log(" EnterMainCity(...");
+        MapCfg mapData = resSvc.GetMapCfg(Constants.MainCityMapID);
 
-         resSvc.AsyncLoadScene(mapData.sceneName, () => {
+        resSvc.AsyncLoadScene(mapData.sceneName, () =>
+        {
             PECommon.Log("Enter MainCity...");
 
             // 加载游戏主角
@@ -123,12 +138,13 @@ public class MainCitySys : SystemRoot {
             audioSvc.PlayBGMusic(Constants.BGMainCity);
 
             GameObject map = GameObject.FindGameObjectWithTag("MapRoot");
-            
+
             // MainCityMap mcm = map.GetComponent<MainCityMap>();
             // npcPosTrans = mcm.NpcPosTrans;
 
             //设置人物展示相机
-            if (charCamTrans != null) {
+            if (charCamTrans != null)
+            {
                 charCamTrans.gameObject.SetActive(false);
             }
         });
@@ -136,7 +152,8 @@ public class MainCitySys : SystemRoot {
     }
 
 
-        private void LoadPlayer(MapCfg mapData) {
+    private void LoadPlayer(MapCfg mapData)
+    {
         GameObject player = resSvc.LoadPrefab(PathDefine.AssissnCityPlayerPrefab, true);
         player.transform.position = mapData.playerBornPos;
         player.transform.localEulerAngles = mapData.playerBornRote;
@@ -150,11 +167,13 @@ public class MainCitySys : SystemRoot {
         playerCtrl.Init();
         nav = player.GetComponent<NavMeshAgent>();
     }
-  
-    public void OpenInfoWnd() {
+
+    public void OpenInfoWnd()
+    {
         StopNavTask();
 
-        if (charCamTrans == null) {
+        if (charCamTrans == null)
+        {
             charCamTrans = GameObject.FindGameObjectWithTag("CharShowCam").transform;
         }
 
@@ -167,7 +186,8 @@ public class MainCitySys : SystemRoot {
     }
 
 
-    public void OpenBuyWnd(int type) {
+    public void OpenBuyWnd(int type)
+    {
         StopNavTask();
         buyWnd.SetBuyType(type);
         buyWnd.SetWndState();

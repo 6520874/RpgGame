@@ -34,8 +34,7 @@ public class GameRoot : MonoBehaviour
     {
         //服务模块初始化
         
-        BattleSys battle = GetComponent<BattleSys>();
-        battle.InitSys();
+   
 
 
         NetSvc net = GetComponent<NetSvc>();
@@ -56,10 +55,9 @@ public class GameRoot : MonoBehaviour
         maincity.InitSys();
         FubenSys fuben = GetComponent<FubenSys>();
         fuben.InitSys();
-      
-    //   TestSys  test= GetComponent<TestSys>();
-    //    test.InitSys();
 
+        BattleSys battle = GetComponent<BattleSys>();
+        battle.InitSys();
 
         //进入登录场景并加载相应UI
         login.EnterLogin();
