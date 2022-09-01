@@ -1,7 +1,7 @@
 ﻿
 //攻击的状态
 
-class StateBorn : IState
+public class StateBorn : IState
 {
     public void Enter(EntityBase entity, params object[] args)
     {

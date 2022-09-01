@@ -1,7 +1,7 @@
 ﻿
 //攻击的状态
 
-class StateHit : IState
+public class StateHit : IState
 {
     public void Enter(EntityBase entity, params object[] args)
     {

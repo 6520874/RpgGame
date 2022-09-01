@@ -2,17 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BattleSys : SystemRoot {
+public class BattleSys : SystemRoot
+{
 
-   public static BattleSys Instance = null;
+    public static BattleSys Instance = null;
     public PlayerCtrlWnd playerCtrlWnd;
 
-      public BattleMgr battleMgr;
+    public BattleMgr battleMgr;
 
     private int fbid;
     private double startTime;
 
-    public override void InitSys() {
+    public override void InitSys()
+    {
         base.InitSys();
         Instance = this;
         PECommon.Log("BattleSys TestSys...");
@@ -20,27 +22,32 @@ public class BattleSys : SystemRoot {
     }
 
 
-       public void StartBattle(int mapid) {
+    public void StartBattle(int mapid)
+    {
         fbid = mapid;
-        GameObject go = new GameObject {
+        GameObject go = new GameObject
+        {
             name = "BattleRoot"
         };
 
         go.transform.SetParent(GameRoot.Instance.transform);
         battleMgr = go.AddComponent<BattleMgr>();
 
-        battleMgr.Init(mapid, () => {
-           // startTime = timerSvc.GetNowTime();
+        battleMgr.Init(mapid, () =>
+        {
+            // startTime = timerSvc.GetNowTime();
         });
         SetPlayerCtrlWndState();
     }
 
-    
-    public void SetPlayerCtrlWndState(bool isActive = true) {
+
+    public void SetPlayerCtrlWndState(bool isActive = true)
+    {
         playerCtrlWnd.SetWndState(isActive);
     }
 
-   public void SetMoveDir(Vector2 dir) {
+    public void SetMoveDir(Vector2 dir)
+    {
         battleMgr.SetSelfPlayerMoveDir(dir);
     }
 
