@@ -4,13 +4,14 @@ using UnityEngine;
 
 //逻辑实体基类
 // A behaviour that is attached to a playable
-public abstract class EntityBase{
+public abstract class EntityBase
+{
     public AniState currentAniState = AniState.None;
 
     public BattleMgr battleMgr = null;
     public StateMgr stateMgr = null;
     public SkillMgr skllMgr = null;
-    protected Controller controller =null;
+    protected Controller controller = null;
 
     public bool canControl = true;
     public bool canRlsSkill = true;
@@ -40,7 +41,7 @@ public abstract class EntityBase{
         set
         {
             //通知UI层TODO
-            //PECommon.Log(Name + ": HPchange:" + hp + " to " + value);
+            PECommon.Log(Name + ": HPchange:" + hp + " to " + value);
             SetHPVal(hp, value);
             hp = value;
         }
@@ -76,37 +77,45 @@ public abstract class EntityBase{
         HP = props.hp;
         Props = props;
     }
-        
+
 
     public virtual void SetBlend(float blend)
     {
         if (controller != null)
         {
-          controller.SetBlend(blend);
+            controller.SetBlend(blend);
         }
 
     }
 
     private BattleProps props;
 
-     public virtual void SetAction(int act) {
-        if (controller != null) {
+    public virtual void SetAction(int act)
+    {
+        if (controller != null)
+        {
             controller.SetAction(act);
         }
     }
-    public void ExitCurtSkill() {
+    public void ExitCurtSkill()
+    {
         canControl = true;
 
-        if (curtSkillCfg != null) {
-            if (!curtSkillCfg.isBreak) {
+        if (curtSkillCfg != null)
+        {
+            if (!curtSkillCfg.isBreak)
+            {
                 entityState = EntityState.None;
             }
             //连招数据更新
-            if (curtSkillCfg.isCombo) {
-                if (comboQue.Count > 0) {
+            if (curtSkillCfg.isCombo)
+            {
+                if (comboQue.Count > 0)
+                {
                     nextSkillID = comboQue.Dequeue();
                 }
-                else {
+                else
+                {
                     nextSkillID = 0;
                 }
             }
@@ -115,32 +124,45 @@ public abstract class EntityBase{
         SetAction(Constants.ActionDefault);
     }
 
-     public void SetCtrl(Controller ctrl) {
+    public void SetCtrl(Controller ctrl)
+    {
         controller = ctrl;
     }
 
+    public virtual Vector2 GetDirInput()
+    {
+        return Vector2.zero;
+    }
 
-    public void Born() {
+    public void Born()
+    {
         stateMgr.ChangeStatus(this, AniState.Born, null);
     }
-    public void Move() {
+    public void Move()
+    {
         stateMgr.ChangeStatus(this, AniState.Move, null);
     }
-    public void Idle() {
+    public void Idle()
+    {
         stateMgr.ChangeStatus(this, AniState.Idle, null);
     }
-    public void Attack(int skillID) {
+    public void Attack(int skillID)
+    {
         stateMgr.ChangeStatus(this, AniState.Attack, skillID);
     }
-    public void Hit() {
+    public void Hit()
+    {
         stateMgr.ChangeStatus(this, AniState.Hit, null);
     }
-    public void Die() {
+    public void Die()
+    {
         stateMgr.ChangeStatus(this, AniState.Die, null);
     }
 
-        public virtual void SetDir(Vector2 dir) {
-        if (controller != null) {
+    public virtual void SetDir(Vector2 dir)
+    {
+        if (controller != null)
+        {
             controller.Dir = dir;
         }
     }

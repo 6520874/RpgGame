@@ -2,14 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SkillMgr : MonoBehaviour {
-    private Dictionary<AnimationState, IState> fsm = new Dictionary<AnimationState, IState>();
+public class SkillMgr : MonoBehaviour
+{
+    private ResSvc resSvc;
+    private TimerSvc timeSvc;
 
 
-    public void Init(BattleMgr battle)
+    public void Init()
     {
-         
-
+        resSvc = ResSvc.Instance;
+        timeSvc = TimerSvc.Instance;
+        PECommon.Log("Init SkillMgr Done.");
     }
 
 
