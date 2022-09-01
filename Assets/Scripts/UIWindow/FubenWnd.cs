@@ -23,6 +23,8 @@ public class FubenWnd : WindowRoot {
 
 	public void ClickTaskBtn(int fbid){
 
+        audioSvc.PlayUIAudio(Constants.UIClickBtn);
+
 		netSvc.SendMsg(new GameMsg{
 			cmd = (int)CMD.ReqFBFight,
 			reqFBFight = new ReqFBFight{

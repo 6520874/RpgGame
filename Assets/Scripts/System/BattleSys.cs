@@ -65,7 +65,7 @@ using UnityEngine;
     }
 
     public void SetPlayerCtrlWndState(bool isActive = true) {
-      //  playerCtrlWnd.SetWndState(isActive);
+       playerCtrlWnd.SetWndState(isActive);
     }
 
     public void SetBattleEndWndState(FBEndType endType, bool isActive = true) {
