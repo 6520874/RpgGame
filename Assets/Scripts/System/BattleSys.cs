@@ -35,7 +35,7 @@ public class BattleSys : SystemRoot
 
         battleMgr.Init(mapid, () =>
         {
-            // startTime = timerSvc.GetNowTime();
+            startTime = timerSvc.GetNowTime();
         });
         SetPlayerCtrlWndState();
     }
