@@ -57,8 +57,8 @@ public class GameRoot : MonoBehaviour
         FubenSys fuben = GetComponent<FubenSys>();
         fuben.InitSys();
       
-      TestSys  test= GetComponent<TestSys>();
-       test.InitSys();
+    //   TestSys  test= GetComponent<TestSys>();
+    //    test.InitSys();
 
 
         //进入登录场景并加载相应UI

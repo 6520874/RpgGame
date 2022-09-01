@@ -2990,7 +2990,6 @@ GameObject:
   - component: {fileID: 1973066233}
   - component: {fileID: 1973066241}
   - component: {fileID: 1973066242}
-  - component: {fileID: 1973066243}
   - component: {fileID: 1973066244}
   m_Layer: 0
   m_Name: GameRoot
@@ -3027,8 +3026,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3a3528a52915f84c98e0d5912a90469, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerCtrlWnd: {fileID: 0}
-  battleEndWnd: {fileID: 0}
+  playerCtrlWnd: {fileID: 135295681}
   battleMgr: {fileID: 0}
 --- !u!114 &1973066234
 MonoBehaviour:
@@ -3135,20 +3133,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fubenWnd: {fileID: 1936647107}
---- !u!114 &1973066243
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1973066231}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d3a3528a52915f84c98e0d5912a90469, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerCtrlWnd: {fileID: 135295681}
-  battleEndWnd: {fileID: 0}
-  battleMgr: {fileID: 0}
 --- !u!114 &1973066244
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3160,7 +3144,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44d4a372149b72e47ba77170c41db546, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  resSvc: {fileID: 0}
+  audioSvc: {fileID: 0}
+  netSvc: {fileID: 0}
+  timerSvc: {fileID: 0}
   playerCtrlWnd: {fileID: 135295681}
+  battleMgr: {fileID: 0}
+  fbid: 0
+  startTime: 0
 --- !u!114 &1978002311 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114061075929714806, guid: d208c0493dec91f44b8d778cdf98b181,
