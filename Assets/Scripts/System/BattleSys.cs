@@ -5,7 +5,8 @@ using UnityEngine;
      
     public static BattleSys Instance = null;
     public PlayerCtrlWnd playerCtrlWnd;
-    public BattleEndWnd battleEndWnd;
+
+    // public BattleEndWnd battleEndWnd;
     public BattleMgr battleMgr;
 
     private int fbid;
@@ -69,7 +70,7 @@ using UnityEngine;
     }
 
     public void SetBattleEndWndState(FBEndType endType, bool isActive = true) {
-        battleEndWnd.SetWndType(endType);
+       // battleEndWnd.SetWndType(endType);
        // battleEndWnd.SetWndState(isActive);
     }
 
@@ -77,7 +78,7 @@ using UnityEngine;
         RspFBFightEnd data = msg.rspFBFightEnd;
         GameRoot.Instance.SetPlayerDataByFBEnd(data);
 
-        battleEndWnd.SetBattleEndData(data.fbid, data.costtime, data.resthp);
+       // battleEndWnd.SetBattleEndData(data.fbid, data.costtime, data.resthp);
         SetBattleEndWndState(FBEndType.Win);
     }
 

@@ -12,6 +12,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 
+
 public class PlayerCtrlWnd : WindowRoot {
     public Image imgTouch;
     public Image imgDirBg;
@@ -65,28 +66,28 @@ public class PlayerCtrlWnd : WindowRoot {
     private int HPSum;
 
 
-    public Image imgRed;
-    public Image imgYellow;
+    // public Image imgRed;
+    // public Image imgYellow;
 
-    public Transform transBossHPBar;
+    // public Transform transBossHPBar;
 
 
     protected override void InitWnd(){
         base.InitWnd();
 
-        pointDis = Screen.height*1.0f/Constants.ScreenStandardHeight*Constants.ScreenOPDis;
-        defaultPos = imgDirBg.transform.position;
+        // pointDis = Screen.height*1.0f/Constants.ScreenStandardHeight*Constants.ScreenOPDis;
+        // defaultPos = imgDirBg.transform.position;
 
-        SetActive(imgDirPoint,false);
+        // SetActive(imgDirPoint,false);
 
         
-        HPSum = GameRoot.Instance.PlayerData.hp;
-        SetText(txtSelfHP, HPSum + "/" + HPSum);
-        imgSelfHP.fillAmount = 1;
+        // HPSum = GameRoot.Instance.PlayerData.hp;
+        // SetText(txtSelfHP, HPSum + "/" + HPSum);
+        // imgSelfHP.fillAmount = 1;
          
-        SetBossHPBarState(false);
+        // SetBossHPBarState(false);
 
-        RegisterTouchEvts();
+        // RegisterTouchEvts();
 
     }
 
@@ -119,25 +120,21 @@ public class PlayerCtrlWnd : WindowRoot {
     }
 
     public void SetBossHPBarState(bool state,float prg = 1){
-        SetActive(transBossHPBar, state);
-        imgRed.fillAmount = prg;
-        imgYellow.fillAmount = prg;
+        // SetActive(transBossHPBar, state);
+        // imgRed.fillAmount = prg;
+        // imgYellow.fillAmount = prg;
     }
 
     public void RefreshUI(){
          PlayerData pd = GameRoot.Instance.PlayerData;
          SetText(txtLevel, pd.lv);
-        SetText(txtName, pd.name);
+         SetText(txtName, pd.name);
      
 
-        #region Expprg
         int expPrgVal = (int)(pd.exp * 1.0f / PECommon.GetExpUpValByLv(pd.lv) * 100);
         SetText(txtExpPrg, expPrgVal + "%");
         int index = expPrgVal / 10;
 
     }
     
-
-
 }
-#endregion
