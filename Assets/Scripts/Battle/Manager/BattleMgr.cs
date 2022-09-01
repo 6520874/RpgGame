@@ -143,7 +143,7 @@ public class BattleMgr : MonoBehaviour
     public void SetSelfPlayerMoveDir(Vector2 dir)
     {
         //设置玩家移动
-        //PECommon.Log(dir.ToString());
+        PECommon.Log(dir.ToString());
 
         if (entitySelfPlayer.canControl == false)
         {

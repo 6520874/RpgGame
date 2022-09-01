@@ -107,7 +107,7 @@ public class PlayerController : Controller {
     }
 
     private void SetSkillMove() {
-       // ctrl.Move(transform.forward * Time.deltaTime * skillMoveSpeed);
+      // ctrl.Move(transform.forward * Time.deltaTime * skillMoveSpeed);
     }
 
     public void SetCam() {
@@ -135,11 +135,6 @@ public class PlayerController : Controller {
     }
 
 
-
-    // //////////////////////////////////////////////////////////////////////////
-    // public override void SetBlend(float blend) {
-    //     targetBlend = blend;
-    // }
 
     // public override void SetFX(string name, float destroy) {
     //     GameObject go;
