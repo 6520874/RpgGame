@@ -15,15 +15,11 @@ public class FubenWnd : WindowRoot {
 	   
 	}
 
-	// public async void RefreshUI(){
-    //     int fbid = pd.fuben;
-	// 	for(int i=0;aw)
 
-	// }
 
 	public void ClickTaskBtn(int fbid){
 
-        audioSvc.PlayUIAudio(Constants.UIClickBtn);
+       // audioSvc.PlayUIAudio(Constants.UIClickBtn);
 
 		netSvc.SendMsg(new GameMsg{
 			cmd = (int)CMD.ReqFBFight,

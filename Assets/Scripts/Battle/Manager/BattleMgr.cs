@@ -135,4 +135,24 @@ public class BattleMgr : MonoBehaviour {
 
     }
 
+        public void SetSelfPlayerMoveDir(Vector2 dir) {
+        //设置玩家移动
+        //PECommon.Log(dir.ToString());
+
+        if (entitySelfPlayer.canControl == false) {
+            return;
+        }
+
+        if (entitySelfPlayer.currentAniState == AniState.Idle || entitySelfPlayer.currentAniState == AniState.Move) {
+            if (dir == Vector2.zero) {
+               // entitySelfPlayer.Idle();
+            }
+            else {
+                // entitySelfPlayer.Move();
+                // entitySelfPlayer.SetDir(dir);
+            }
+        }
+    }
+
+
 }

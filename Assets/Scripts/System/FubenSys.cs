@@ -31,7 +31,7 @@ public class FubenSys : SystemRoot {
         GameRoot.Instance.SetPlayerDataByFBStart(msg.rspFBFight);
         MainCitySys.Instance.maincityWnd.SetWndState(false);
         SetFubenWndState(false);
-        BattleSys.Instance.StartBattle(1);
+        BattleSys.Instance.StartBattle(msg.rspFBFight.fbid);
     }
 	
 	// Update is called once per frame

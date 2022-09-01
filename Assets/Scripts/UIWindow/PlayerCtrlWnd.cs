@@ -12,7 +12,8 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 
-public class PlayerCtrlWnd : WindowRoot {
+public class PlayerCtrlWnd : WindowRoot
+{
     public Image imgTouch;
     public Image imgDirBg;
     public Image imgDirPoint;
@@ -64,26 +65,71 @@ public class PlayerCtrlWnd : WindowRoot {
 
     private int HPSum;
 
-    protected override void InitWnd() {
+    protected override void InitWnd()
+    {
         base.InitWnd();
 
-        pointDis = Screen.height * 1.0f / Constants.ScreenStandardHeight * Constants.ScreenOPDis;
-        defaultPos = imgDirBg.transform.position;
-        SetActive(imgDirPoint, false);
+        // pointDis = Screen.height * 1.0f / Constants.ScreenStandardHeight * Constants.ScreenOPDis;
+        // defaultPos = imgDirBg.transform.position;
+        // SetActive(imgDirPoint, false);
 
-        HPSum = GameRoot.Instance.PlayerData.hp;
-        SetText(txtSelfHP, HPSum + "/" + HPSum);
-        imgSelfHP.fillAmount = 1;
+        // HPSum = GameRoot.Instance.PlayerData.hp;
+        // SetText(txtSelfHP, HPSum + "/" + HPSum);
+        // imgSelfHP.fillAmount = 1;
 
         // SetBossHPBarState(false);
-        // RegisterTouchEvts();
+      //  RegisterTouchEvts();
         // sk1CDTime = resSvc.GetSkillCfg(101).cdTime / 1000.0f;
         // sk2CDTime = resSvc.GetSkillCfg(102).cdTime / 1000.0f;
         // sk3CDTime = resSvc.GetSkillCfg(103).cdTime / 1000.0f;
 
-        RefreshUI();
+        // RefreshUI();
     }
-    public void RefreshUI() {
+
+    public void SetBossHPBarState(bool state, float prg = 1)
+    {
+        // SetActive(transBossHPBar, state);
+        // imgRed.fillAmount = prg;
+        // imgYellow.fillAmount = prg;
+    }
+
+    public void RegisterTouchEvts()
+    {
+        OnClickDown(imgTouch.gameObject, (PointerEventData evt) =>
+        {
+            startPos = evt.position;
+            SetActive(imgDirPoint);
+            imgDirBg.transform.position = evt.position;
+        });
+        OnClickUp(imgTouch.gameObject, (PointerEventData evt) =>
+        {
+            imgDirBg.transform.position = defaultPos;
+            SetActive(imgDirPoint, false);
+            imgDirPoint.transform.localPosition = Vector2.zero;
+            currentDir = Vector2.zero;
+            BattleSys.Instance.SetMoveDir(currentDir);
+        });
+        OnDrag(imgTouch.gameObject, (PointerEventData evt) =>
+        {
+            Vector2 dir = evt.position - startPos;
+            float len = dir.magnitude;
+            if (len > pointDis)
+            {
+                Vector2 clampDir = Vector2.ClampMagnitude(dir, pointDis);
+                imgDirPoint.transform.position = startPos + clampDir;
+            }
+            else
+            {
+                imgDirPoint.transform.position = evt.position;
+            }
+            currentDir = dir.normalized;
+            BattleSys.Instance.SetMoveDir(currentDir);
+        });
+    }
+
+
+    public void RefreshUI()
+    {
         PlayerData pd = GameRoot.Instance.PlayerData;
 
         SetText(txtLevel, pd.lv);
@@ -102,101 +148,119 @@ public class PlayerCtrlWnd : WindowRoot {
 
         grid.cellSize = new Vector2(width, 7);
 
-        for (int i = 0; i < expPrgTrans.childCount; i++) {
+        for (int i = 0; i < expPrgTrans.childCount; i++)
+        {
             Image img = expPrgTrans.GetChild(i).GetComponent<Image>();
-            if (i < index) {
+            if (i < index)
+            {
                 img.fillAmount = 1;
             }
-            else if (i == index) {
+            else if (i == index)
+            {
                 img.fillAmount = expPrgVal % 10 * 1.0f / 10;
             }
-            else {
+            else
+            {
                 img.fillAmount = 0;
             }
         }
         #endregion    
     }
 
-    // private void Update() {
-    //     //TEST
-    //     if (Input.GetKeyDown(KeyCode.A)) {
-    //         ClickNormalAtk();
-    //     }
-    //     if (Input.GetKeyDown(KeyCode.Alpha1)) {
-    //         ClickSkill1Atk();
-    //     }
-    //     if (Input.GetKeyDown(KeyCode.Alpha2)) {
-    //         ClickSkill2Atk();
-    //     }
-    //     if (Input.GetKeyDown(KeyCode.Alpha3)) {
-    //         ClickSkill3Atk();
-    //     }
+    private void Update()
+    {
+    
+        //TEST
+        // if (Input.GetKeyDown(KeyCode.A)) {
+        //     ClickNormalAtk();
+        // }
+        // if (Input.GetKeyDown(KeyCode.Alpha1)) {
+        //     ClickSkill1Atk();
+        // }
+        // if (Input.GetKeyDown(KeyCode.Alpha2)) {
+        //     ClickSkill2Atk();
+        // }
+        // if (Input.GetKeyDown(KeyCode.Alpha3)) {
+        //     ClickSkill3Atk();
+        // }
 
-    //     float delta = Time.deltaTime;
-    //     #region Skill CD
-    //     if (isSk1CD) {
-    //         sk1FillCount += delta;
-    //         if (sk1FillCount >= sk1CDTime) {
-    //             isSk1CD = false;
-    //             SetActive(imgSk1CD, false);
-    //             sk1FillCount = 0;
-    //         }
-    //         else {
-    //             imgSk1CD.fillAmount = 1 - sk1FillCount / sk1CDTime;
-    //         }
+        float delta = Time.deltaTime;
+        #region Skill CD
+        if (isSk1CD)
+        {
+            sk1FillCount += delta;
+            if (sk1FillCount >= sk1CDTime)
+            {
+                isSk1CD = false;
+                SetActive(imgSk1CD, false);
+                sk1FillCount = 0;
+            }
+            else
+            {
+                imgSk1CD.fillAmount = 1 - sk1FillCount / sk1CDTime;
+            }
 
-    //         sk1NumCount += delta;
-    //         if (sk1NumCount >= 1) {
-    //             sk1NumCount -= 1;
-    //             sk1Num -= 1;
-    //             SetText(txtSk1CD, sk1Num);
-    //         }
-    //     }
+            sk1NumCount += delta;
+            if (sk1NumCount >= 1)
+            {
+                sk1NumCount -= 1;
+                sk1Num -= 1;
+                SetText(txtSk1CD, sk1Num);
+            }
+        }
 
-    //     if (isSk2CD) {
-    //         sk2FillCount += delta;
-    //         if (sk2FillCount >= sk2CDTime) {
-    //             isSk2CD = false;
-    //             SetActive(imgSk2CD, false);
-    //             sk2FillCount = 0;
-    //         }
-    //         else {
-    //             imgSk2CD.fillAmount = 1 - sk2FillCount / sk2CDTime;
-    //         }
+        if (isSk2CD)
+        {
+            sk2FillCount += delta;
+            if (sk2FillCount >= sk2CDTime)
+            {
+                isSk2CD = false;
+                SetActive(imgSk2CD, false);
+                sk2FillCount = 0;
+            }
+            else
+            {
+                imgSk2CD.fillAmount = 1 - sk2FillCount / sk2CDTime;
+            }
 
-    //         sk2NumCount += delta;
-    //         if (sk2NumCount >= 1) {
-    //             sk2NumCount -= 1;
-    //             sk2Num -= 1;
-    //             SetText(txtSk2CD, sk2Num);
-    //         }
-    //     }
+            sk2NumCount += delta;
+            if (sk2NumCount >= 1)
+            {
+                sk2NumCount -= 1;
+                sk2Num -= 1;
+                SetText(txtSk2CD, sk2Num);
+            }
+        }
 
-    //     if (isSk3CD) {
-    //         sk3FillCount += delta;
-    //         if (sk3FillCount >= sk3CDTime) {
-    //             isSk3CD = false;
-    //             SetActive(imgSk3CD, false);
-    //             sk3FillCount = 0;
-    //         }
-    //         else {
-    //             imgSk3CD.fillAmount = 1 - sk3FillCount / sk3CDTime;
-    //         }
+        if (isSk3CD)
+        {
+            sk3FillCount += delta;
+            if (sk3FillCount >= sk3CDTime)
+            {
+                isSk3CD = false;
+                SetActive(imgSk3CD, false);
+                sk3FillCount = 0;
+            }
+            else
+            {
+                imgSk3CD.fillAmount = 1 - sk3FillCount / sk3CDTime;
+            }
 
-    //         sk3NumCount += delta;
-    //         if (sk3NumCount >= 1) {
-    //             sk3NumCount -= 1;
-    //             sk3Num -= 1;
-    //             SetText(txtSk3CD, sk3Num);
-    //         }
-    //     }
-    //     #endregion
+            sk3NumCount += delta;
+            if (sk3NumCount >= 1)
+            {
+                sk3NumCount -= 1;
+                sk3Num -= 1;
+                SetText(txtSk3CD, sk3Num);
+            }
+        }
+        #endregion
 
-    //     if (transBossHPBar.gameObject.activeSelf) {
-    //         BlendBossHP();
-    //         imgYellow.fillAmount = currentPrg;
-    //     }
-    // }
+        // if (transBossHPBar.gameObject.activeSelf) {
+        //     BlendBossHP();
+        //     imgYellow.fillAmount = currentPrg;
+        // }
+    }
 
 
 }

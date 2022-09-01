@@ -57,8 +57,14 @@ public class ResSvc : MonoBehaviour
         return go;
     }
 
-
-
+    private Dictionary<int, SkillCfg> skillDic = new Dictionary<int, SkillCfg>();
+    public SkillCfg GetSkillCfg(int id) {
+        SkillCfg sc = null;
+        if (skillDic.TryGetValue(id, out sc)) {
+            return sc;
+        }
+        return null;
+    }
     private Dictionary<string, Sprite> spDic = new Dictionary<string, Sprite>();
     public Sprite LoadSprite(string path, bool cache = false)
     {

@@ -15,23 +15,23 @@ public class BattleSys : SystemRoot {
     public override void InitSys() {
         base.InitSys();
         Instance = this;
-        PECommon.Log("Init TestSys...");
+        PECommon.Log("BattleSys TestSys...");
 
     }
 
 
        public void StartBattle(int mapid) {
         fbid = mapid;
-        // GameObject go = new GameObject {
-        //     name = "BattleRoot"
-        // };
+        GameObject go = new GameObject {
+            name = "BattleRoot"
+        };
 
-        // go.transform.SetParent(GameRoot.Instance.transform);
-        // battleMgr = go.AddComponent<BattleMgr>();
+        go.transform.SetParent(GameRoot.Instance.transform);
+        battleMgr = go.AddComponent<BattleMgr>();
 
-        // battleMgr.Init(mapid, () => {
-        //     startTime = timerSvc.GetNowTime();
-        // });
+        battleMgr.Init(mapid, () => {
+            startTime = timerSvc.GetNowTime();
+        });
         SetPlayerCtrlWndState();
     }
 
@@ -40,5 +40,8 @@ public class BattleSys : SystemRoot {
         playerCtrlWnd.SetWndState(isActive);
     }
 
+   public void SetMoveDir(Vector2 dir) {
+        battleMgr.SetSelfPlayerMoveDir(dir);
+    }
 
 }
