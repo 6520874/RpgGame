@@ -79,9 +79,9 @@ public class PlayerCtrlWnd : WindowRoot
 
         SetBossHPBarState(false);
        RegisterTouchEvts();
-        sk1CDTime = resSvc.GetSkillCfg(101).cdTime / 1000.0f;
-        sk2CDTime = resSvc.GetSkillCfg(102).cdTime / 1000.0f;
-        sk3CDTime = resSvc.GetSkillCfg(103).cdTime / 1000.0f;
+        sk1CDTime = 5;
+        sk2CDTime =  5;
+        sk3CDTime =  5;
 
         RefreshUI();
     }
