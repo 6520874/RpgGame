@@ -130,7 +130,7 @@ public class BattleMgr : MonoBehaviour
         {
             battleMgr = this,
             stateMgr = stateMgr,
-            // skillMgr = skillMgr
+            skillMgr = skillMgr
         };
         entitySelfPlayer.Name = "AssassinBattle";
         entitySelfPlayer.SetBattleProps(props);
