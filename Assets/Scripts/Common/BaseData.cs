@@ -1,8 +1,15 @@
-﻿using System.Collections.Generic;
+﻿/****************************************************
+	文件：BaseData.cs
+	作者：Plane
+	邮箱: 1785275942@qq.com
+	日期：2018/12/14 6:54   	
+	功能：配置数据类
+*****************************************************/
+
+using System.Collections.Generic;
 using UnityEngine;
 
-public class MonsterData : BaseData<MonsterData>
-{
+public class MonsterData : BaseData<MonsterData> {
     public int mWave;//批次
     public int mIndex;//序号
     public MonsterCfg mCfg;
@@ -11,8 +18,7 @@ public class MonsterData : BaseData<MonsterData>
     public int mLevel;
 }
 
-public class MonsterCfg : BaseData<MonsterCfg>
-{
+public class MonsterCfg : BaseData<MonsterCfg> {
     public string mName;
     public MonsterType mType;//1:普通怪物，2：boss怪物
     public bool isStop;//怪物是否能被攻击中断当前的状态
@@ -22,22 +28,19 @@ public class MonsterCfg : BaseData<MonsterCfg>
     public BattleProps bps;
 }
 
-public class SkillMoveCfg : BaseData<SkillMoveCfg>
-{
+public class SkillMoveCfg : BaseData<SkillMoveCfg> {
     public int delayTime;
     public int moveTime;
     public float moveDis;
 }
 
-public class SkillActionCfg : BaseData<SkillActionCfg>
-{
+public class SkillActionCfg : BaseData<SkillActionCfg> {
     public int delayTime;
     public float radius;//伤害计算范围
     public int angle;//伤害有效角度
 }
 
-public class SkillCfg : BaseData<SkillCfg>
-{
+public class SkillCfg : BaseData<SkillCfg> {
     public string skillName;
     public int cdTime;
     public int skillTime;
@@ -52,8 +55,7 @@ public class SkillCfg : BaseData<SkillCfg>
     public List<int> skillDamageLst;
 }
 
-public class StrongCfg : BaseData<StrongCfg>
-{
+public class StrongCfg : BaseData<StrongCfg> {
     public int pos;
     public int startlv;
     public int addhp;
@@ -64,8 +66,7 @@ public class StrongCfg : BaseData<StrongCfg>
     public int crystal;
 }
 
-public class AutoGuideCfg : BaseData<AutoGuideCfg>
-{
+public class AutoGuideCfg : BaseData<AutoGuideCfg> {
     public int npcID;//触发任务目标NPC索引号
     public string dilogArr;
     public int actID;
@@ -73,8 +74,7 @@ public class AutoGuideCfg : BaseData<AutoGuideCfg>
     public int exp;
 }
 
-public class MapCfg : BaseData<MapCfg>
-{
+public class MapCfg : BaseData<MapCfg> {
     public string mapName;
     public string sceneName;
     public int power;
@@ -89,27 +89,23 @@ public class MapCfg : BaseData<MapCfg>
     public int crystal;
 }
 
-public class TaskRewardCfg : BaseData<TaskRewardCfg>
-{
+public class TaskRewardCfg : BaseData<TaskRewardCfg> {
     public string taskName;
     public int count;
     public int exp;
     public int coin;
 }
 
-public class TaskRewardData : BaseData<TaskRewardData>
-{
+public class TaskRewardData : BaseData<TaskRewardData> {
     public int prgs;
     public bool taked;
 }
 
-public class BaseData<T>
-{
+public class BaseData<T> {
     public int ID;
 }
 
-public class BattleProps
-{
+public class BattleProps {
     public int hp;
     public int ad;
     public int ap;
@@ -119,5 +115,3 @@ public class BattleProps
     public int pierce;
     public int critical;
 }
-
-
