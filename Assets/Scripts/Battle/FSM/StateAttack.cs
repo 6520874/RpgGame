@@ -21,6 +21,6 @@ public class StateAttack: IState
             entity.canRlsSkill = false;
         }
 
-        //entity.SkillAttack((int)args[0]);
+        entity.SkillAttack((int)args[0]);
     }
 }

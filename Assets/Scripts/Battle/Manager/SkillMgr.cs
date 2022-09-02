@@ -15,5 +15,14 @@ public class SkillMgr : MonoBehaviour
         PECommon.Log("Init SkillMgr Done.");
     }
 
+    // public void SkillAttack(EntityBase entity, int skillID) {
+    //     entity.skMoveCBLst.Clear();
+    //     entity.skActionCBLst.Clear();
+
+    //     AttackDamage(entity, skillID);
+    //     AttackEffect(entity, skillID);
+    // }
+
+
 
 }

@@ -200,6 +200,11 @@ public abstract class EntityBase
         return controller.transform;
     }
 
+    public virtual void SkillAttack(int skillID) {
+        //skillMgr.SkillAttack(this, skillID);
+    }
+
+
     public virtual void TickAILogic() { }
 
 }
