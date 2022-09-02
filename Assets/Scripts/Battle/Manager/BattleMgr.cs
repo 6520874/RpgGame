@@ -224,28 +224,34 @@ public class BattleMgr : MonoBehaviour
         }
         return monsterLst;
     }
-    
+
     public double lastAtkTime = 0;
     private int[] comboArr = new int[] { 111, 112, 113, 114, 115 };
     public int comboIndex = 0;
-      private void ReleaseNormalAtk() {
+    private void ReleaseNormalAtk()
+    {
         //PECommon.Log("Click Normal Atk");
-        if (entitySelfPlayer.currentAniState == AniState.Attack) {
+        if (entitySelfPlayer.currentAniState == AniState.Attack)
+        {
             //在500ms以内进行第二次点击，存数据
             double nowAtkTime = TimerSvc.Instance.GetNowTime();
-            if (nowAtkTime - lastAtkTime < Constants.ComboSpace && lastAtkTime != 0) {
-                if (comboArr[comboIndex] != comboArr[comboArr.Length - 1]) {
+            if (nowAtkTime - lastAtkTime < Constants.ComboSpace && lastAtkTime != 0)
+            {
+                if (comboArr[comboIndex] != comboArr[comboArr.Length - 1])
+                {
                     comboIndex += 1;
                     entitySelfPlayer.comboQue.Enqueue(comboArr[comboIndex]);
                     lastAtkTime = nowAtkTime;
                 }
-                else {
+                else
+                {
                     lastAtkTime = 0;
                     comboIndex = 0;
                 }
             }
         }
-        else if (entitySelfPlayer.currentAniState == AniState.Idle || entitySelfPlayer.currentAniState == AniState.Move) {
+        else if (entitySelfPlayer.currentAniState == AniState.Idle || entitySelfPlayer.currentAniState == AniState.Move)
+        {
             comboIndex = 0;
             lastAtkTime = TimerSvc.Instance.GetNowTime();
             entitySelfPlayer.Attack(comboArr[comboIndex]);
@@ -263,10 +269,10 @@ public class BattleMgr : MonoBehaviour
                 //ReleaseSkill1();
                 break;
             case 2:
-               // ReleaseSkill2();
+                // ReleaseSkill2();
                 break;
             case 3:
-               // ReleaseSkill3();
+                // ReleaseSkill3();
                 break;
         }
     }

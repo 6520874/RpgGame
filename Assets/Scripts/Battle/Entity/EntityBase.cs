@@ -51,7 +51,10 @@ public abstract class EntityBase
     public int nextSkillID = 0;
     public int skEndCB = -1;
     public SkillCfg curtSkillCfg;
-
+       //技能位移的回调ID
+    public List<int> skMoveCBLst = new List<int>();
+    //技能伤害计算回调ID
+    public List<int> skActionCBLst = new List<int>();
 
     public BattleProps Props
     {
@@ -77,6 +80,71 @@ public abstract class EntityBase
         HP = props.hp;
         Props = props;
     }
+  
+  
+    public virtual void SetSkillMoveState(bool move, float speed = 0f) {
+        if (controller != null) {
+            controller.SetSkillMoveState(move, speed);
+        }
+    }
+    public virtual void SetAtkRotation(Vector2 dir, bool offset = false) {
+        if (controller != null) {
+            if (offset) {
+                controller.SetAtkRotationCam(dir);
+            }
+            else {
+                controller.SetAtkRotationLocal(dir);
+            }
+        }
+    }
+
+ 
+    public void RmvMoveCB(int tid) {
+        int index = -1;
+        for (int i = 0; i < skMoveCBLst.Count; i++) {
+            if (skMoveCBLst[i] == tid) {
+                index = i;
+                break;
+            }
+        }
+        if (index != -1) {
+            skMoveCBLst.RemoveAt(index);
+        }
+    }
+
+    
+    public void RmvSkillCB() {
+        SetDir(Vector2.zero);
+        SetSkillMoveState(false);
+
+        for (int i = 0; i < skMoveCBLst.Count; i++) {
+            int tid = skMoveCBLst[i];
+            TimerSvc.Instance.DelTask(tid);
+        }
+
+        for (int i = 0; i < skActionCBLst.Count; i++) {
+            int tid = skActionCBLst[i];
+            TimerSvc.Instance.DelTask(tid);
+        }
+
+        //攻击被中断，删除定时回调
+        if (skEndCB != -1) {
+            TimerSvc.Instance.DelTask(skEndCB);
+            skEndCB = -1;
+        }
+        skMoveCBLst.Clear();
+        skActionCBLst.Clear();
+
+
+        //清空连招
+        if (nextSkillID != 0 || comboQue.Count > 0) {
+            nextSkillID = 0;
+            comboQue.Clear();
+            battleMgr.lastAtkTime = 0;
+            battleMgr.comboIndex = 0;
+        }
+    }
+
 
 
     public virtual void SetBlend(float blend)
@@ -89,7 +157,11 @@ public abstract class EntityBase
     }
 
     private BattleProps props;
-
+    public virtual void SetFX(string name, float destroy) {
+        if (controller != null) {
+            controller.SetFX(name, destroy);
+        }
+}
     public virtual void SetAction(int act)
     {
         if (controller != null)
@@ -175,16 +247,7 @@ public abstract class EntityBase
         }
     }
 
-    public virtual void SetAtkRotation(Vector2 dir, bool offset = false) {
-        if (controller != null) {
-            if (offset) {
-                controller.SetAtkRotationCam(dir);
-            }
-            else {
-                controller.SetAtkRotationLocal(dir);
-            }
-        }
-    }
+
     public virtual Vector2 CalcTargetDir()
     {
         return Vector2.zero;
@@ -201,7 +264,7 @@ public abstract class EntityBase
     }
 
     public virtual void SkillAttack(int skillID) {
-        //skillMgr.SkillAttack(this, skillID);
+        skillMgr.SkillAttack(this, skillID);
     }
 
 

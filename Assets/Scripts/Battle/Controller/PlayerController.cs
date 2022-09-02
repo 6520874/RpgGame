@@ -8,7 +8,8 @@
 
 using UnityEngine;
 
-public class PlayerController : Controller {
+public class PlayerController : Controller
+{
     public GameObject daggerskill1fx;
     public GameObject daggerskill2fx;
     public GameObject daggerskill3fx;
@@ -25,40 +26,50 @@ public class PlayerController : Controller {
     private float targetBlend;
     private float currentBlend;
 
-    public override void Init() {
+    public override void Init()
+    {
         base.Init();
 
         camTrans = Camera.main.transform;
         camOffset = transform.position - camTrans.position;
 
-        // if (daggerskill1fx != null) {
-        //     fxDic.Add(daggerskill1fx.name, daggerskill1fx);
-        // }
-    // if (daggeratk2fx != null) {
-        //     fxDic.Add(daggerskill2fx.name, daggerskill2fx);
-        // }
-        // if (daggeratk3fx != null) {
-        //     fxDic.Add(daggerskill3fx.name, daggerskill3fx);
-        // }
+        if (daggerskill1fx != null)
+        {
+            fxDic.Add(daggerskill1fx.name, daggerskill1fx);
+        }
+        if (daggeratk2fx != null)
+        {
+            fxDic.Add(daggerskill2fx.name, daggerskill2fx);
+        }
+        if (daggeratk3fx != null)
+        {
+            fxDic.Add(daggerskill3fx.name, daggerskill3fx);
+        }
 
-        // if (daggeratk1fx != null) {
-        //     fxDic.Add(daggeratk1fx.name, daggeratk1fx);
-        // }
-        // if (daggeratk2fx != null) {
-        //     fxDic.Add(daggeratk2fx.name, daggeratk2fx);
-        // }
-        // if (daggeratk3fx != null) {
-        //     fxDic.Add(daggeratk3fx.name, daggeratk3fx);
-        // }
-        // if (daggeratk4fx != null) {
-        //     fxDic.Add(daggeratk4fx.name, daggeratk4fx);
-        // }
-        // if (daggeratk5fx != null) {
-        //     fxDic.Add(daggeratk5fx.name, daggeratk5fx);
-        // }
+        if (daggeratk1fx != null)
+        {
+            fxDic.Add(daggeratk1fx.name, daggeratk1fx);
+        }
+        if (daggeratk2fx != null)
+        {
+            fxDic.Add(daggeratk2fx.name, daggeratk2fx);
+        }
+        if (daggeratk3fx != null)
+        {
+            fxDic.Add(daggeratk3fx.name, daggeratk3fx);
+        }
+        if (daggeratk4fx != null)
+        {
+            fxDic.Add(daggeratk4fx.name, daggeratk4fx);
+        }
+        if (daggeratk5fx != null)
+        {
+           fxDic.Add(daggeratk5fx.name, daggeratk5fx);
+        }
     }
 
-    private void Update() {
+    private void Update()
+    {
         #region Input
         /*
         float h = Input.GetAxis("Horizontal");
@@ -76,11 +87,13 @@ public class PlayerController : Controller {
         */
         #endregion
 
-        if (currentBlend != targetBlend) {
+        if (currentBlend != targetBlend)
+        {
             UpdateMixBlend();
         }
 
-        if (isMove) {
+        if (isMove)
+        {
             //设置方向
             SetDir();
             //产生移动
@@ -89,60 +102,74 @@ public class PlayerController : Controller {
             SetCam();
         }
 
-        if (skillMove) {
+        if (skillMove)
+        {
             SetSkillMove();
             //相机跟随
             SetCam();
         }
     }
 
-    private void SetDir() {
+    private void SetDir()
+    {
         float angle = Vector2.SignedAngle(Dir, new Vector2(0, 1)) + camTrans.eulerAngles.y;
         Vector3 eulerAngles = new Vector3(0, angle, 0);
         transform.localEulerAngles = eulerAngles;
     }
 
-    private void SetMove() {
+    private void SetMove()
+    {
         ctrl.Move(transform.forward * Time.deltaTime * Constants.PlayerMoveSpeed);
     }
 
-    private void SetSkillMove() {
-      ctrl.Move(transform.forward * Time.deltaTime * skillMoveSpeed);
+    private void SetSkillMove()
+    {
+        ctrl.Move(transform.forward * Time.deltaTime * skillMoveSpeed);
     }
 
-    public void SetCam() {
-        if (camTrans != null) {
+    public void SetCam()
+    {
+        if (camTrans != null)
+        {
             camTrans.position = transform.position - camOffset;
         }
     }
 
-    private void UpdateMixBlend() {
-        if (Mathf.Abs(currentBlend - targetBlend) < Constants.AccelerSpeed * Time.deltaTime) {
+    private void UpdateMixBlend()
+    {
+        if (Mathf.Abs(currentBlend - targetBlend) < Constants.AccelerSpeed * Time.deltaTime)
+        {
             currentBlend = targetBlend;
         }
-        else if (currentBlend > targetBlend) {
+        else if (currentBlend > targetBlend)
+        {
             currentBlend -= Constants.AccelerSpeed * Time.deltaTime;
         }
-        else {
+        else
+        {
             currentBlend += Constants.AccelerSpeed * Time.deltaTime;
         }
         ani.SetFloat("Blend", currentBlend);
-    }  
-    
+    }
+
     //blend 融合
-    public override void SetBlend(float blend) {
+    public override void SetBlend(float blend)
+    {
         targetBlend = blend;
     }
 
 
 
-    // public override void SetFX(string name, float destroy) {
-    //     GameObject go;
-    //     if (fxDic.TryGetValue(name, out go)) {
-    //         go.SetActive(true);
-    //         timerSvc.AddTimeTask((int tid) => {
-    //             go.SetActive(false);
-    //         }, destroy);
-    //     }
-    // }
+    public override void SetFX(string name, float destroy)
+    {
+        GameObject go;
+        if (fxDic.TryGetValue(name, out go))
+        {
+            go.SetActive(true);
+            timerSvc.AddTimeTask((int tid) =>
+            {
+                go.SetActive(false);
+            }, destroy);
+        }
+    }
 }
