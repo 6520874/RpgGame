@@ -51,7 +51,7 @@ public abstract class EntityBase
     public int nextSkillID = 0;
     public int skEndCB = -1;
     public SkillCfg curtSkillCfg;
-       //技能位移的回调ID
+    //技能位移的回调ID
     public List<int> skMoveCBLst = new List<int>();
     //技能伤害计算回调ID
     public List<int> skActionCBLst = new List<int>();
@@ -80,55 +80,69 @@ public abstract class EntityBase
         HP = props.hp;
         Props = props;
     }
-  
-  
-    public virtual void SetSkillMoveState(bool move, float speed = 0f) {
-        if (controller != null) {
+
+
+    public virtual void SetSkillMoveState(bool move, float speed = 0f)
+    {
+        if (controller != null)
+        {
             controller.SetSkillMoveState(move, speed);
         }
     }
-    public virtual void SetAtkRotation(Vector2 dir, bool offset = false) {
-        if (controller != null) {
-            if (offset) {
+    public virtual void SetAtkRotation(Vector2 dir, bool offset = false)
+    {
+        if (controller != null)
+        {
+            if (offset)
+            {
                 controller.SetAtkRotationCam(dir);
             }
-            else {
+            else
+            {
                 controller.SetAtkRotationLocal(dir);
             }
         }
     }
 
- 
-    public void RmvMoveCB(int tid) {
+
+    public void RmvMoveCB(int tid)
+    {
         int index = -1;
-        for (int i = 0; i < skMoveCBLst.Count; i++) {
-            if (skMoveCBLst[i] == tid) {
+        for (int i = 0; i < skMoveCBLst.Count; i++)
+        {
+            if (skMoveCBLst[i] == tid)
+            {
                 index = i;
                 break;
             }
         }
-        if (index != -1) {
+        if (index != -1)
+        {
             skMoveCBLst.RemoveAt(index);
         }
     }
 
-    
-    public void RmvSkillCB() {
+
+    public void RmvSkillCB()
+    {
         SetDir(Vector2.zero);
         SetSkillMoveState(false);
 
-        for (int i = 0; i < skMoveCBLst.Count; i++) {
+        for (int i = 0; i < skMoveCBLst.Count; i++)
+        {
             int tid = skMoveCBLst[i];
             TimerSvc.Instance.DelTask(tid);
         }
 
-        for (int i = 0; i < skActionCBLst.Count; i++) {
+        for (int i = 0; i < skActionCBLst.Count; i++)
+        {
             int tid = skActionCBLst[i];
             TimerSvc.Instance.DelTask(tid);
         }
 
         //攻击被中断，删除定时回调
-        if (skEndCB != -1) {
+        if (skEndCB != -1)
+        {
             TimerSvc.Instance.DelTask(skEndCB);
             skEndCB = -1;
         }
@@ -137,7 +151,8 @@ public abstract class EntityBase
 
 
         //清空连招
-        if (nextSkillID != 0 || comboQue.Count > 0) {
+        if (nextSkillID != 0 || comboQue.Count > 0)
+        {
             nextSkillID = 0;
             comboQue.Clear();
             battleMgr.lastAtkTime = 0;
@@ -157,11 +172,13 @@ public abstract class EntityBase
     }
 
     private BattleProps props;
-    public virtual void SetFX(string name, float destroy) {
-        if (controller != null) {
+    public virtual void SetFX(string name, float destroy)
+    {
+        if (controller != null)
+        {
             controller.SetFX(name, destroy);
         }
-}
+    }
     public virtual void SetAction(int act)
     {
         if (controller != null)
@@ -263,11 +280,47 @@ public abstract class EntityBase
         return controller.transform;
     }
 
-    public virtual void SkillAttack(int skillID) {
+    public virtual void SkillAttack(int skillID)
+    {
         skillMgr.SkillAttack(this, skillID);
     }
 
-
+    public void RmvActionCB(int tid)
+    {
+        int index = -1;
+        for (int i = 0; i < skActionCBLst.Count; i++)
+        {
+            if (skActionCBLst[i] == tid)
+            {
+                index = i;
+                break;
+            }
+        }
+        if (index != -1)
+        {
+            skActionCBLst.RemoveAt(index);
+        }
+    }
     public virtual void TickAILogic() { }
 
+       public virtual void SetDodge() {
+        if (controller != null) {
+            GameRoot.Instance.dynamicWnd.SetDodge(Name);
+        }
+    }
+    public virtual void SetCritical(int critical) {
+        if (controller != null) {
+            GameRoot.Instance.dynamicWnd.SetCritical(Name, critical);
+        }
+    }
+    public virtual void SetHurt(int hurt) {
+        if (controller != null) {
+            GameRoot.Instance.dynamicWnd.SetHurt(Name, hurt);
+        }
+    }
+      public virtual bool GetBreakState() {
+        return true;
+    }
+
+ 
 }

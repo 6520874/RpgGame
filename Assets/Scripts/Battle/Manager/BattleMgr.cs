@@ -266,15 +266,42 @@ public class BattleMgr : MonoBehaviour
                 ReleaseNormalAtk();
                 break;
             case 1:
-                //ReleaseSkill1();
+                ReleaseSkill1();
                 break;
             case 2:
-                // ReleaseSkill2();
+                ReleaseSkill2();
                 break;
             case 3:
-                // ReleaseSkill3();
+                ReleaseSkill3();
                 break;
         }
+    }
+
+        private void ReleaseSkill1() {
+        //PECommon.Log("Click Skill1");
+        entitySelfPlayer.Attack(101);
+    }
+    private void ReleaseSkill2() {
+        //PECommon.Log("Click Skill2");
+        entitySelfPlayer.Attack(102);
+    }
+    private void ReleaseSkill3() {
+        //PECommon.Log("Click Skill3");
+        entitySelfPlayer.Attack(103);
+    }
+    
+    public void RmvMonster(string key) {
+        EntityMonster entityMonster;
+        if (monsterDic.TryGetValue(key, out entityMonster)) {
+            monsterDic.Remove(key);
+            GameRoot.Instance.dynamicWnd.RmvHpItemInfo(key);
+        }
+    }
+
+       public void EndBattle(bool isWin, int restHP) {
+        isPauseGame = true;
+        AudioSvc.Instance.StopBGMusic();
+        BattleSys.Instance.EndBattle(isWin, restHP);
     }
 
 }

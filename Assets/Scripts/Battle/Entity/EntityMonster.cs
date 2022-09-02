@@ -131,4 +131,19 @@ public class EntityMonster : EntityBase
         HP = p.hp;
     }
 
+    
+    public override bool GetBreakState() {
+        if (md.mCfg.isStop) {
+            if (curtSkillCfg != null) {
+                return curtSkillCfg.isBreak;
+            }
+            else {
+                return true;
+            }
+        }
+        else {
+            return false;
+        }
+    }
+
 }

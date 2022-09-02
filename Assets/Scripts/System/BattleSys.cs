@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using PEProtocol;
 using UnityEngine;
 
 public class BattleSys : SystemRoot
@@ -8,6 +7,7 @@ public class BattleSys : SystemRoot
     public static BattleSys Instance = null;
     public PlayerCtrlWnd playerCtrlWnd;
 
+    public BattleEndWnd battleEndWnd;
     public BattleMgr battleMgr;
 
     private int fbid;
@@ -58,6 +58,37 @@ public class BattleSys : SystemRoot
 
   public void ReqReleaseSkill(int index) {
         battleMgr.ReqReleaseSkill(index);
+    }
+
+ public void EndBattle(bool isWin, int restHP) {
+        playerCtrlWnd.SetWndState(false);
+        GameRoot.Instance.dynamicWnd.RmvAllHpItemInfo();
+
+        if (isWin) {
+            double endTime = timerSvc.GetNowTime();
+            //发送结算战斗请求
+            //TODO
+            GameMsg msg = new GameMsg {
+                cmd = (int)CMD.ReqFBFightEnd,
+                reqFBFightEnd = new ReqFBFightEnd {
+                    win = isWin,
+                    fbid = fbid,
+                    resthp = restHP,
+                    costtime = (int)(endTime - startTime)
+                }
+            };
+
+            netSvc.SendMsg(msg);
+        }
+        else {
+            SetBattleEndWndState(FBEndType.Lose);
+        }
+    }
+    
+    
+    public void SetBattleEndWndState(FBEndType endType, bool isActive = true) {
+        battleEndWnd.SetWndType(endType);
+        battleEndWnd.SetWndState(isActive);
     }
 
 
