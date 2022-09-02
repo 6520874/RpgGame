@@ -277,6 +277,10 @@ public class BattleMgr : MonoBehaviour
         }
     }
 
+    public bool CanRlsSkill() {
+        return entitySelfPlayer.canRlsSkill;
+    }
+
         private void ReleaseSkill1() {
         //PECommon.Log("Click Skill1");
         entitySelfPlayer.Attack(101);
@@ -289,7 +293,7 @@ public class BattleMgr : MonoBehaviour
         //PECommon.Log("Click Skill3");
         entitySelfPlayer.Attack(103);
     }
-    
+
     public void RmvMonster(string key) {
         EntityMonster entityMonster;
         if (monsterDic.TryGetValue(key, out entityMonster)) {

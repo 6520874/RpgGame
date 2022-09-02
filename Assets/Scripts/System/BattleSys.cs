@@ -59,6 +59,7 @@ public class BattleSys : SystemRoot
   public void ReqReleaseSkill(int index) {
         battleMgr.ReqReleaseSkill(index);
     }
+    
 
  public void EndBattle(bool isWin, int restHP) {
         playerCtrlWnd.SetWndState(false);

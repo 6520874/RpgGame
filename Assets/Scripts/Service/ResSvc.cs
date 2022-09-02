@@ -571,6 +571,17 @@ public class ResSvc : MonoBehaviour
         }
         return null;
     }
+
+        public void ResetSkillCfgs() {
+        skillDic.Clear();
+        InitSkillCfg(PathDefine.SkillCfg);
+        skillMoveDic.Clear();
+        InitSkillMoveCfg(PathDefine.SkillMoveCfg);
+        PECommon.Log("Reset SkillCfgs...");
+        skillActionDic.Clear();
+        InitSkillActionCfg(PathDefine.SkillActionCfg);
+    }
+
 }
 
 
