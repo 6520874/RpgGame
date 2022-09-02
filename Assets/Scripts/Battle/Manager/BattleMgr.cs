@@ -50,7 +50,7 @@ public class BattleMgr : MonoBehaviour
             entitySelfPlayer.Idle();
 
             //激活第一批次怪物
-             ActiveCurrentBatchMonsters();
+            ActiveCurrentBatchMonsters();
 
             audioSvc.PlayBGMusic(Constants.BGHuangYe);
             if (cb != null)
@@ -64,42 +64,42 @@ public class BattleMgr : MonoBehaviour
     {
         for (int i = 0; i < mapCfg.monsterLst.Count; i++)
         {
-           MonsterData md = mapCfg.monsterLst[i];
-           if (md.mWave == wave)
-           {
-               GameObject m = resSvc.LoadPrefab(md.mCfg.resPath, true);
-               m.transform.localPosition = md.mBornPos;
-               m.transform.localEulerAngles = md.mBornRote;
-               m.transform.localScale = Vector3.one;
+            MonsterData md = mapCfg.monsterLst[i];
+            if (md.mWave == wave)
+            {
+                GameObject m = resSvc.LoadPrefab(md.mCfg.resPath, true);
+                m.transform.localPosition = md.mBornPos;
+                m.transform.localEulerAngles = md.mBornRote;
+                m.transform.localScale = Vector3.one;
 
-               m.name = "m" + md.mWave + "_" + md.mIndex;
+                m.name = "m" + md.mWave + "_" + md.mIndex;
 
-               EntityMonster em = new EntityMonster
-               {
-                   battleMgr = this,
-                   stateMgr = stateMgr,
-                   skillMgr = skillMgr
-               };
-               //设置初始属性
-               em.md = md;
-               em.SetBattleProps(md.mCfg.bps);
-               em.Name = m.name;
+                EntityMonster em = new EntityMonster
+                {
+                    battleMgr = this,
+                    stateMgr = stateMgr,
+                    skillMgr = skillMgr
+                };
+                //设置初始属性
+                em.md = md;
+                em.SetBattleProps(md.mCfg.bps);
+                em.Name = m.name;
 
-               MonsterController mc = m.GetComponent<MonsterController>();
-               mc.Init();
-               em.SetCtrl(mc);
+                MonsterController mc = m.GetComponent<MonsterController>();
+                mc.Init();
+                em.SetCtrl(mc);
 
-               m.SetActive(false);
-               monsterDic.Add(m.name, em);
-               if (md.mCfg.mType == MonsterType.Normal)
-               {
-                   GameRoot.Instance.dynamicWnd.AddHpItemInfo(m.name, mc.hpRoot, em.HP);
-               }
-               else if (md.mCfg.mType == MonsterType.Boss)
-               {
-                   BattleSys.Instance.playerCtrlWnd.SetBossHPBarState(true);
-               }
-           }
+                m.SetActive(false);
+                monsterDic.Add(m.name, em);
+                if (md.mCfg.mType == MonsterType.Normal)
+                {
+                    GameRoot.Instance.dynamicWnd.AddHpItemInfo(m.name, mc.hpRoot, em.HP);
+                }
+                else if (md.mCfg.mType == MonsterType.Boss)
+                {
+                    BattleSys.Instance.playerCtrlWnd.SetBossHPBarState(true);
+                }
+            }
         }
     }
 
@@ -143,12 +143,16 @@ public class BattleMgr : MonoBehaviour
     }
 
 
-    public void ActiveCurrentBatchMonsters() {
-        TimerSvc.Instance.AddTimeTask((int tid) => {
-            foreach (var item in monsterDic) {
+    public void ActiveCurrentBatchMonsters()
+    {
+        TimerSvc.Instance.AddTimeTask((int tid) =>
+        {
+            foreach (var item in monsterDic)
+            {
                 item.Value.SetActive(true);
                 item.Value.Born();
-                TimerSvc.Instance.AddTimeTask((int id) => {
+                TimerSvc.Instance.AddTimeTask((int id) =>
+                {
                     //出生1秒钟后进入Idle
                     item.Value.Idle();
                 }, 1000);
@@ -181,5 +185,18 @@ public class BattleMgr : MonoBehaviour
         }
     }
 
+    public Vector2 GetDirInput()
+    {
+        return BattleSys.Instance.GetDirInput();
+    }
+
+    public List<EntityMonster> GetEntityMonsters() {
+        List<EntityMonster> monsterLst = new List<EntityMonster>();
+        foreach (var item in monsterDic) {
+            monsterLst.Add(item.Value);
+        }
+        return monsterLst;
+    }
+    
 
 }

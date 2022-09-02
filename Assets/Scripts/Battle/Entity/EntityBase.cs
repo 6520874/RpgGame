@@ -166,12 +166,29 @@ public abstract class EntityBase
             controller.Dir = dir;
         }
     }
-   
-      public void SetActive(bool active = true) {
-        if (controller != null) {
+
+    public void SetActive(bool active = true)
+    {
+        if (controller != null)
+        {
             controller.gameObject.SetActive(active);
         }
     }
 
+
+    public virtual Vector2 CalcTargetDir()
+    {
+        return Vector2.zero;
+    }
+
+    public virtual Vector3 GetPos()
+    {
+        return controller.transform.position;
+    }
+
+    public virtual Transform GetTrans()
+    {
+        return controller.transform;
+    }
 
 }

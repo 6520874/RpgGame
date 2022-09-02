@@ -51,4 +51,10 @@ public class BattleSys : SystemRoot
         battleMgr.SetSelfPlayerMoveDir(dir);
     }
 
+    public Vector2 GetDirInput()
+    {
+        return playerCtrlWnd.currentDir;
+    }
+
+
 }
