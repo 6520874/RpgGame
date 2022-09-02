@@ -1,42 +1,40 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿/****************************************************
+	文件：FubenSys.cs
+	作者：Plane
+	邮箱: 1785275942@qq.com
+	日期：2019/03/01 4:01   	
+	功能：副本业务系统
+*****************************************************/
+
 using PEProtocol;
 
 public class FubenSys : SystemRoot {
+    public static FubenSys Instance = null;
 
+    public FubenWnd fubenWnd;
 
-   public  static FubenSys Instance = null;
+    public override void InitSys() {
+        base.InitSys();
 
-   public FubenWnd fubenWnd;
-    
-	public override void InitSys(){
-		base.InitSys();
-		Instance = this;
-		PECommon.Log("Init FubenSys...");
-	}
-	void Start () {
-		
-	}
+        Instance = this;
+        PECommon.Log("Init FubenSys...");
+    }
 
-
-	public void EnterFuben(){
+    public void EnterFuben() {
         SetFubenWndState();
-	}
+    }
 
-	public void SetFubenWndState(bool isActive = true) {
+    #region Fuben Wnd
+    public void SetFubenWndState(bool isActive = true) {
         fubenWnd.SetWndState(isActive);
     }
+    #endregion
+
     public void RspFBFight(GameMsg msg) {
         GameRoot.Instance.SetPlayerDataByFBStart(msg.rspFBFight);
         MainCitySys.Instance.maincityWnd.SetWndState(false);
         SetFubenWndState(false);
         BattleSys.Instance.StartBattle(msg.rspFBFight.fbid);
     }
-	
-	// Update is called once per frame
 
-
-		
-	
 }

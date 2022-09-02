@@ -1,42 +1,39 @@
+/****************************************************
+    文件：GameRoot.cs
+	作者：Plane
+    邮箱: 1785275942@qq.com
+    日期：2018/12/3 5:30:21
+	功能：游戏启动入口
+*****************************************************/
 
 using PEProtocol;
 using UnityEngine;
 
-public class GameRoot : MonoBehaviour
-{
-
+public class GameRoot : MonoBehaviour {
     public static GameRoot Instance = null;
+
     public LoadingWnd loadingWnd;
     public DynamicWnd dynamicWnd;
 
-
-    private void Start()
-    {
+    private void Start() {
         Instance = this;
         DontDestroyOnLoad(this);
-        Debug.Log("Game Start...");
+        PECommon.Log("Game Start...");
+
         ClearUIRoot();
+
         Init();
     }
 
-    private void ClearUIRoot()
-    {
+    private void ClearUIRoot() {
         Transform canvas = transform.Find("Canvas");
-        for (int i = 0; i < canvas.childCount; i++)
-        {
+        for (int i = 0; i < canvas.childCount; i++) {
             canvas.GetChild(i).gameObject.SetActive(false);
         }
-
-        dynamicWnd.SetWndState();
     }
 
-    private void Init()
-    {
+    private void Init() {
         //服务模块初始化
-        
-   
-
-
         NetSvc net = GetComponent<NetSvc>();
         net.InitSvc();
         ResSvc res = GetComponent<ResSvc>();
@@ -47,50 +44,47 @@ public class GameRoot : MonoBehaviour
         timer.InitSvc();
 
 
-        // //业务系统初始化
-
+        //业务系统初始化
         LoginSys login = GetComponent<LoginSys>();
         login.InitSys();
         MainCitySys maincity = GetComponent<MainCitySys>();
         maincity.InitSys();
         FubenSys fuben = GetComponent<FubenSys>();
         fuben.InitSys();
-
         BattleSys battle = GetComponent<BattleSys>();
         battle.InitSys();
 
+        dynamicWnd.SetWndState();
         //进入登录场景并加载相应UI
         login.EnterLogin();
     }
 
-    public static void AddTips(string tips)
-    {
+    public static void AddTips(string tips) {
         Instance.dynamicWnd.AddTips(tips);
     }
 
     private PlayerData playerData = null;
-    public PlayerData PlayerData
-    {
-        get
-        {
+    public PlayerData PlayerData {
+        get {
             return playerData;
         }
     }
-    public void SetPlayerData(RspLogin data)
-    {
+    public void SetPlayerData(RspLogin data) {
         playerData = data.playerData;
     }
 
-    public void SetPlayerDataByGuide(RspGuide data)
-    {
+    public void SetPlayerName(string name) {
+        PlayerData.name = name;
+    }
+
+    public void SetPlayerDataByGuide(RspGuide data) {
         PlayerData.coin = data.coin;
         PlayerData.lv = data.lv;
         PlayerData.exp = data.exp;
         PlayerData.guideid = data.guideid;
     }
 
-    public void SetPlayerDataByStrong(RspStrong data)
-    {
+    public void SetPlayerDataByStrong(RspStrong data) {
         PlayerData.coin = data.coin;
         PlayerData.crystal = data.crystal;
         PlayerData.hp = data.hp;
@@ -102,39 +96,31 @@ public class GameRoot : MonoBehaviour
         PlayerData.strongArr = data.strongArr;
     }
 
-    public void SetPlayerDataByBuy(RspBuy data)
-    {
+    public void SetPlayerDataByBuy(RspBuy data) {
         PlayerData.diamond = data.dimond;
         PlayerData.coin = data.coin;
         PlayerData.power = data.power;
     }
-    public void SetPlayerDataByPower(PshPower data)
-    {
+    public void SetPlayerDataByPower(PshPower data) {
         PlayerData.power = data.power;
     }
-    public void SetPlayerDataByTask(RspTakeTaskReward data)
-    {
+    public void SetPlayerDataByTask(RspTakeTaskReward data) {
         PlayerData.coin = data.coin;
         PlayerData.lv = data.lv;
         PlayerData.exp = data.exp;
         PlayerData.taskArr = data.taskArr;
     }
-    public void SetPlayerDataByTaskPsh(PshTaskPrgs data)
-    {
+    public void SetPlayerDataByTaskPsh(PshTaskPrgs data) {
         PlayerData.taskArr = data.taskArr;
     }
-    public void SetPlayerDataByFBStart(RspFBFight data)
-    {
+    public void SetPlayerDataByFBStart(RspFBFight data) {
         PlayerData.power = data.power;
     }
-    public void SetPlayerDataByFBEnd(RspFBFightEnd data)
-    {
+    public void SetPlayerDataByFBEnd(RspFBFightEnd data) {
         PlayerData.coin = data.coin;
         PlayerData.lv = data.lv;
         PlayerData.exp = data.exp;
         PlayerData.crystal = data.crystal;
         PlayerData.fuben = data.fuben;
-
     }
-
 }

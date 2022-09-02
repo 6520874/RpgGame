@@ -69,18 +69,18 @@ public class DynamicWnd : WindowRoot {
     #endregion
 
     public void AddHpItemInfo(string mName, Transform trans, int hp) {
-        ItemEntityHP item = null;
-        if (itemDic.TryGetValue(mName, out item)) {
-            return;
-        }
-        else {
-            GameObject go = resSvc.LoadPrefab(PathDefine.HPItemPrefab, true);
-            go.transform.SetParent(hpItemRoot);
-            go.transform.localPosition = new Vector3(-1000, 0, 0);
-            ItemEntityHP ieh = go.GetComponent<ItemEntityHP>();
-            ieh.InitItemInfo(trans, hp);
-            itemDic.Add(mName, ieh);
-        }
+        // ItemEntityHP item = null;
+        // if (itemDic.TryGetValue(mName, out item)) {
+        //     return;
+        // }
+        // else {
+        //     GameObject go = resSvc.LoadPrefab(PathDefine.HPItemPrefab, true);
+        //     go.transform.SetParent(hpItemRoot);
+        //     go.transform.localPosition = new Vector3(-1000, 0, 0);
+        //     ItemEntityHP ieh = go.GetComponent<ItemEntityHP>();
+        //     ieh.InitItemInfo(trans, hp);
+        //     itemDic.Add(mName, ieh);
+        // }
     }
 
     public void RmvHpItemInfo(string mName) {
