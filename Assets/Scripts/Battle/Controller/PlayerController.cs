@@ -107,7 +107,7 @@ public class PlayerController : Controller {
     }
 
     private void SetSkillMove() {
-      // ctrl.Move(transform.forward * Time.deltaTime * skillMoveSpeed);
+      ctrl.Move(transform.forward * Time.deltaTime * skillMoveSpeed);
     }
 
     public void SetCam() {

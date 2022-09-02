@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EntityMonster : EntityBase
-{ 
+{
 
-    public EntityMonster(){
+    public EntityMonster()
+    {
         entityType = EntityType.Monster;
     }
 
@@ -20,36 +21,45 @@ public class EntityMonster : EntityBase
 
     public override void TickAILogic()
     {
-  
-            if (!runAI) {
+
+        if (!runAI)
+        {
             return;
         }
-         if (currentAniState == AniState.Idle || currentAniState == AniState.Move) {
-            // if (battleMgr.isPauseGame) {
-            //     Idle();
-            //     return;
-            // }
+        if (currentAniState == AniState.Idle || currentAniState == AniState.Move)
+        {
+            if (battleMgr.isPauseGame)
+            {
+                Idle();
+                return;
+            }
 
             float delta = Time.deltaTime;
             checkCountTime += delta;
-            if (checkCountTime < checkTime) {
+            if (checkCountTime < checkTime)
+            {
                 return;
             }
-            else {
+            else
+            {
                 Vector2 dir = CalcTargetDir();
-                if (!InAtkRange()) {
+                if (!InAtkRange())
+                {
                     SetDir(dir);
                     Move();
                 }
-                else {
+                else
+                {
                     SetDir(Vector2.zero);
                     atkCountTime += checkCountTime;
-                    if (atkCountTime > atkTime) {
-                       SetAtkRotation(dir);
+                    if (atkCountTime > atkTime)
+                    {
+                        SetAtkRotation(dir);
                         Attack(md.mCfg.skillID);
                         atkCountTime = 0;
                     }
-                    else {
+                    else
+                    {
                         Idle();
                     }
                 }
@@ -60,22 +70,27 @@ public class EntityMonster : EntityBase
 
     }
 
-    private bool InAtkRange() {
+    private bool InAtkRange()
+    {
         EntityPlayer entityPlayer = battleMgr.entitySelfPlayer;
-        if (entityPlayer == null || entityPlayer.currentAniState == AniState.Die) {
+        if (entityPlayer == null || entityPlayer.currentAniState == AniState.Die)
+        {
             runAI = false;
             return false;
         }
-        else {
+        else
+        {
             Vector3 target = entityPlayer.GetPos();
             Vector3 self = GetPos();
             target.y = 0;
             self.y = 0;
             float dis = Vector3.Distance(target, self);
-            if (dis <= md.mCfg.atkDis) {
+            if (dis <= md.mCfg.atkDis)
+            {
                 return true;
             }
-            else {
+            else
+            {
                 return false;
             }
         }

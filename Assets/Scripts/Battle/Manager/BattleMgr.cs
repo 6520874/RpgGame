@@ -19,7 +19,8 @@ public class BattleMgr : MonoBehaviour
     private Dictionary<string, EntityMonster> monsterDic = new Dictionary<string, EntityMonster>();
     public EntityPlayer entitySelfPlayer;
     public bool triggerCheck = true;
-
+  
+   public bool isPauseGame = false;
     public void Init(int mapid, Action cb = null)
     {
         resSvc = ResSvc.Instance;
@@ -66,6 +67,18 @@ public class BattleMgr : MonoBehaviour
         {
             EntityMonster em = item.Value;
             em.TickAILogic();
+        }
+
+              //检测当前批次的怪物是否全部死亡
+        if (mapMgr != null) {
+            if (triggerCheck && monsterDic.Count == 0) {
+                bool isExist = mapMgr.SetNextTriggerOn();
+                triggerCheck = false;
+                if (!isExist) {
+                    //关卡结束，战斗胜利
+                   // EndBattle(true, entitySelfPlayer.HP);
+                }
+            }
         }
     }
     public void LoadMonsterByWaveID(int wave)
