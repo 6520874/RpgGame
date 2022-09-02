@@ -56,5 +56,9 @@ public class BattleSys : SystemRoot
         return playerCtrlWnd.currentDir;
     }
 
+  public void ReqReleaseSkill(int index) {
+        battleMgr.ReqReleaseSkill(index);
+    }
+
 
 }

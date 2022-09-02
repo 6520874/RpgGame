@@ -125,5 +125,9 @@ public class Constants {
 
     //运动平滑加速度
     public const float AccelerSpeed = 5;
+    public static float AccelerHPSpeed = 0.3F;
+
+   //普攻连招有效间隔
+    public static int ComboSpace = 500;
 
 }

@@ -19,8 +19,8 @@ public class BattleMgr : MonoBehaviour
     private Dictionary<string, EntityMonster> monsterDic = new Dictionary<string, EntityMonster>();
     public EntityPlayer entitySelfPlayer;
     public bool triggerCheck = true;
-  
-   public bool isPauseGame = false;
+
+    public bool isPauseGame = false;
     public void Init(int mapid, Action cb = null)
     {
         resSvc = ResSvc.Instance;
@@ -61,22 +61,26 @@ public class BattleMgr : MonoBehaviour
         });
     }
 
-    public void Update() {
-        
+    public void Update()
+    {
+
         foreach (var item in monsterDic)
         {
             EntityMonster em = item.Value;
             em.TickAILogic();
         }
 
-              //检测当前批次的怪物是否全部死亡
-        if (mapMgr != null) {
-            if (triggerCheck && monsterDic.Count == 0) {
+        //检测当前批次的怪物是否全部死亡
+        if (mapMgr != null)
+        {
+            if (triggerCheck && monsterDic.Count == 0)
+            {
                 bool isExist = mapMgr.SetNextTriggerOn();
                 triggerCheck = false;
-                if (!isExist) {
+                if (!isExist)
+                {
                     //关卡结束，战斗胜利
-                   // EndBattle(true, entitySelfPlayer.HP);
+                    // EndBattle(true, entitySelfPlayer.HP);
                 }
             }
         }
@@ -211,13 +215,60 @@ public class BattleMgr : MonoBehaviour
         return BattleSys.Instance.GetDirInput();
     }
 
-    public List<EntityMonster> GetEntityMonsters() {
+    public List<EntityMonster> GetEntityMonsters()
+    {
         List<EntityMonster> monsterLst = new List<EntityMonster>();
-        foreach (var item in monsterDic) {
+        foreach (var item in monsterDic)
+        {
             monsterLst.Add(item.Value);
         }
         return monsterLst;
     }
+    
+    public double lastAtkTime = 0;
+    private int[] comboArr = new int[] { 111, 112, 113, 114, 115 };
+    public int comboIndex = 0;
+      private void ReleaseNormalAtk() {
+        //PECommon.Log("Click Normal Atk");
+        if (entitySelfPlayer.currentAniState == AniState.Attack) {
+            //在500ms以内进行第二次点击，存数据
+            double nowAtkTime = TimerSvc.Instance.GetNowTime();
+            if (nowAtkTime - lastAtkTime < Constants.ComboSpace && lastAtkTime != 0) {
+                if (comboArr[comboIndex] != comboArr[comboArr.Length - 1]) {
+                    comboIndex += 1;
+                    entitySelfPlayer.comboQue.Enqueue(comboArr[comboIndex]);
+                    lastAtkTime = nowAtkTime;
+                }
+                else {
+                    lastAtkTime = 0;
+                    comboIndex = 0;
+                }
+            }
+        }
+        else if (entitySelfPlayer.currentAniState == AniState.Idle || entitySelfPlayer.currentAniState == AniState.Move) {
+            comboIndex = 0;
+            lastAtkTime = TimerSvc.Instance.GetNowTime();
+            entitySelfPlayer.Attack(comboArr[comboIndex]);
+        }
+    }
 
+    public void ReqReleaseSkill(int index)
+    {
+        switch (index)
+        {
+            case 0:
+                ReleaseNormalAtk();
+                break;
+            case 1:
+                //ReleaseSkill1();
+                break;
+            case 2:
+               // ReleaseSkill2();
+                break;
+            case 3:
+               // ReleaseSkill3();
+                break;
+        }
+    }
 
 }

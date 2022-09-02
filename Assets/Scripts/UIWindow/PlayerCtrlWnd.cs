@@ -167,6 +167,43 @@ public class PlayerCtrlWnd : WindowRoot
         #endregion    
     }
 
+
+
+   public void ClickNormalAtk() {
+        BattleSys.Instance.ReqReleaseSkill(0);
+    }
+
+    public void ClickSkill1Atk() {
+        // if (isSk1CD == false && GetCanRlsSkill()) {
+        //     BattleSys.Instance.ReqReleaseSkill(1);
+        //     isSk1CD = true;
+        //     SetActive(imgSk1CD);
+        //     imgSk1CD.fillAmount = 1;
+        //     sk1Num = (int)sk1CDTime;
+        //     SetText(txtSk1CD, sk1Num);
+        // }
+    }
+    public void ClickSkill2Atk() {
+        // if (isSk2CD == false && GetCanRlsSkill()) {
+        //     BattleSys.Instance.ReqReleaseSkill(2);
+        //     isSk2CD = true;
+        //     SetActive(imgSk2CD);
+        //     imgSk2CD.fillAmount = 1;
+        //     sk2Num = (int)sk2CDTime;
+        //     SetText(txtSk2CD, sk2Num);
+        // }
+    }
+    public void ClickSkill3Atk() {
+        // if (isSk3CD == false && GetCanRlsSkill()) {
+        //     BattleSys.Instance.ReqReleaseSkill(3);
+        //     isSk3CD = true;
+        //     SetActive(imgSk3CD);
+        //     imgSk3CD.fillAmount = 1;
+        //     sk3Num = (int)sk3CDTime;
+        //     SetText(txtSk3CD, sk3Num);
+        // }
+    }
+
     private void Update()
     {
     

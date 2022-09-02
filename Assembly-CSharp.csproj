@@ -101,7 +101,6 @@
      <Compile Include="Assets\Scripts\UIWindow\LoginWnd.cs" />
      <Compile Include="Assets\Scripts\UIWindow\MainCityWnd.cs" />
      <Compile Include="Assets\Scripts\UIWindow\PlayerCtrlWnd.cs" />
-     <Compile Include="Assets\Scripts\UIWindow\PlayerWnd.cs" />
      <None Include="Assets\Compond\MakeChar\Shader\PlayerShader.shader" />
      <None Include="Assets\Resources\ResCfgs\taskreward.xml" />
      <None Include="Assets\Resources\ResCfgs\rdname.xml" />
