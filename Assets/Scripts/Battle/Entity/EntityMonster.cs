@@ -70,6 +70,21 @@ public class EntityMonster : EntityBase
 
     }
 
+ 
+ 
+    public override Vector2 CalcTargetDir() {
+        EntityPlayer entityPlayer = battleMgr.entitySelfPlayer;
+        if (entityPlayer == null || entityPlayer.currentAniState == AniState.Die) {
+            runAI = false;
+            return Vector2.zero;
+        }
+        else {
+            Vector3 target = entityPlayer.GetPos();
+            Vector3 self = GetPos();
+            return new Vector2(target.x - self.x, target.z - self.z).normalized;
+        }
+    }
+    
     private bool InAtkRange()
     {
         EntityPlayer entityPlayer = battleMgr.entitySelfPlayer;
