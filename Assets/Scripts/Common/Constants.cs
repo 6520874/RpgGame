@@ -130,4 +130,9 @@ public class Constants {
    //普攻连招有效间隔
     public static int ComboSpace = 500;
 
+     
+
+     public const string AssassinHit = "assassin_Hit";
+     
+
 }
