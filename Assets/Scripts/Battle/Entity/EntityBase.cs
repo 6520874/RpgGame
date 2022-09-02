@@ -175,7 +175,16 @@ public abstract class EntityBase
         }
     }
 
-
+    public virtual void SetAtkRotation(Vector2 dir, bool offset = false) {
+        if (controller != null) {
+            if (offset) {
+                controller.SetAtkRotationCam(dir);
+            }
+            else {
+                controller.SetAtkRotationLocal(dir);
+            }
+        }
+    }
     public virtual Vector2 CalcTargetDir()
     {
         return Vector2.zero;
@@ -190,5 +199,7 @@ public abstract class EntityBase
     {
         return controller.transform;
     }
+
+    public virtual void TickAILogic() { }
 
 }

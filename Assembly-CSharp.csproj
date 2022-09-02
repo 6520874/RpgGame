@@ -73,6 +73,7 @@
      <Compile Include="Assets\Scripts\Common\MainCityMap.cs" />
      <Compile Include="Assets\Scripts\Common\PathDefine.cs" />
      <Compile Include="Assets\Scripts\Common\PEListener.cs" />
+     <Compile Include="Assets\Scripts\Common\PETools.cs" />
      <Compile Include="Assets\Scripts\Common\TestPlayer.cs" />
      <Compile Include="Assets\Scripts\Common\TriggerData.cs" />
      <Compile Include="Assets\Scripts\Common\WindowRoot.cs" />

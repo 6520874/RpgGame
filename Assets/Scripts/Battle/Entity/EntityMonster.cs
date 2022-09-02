@@ -16,6 +16,71 @@ public class EntityMonster : EntityBase
     private float atkTime = 2;
     private float atkCountTime = 0;
 
+    bool runAI = true;
+
+    public override void TickAILogic()
+    {
+  
+            if (!runAI) {
+            return;
+        }
+         if (currentAniState == AniState.Idle || currentAniState == AniState.Move) {
+            // if (battleMgr.isPauseGame) {
+            //     Idle();
+            //     return;
+            // }
+
+            float delta = Time.deltaTime;
+            checkCountTime += delta;
+            if (checkCountTime < checkTime) {
+                return;
+            }
+            else {
+                Vector2 dir = CalcTargetDir();
+                if (!InAtkRange()) {
+                    SetDir(dir);
+                    Move();
+                }
+                else {
+                    SetDir(Vector2.zero);
+                    atkCountTime += checkCountTime;
+                    if (atkCountTime > atkTime) {
+                       SetAtkRotation(dir);
+                        Attack(md.mCfg.skillID);
+                        atkCountTime = 0;
+                    }
+                    else {
+                        Idle();
+                    }
+                }
+                checkCountTime = 0;
+                checkTime = PETools.RDInt(1, 5) * 1.0f / 10;
+            }
+        }
+
+    }
+
+    private bool InAtkRange() {
+        EntityPlayer entityPlayer = battleMgr.entitySelfPlayer;
+        if (entityPlayer == null || entityPlayer.currentAniState == AniState.Die) {
+            runAI = false;
+            return false;
+        }
+        else {
+            Vector3 target = entityPlayer.GetPos();
+            Vector3 self = GetPos();
+            target.y = 0;
+            self.y = 0;
+            float dis = Vector3.Distance(target, self);
+            if (dis <= md.mCfg.atkDis) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+    }
+
     public override void SetBattleProps(BattleProps props)
     {
         int level = md.mLevel;

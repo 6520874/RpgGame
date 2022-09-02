@@ -60,6 +60,14 @@ public class BattleMgr : MonoBehaviour
         });
     }
 
+    public void Update() {
+        
+        foreach (var item in monsterDic)
+        {
+            EntityMonster em = item.Value;
+            em.TickAILogic();
+        }
+    }
     public void LoadMonsterByWaveID(int wave)
     {
         for (int i = 0; i < mapCfg.monsterLst.Count; i++)
@@ -197,6 +205,6 @@ public class BattleMgr : MonoBehaviour
         }
         return monsterLst;
     }
-    
+
 
 }
