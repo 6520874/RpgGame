@@ -322,5 +322,12 @@ public abstract class EntityBase
         return true;
     }
 
+     public AnimationClip[] GetAniClips() {
+        if (controller != null) {
+            return controller.ani.runtimeAnimatorController.animationClips;
+        }
+        return null;
+    }
+
  
 }

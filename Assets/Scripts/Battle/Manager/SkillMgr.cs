@@ -84,7 +84,7 @@ public class SkillMgr : MonoBehaviour {
     private void CalcDamage(EntityBase caster, EntityBase target, SkillCfg skillCfg, int damage) {
         int dmgSum = damage;
         if (skillCfg.dmgType == DamageType.AD) {
-        //计算闪避
+            //计算闪避
             int dodgeNum = PETools.RDInt(1, 100, rd);
             if (dodgeNum <= target.Props.dodge) {
                 //UI显示闪避 TODO
