@@ -1,26 +1,24 @@
-
 /****************************************************
     文件：LoginSys.cs
-	作者：SIKI学院——Plane
+	作者：Plane
     邮箱: 1785275942@qq.com
     日期：2018/12/3 5:31:49
 	功能：登录注册业务系统
 *****************************************************/
-using UnityEngine;
+
 using PEProtocol;
 
 public class LoginSys : SystemRoot {
     public static LoginSys Instance = null;
 
     public LoginWnd loginWnd;
-
     public CreateWnd createWnd;
 
     public override void InitSys() {
         base.InitSys();
 
         Instance = this;
-        Debug.Log("Init LoginSys...");
+        PECommon.Log("Init LoginSys...");
     }
 
     /// <summary>
@@ -51,10 +49,10 @@ public class LoginSys : SystemRoot {
     }
 
     public void RspRename(GameMsg msg) {
-        // GameRoot.Instance.SetPlayerName(msg.rspRename.name);
+        GameRoot.Instance.SetPlayerName(msg.rspRename.name);
 
-        // //跳转场景进入主城
-        // MainCitySys.Instance.EnterMainCity();
+        //跳转场景进入主城
+        MainCitySys.Instance.EnterMainCity();
         //关闭创建界面
         createWnd.SetWndState(false);
     }
