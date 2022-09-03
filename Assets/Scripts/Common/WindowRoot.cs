@@ -1,3 +1,10 @@
+/****************************************************
+    文件：WindowRoot.cs
+	作者：Plane
+    邮箱: 1785275942@qq.com
+    日期：2018/12/4 4:31:31
+	功能：UI界面基类
+*****************************************************/
 
 using System;
 using UnityEngine;
@@ -5,11 +12,11 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class WindowRoot : MonoBehaviour {
-
     protected ResSvc resSvc = null;
     protected AudioSvc audioSvc = null;
     protected NetSvc netSvc = null;
     protected TimerSvc timerSvc = null;
+
     public void SetWndState(bool isActive = true) {
         if (gameObject.activeSelf != isActive) {
             SetActive(gameObject, isActive);
@@ -21,6 +28,11 @@ public class WindowRoot : MonoBehaviour {
             ClearWnd();
         }
     }
+
+    public bool GetWndState() {
+        return gameObject.activeSelf;
+    }
+
     protected virtual void InitWnd() {
         resSvc = ResSvc.Instance;
         audioSvc = AudioSvc.Instance;
@@ -35,7 +47,7 @@ public class WindowRoot : MonoBehaviour {
         timerSvc = null;
     }
 
-
+    #region Tool Functions
 
     protected void SetActive(GameObject go, bool isActive = true) {
         go.SetActive(isActive);
@@ -52,7 +64,6 @@ public class WindowRoot : MonoBehaviour {
     protected void SetActive(Text txt, bool state = true) {
         txt.transform.gameObject.SetActive(state);
     }
-    
 
     protected void SetText(Text txt, string context = "") {
         txt.text = context;
@@ -72,16 +83,24 @@ public class WindowRoot : MonoBehaviour {
         img.sprite = sp;
     }
 
-    protected  T GetOrAddComponect<T>(GameObject go)where T: Component{
-
-         T t = go.GetComponent<T>();
-         if (t == null){
+    protected T GetOrAddComponect<T>(GameObject go) where T : Component {
+        T t = go.GetComponent<T>();
+        if (t == null) {
             t = go.AddComponent<T>();
-         }
-         return t;
+        }
+        return t;
     }
 
-    
+    protected Transform GetTrans(Transform trans, string name) {
+        if (trans != null) {
+            return trans.Find(name);
+        }
+        else {
+            return transform.Find(name);
+        }
+    }
+    #endregion
+
     #region Click Evts
     protected void OnClick(GameObject go, Action<object> cb, object args) {
         PEListener listener = GetOrAddComponect<PEListener>(go);
@@ -104,5 +123,4 @@ public class WindowRoot : MonoBehaviour {
         listener.onDrag = cb;
     }
     #endregion
-
 }
