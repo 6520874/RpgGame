@@ -506,7 +506,7 @@ GameObject:
   - component: {fileID: 400066}
   - component: {fileID: 9500000}
   - component: {fileID: 143735449038828316}
-  - component: {fileID: 114883014359816380}
+  - component: {fileID: 114370062672694632}
   m_Layer: 10
   m_Name: MonsterBoss_1
   m_TagString: Untagged
@@ -1089,7 +1089,7 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 100066}
   m_IsPrefabParent: 1
---- !u!114 &114883014359816380
+--- !u!114 &114370062672694632
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -1097,11 +1097,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 100066}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 356713d47f54a2840a6bbe6df55a0f1f, type: 3}
+  m_Script: {fileID: 11500000, guid: af4b1e9685810a04599b5e766babc6e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ani: {fileID: 9500000}
   ctrl: {fileID: 143735449038828316}
+  hpRoot: {fileID: 400060}
 --- !u!143 &143735449038828316
 CharacterController:
   m_ObjectHideFlags: 1

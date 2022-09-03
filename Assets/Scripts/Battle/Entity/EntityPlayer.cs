@@ -1,9 +1,16 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿/****************************************************
+	文件：EntityPlayer.cs
+	作者：Plane
+	邮箱: 1785275942@qq.com
+	日期：2019/03/19 7:13   	
+	功能：玩家逻辑实体
+*****************************************************/
 
-public class EntityPlayer : EntityBase{
-    
+using UnityEngine;
+using System.Collections.Generic;
+
+public class EntityPlayer : EntityBase {
+
     public EntityPlayer() {
         entityType = EntityType.Player;
     }
@@ -42,7 +49,7 @@ public class EntityPlayer : EntityBase{
             }
             else {
                 float calcDis = Vector3.Distance(self, target);
-                if (dis > calcDis) {
+            if (dis > calcDis) {
                     dis = calcDis;
                     targetMonster = lst[i];
                 }
@@ -51,11 +58,11 @@ public class EntityPlayer : EntityBase{
         return targetMonster;
     }
 
-    // public override void SetHPVal(int oldval, int newval) {
-    //     BattleSys.Instance.playerCtrlWnd.SetSelfHPBarVal(newval);
-    // }
+    public override void SetHPVal(int oldval, int newval) {
+        BattleSys.Instance.playerCtrlWnd.SetSelfHPBarVal(newval);
+    }
 
-    // public override void SetDodge() {
-    //     GameRoot.Instance.dynamicWnd.SetSelfDodge();
-    // }
+    public override void SetDodge() {
+        GameRoot.Instance.dynamicWnd.SetSelfDodge();
+    }
 }
